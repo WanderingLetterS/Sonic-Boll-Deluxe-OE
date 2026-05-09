@@ -1,0 +1,14 @@
+instance_activate_object(signalcommunicator);
+instance_activate_object(lightbulb);
+instance_activate_object(signalblock);
+instance_activate_object(sidegate);
+instance_activate_object(gate);
+instance_activate_object(spawnerblock);
+instance_activate_object(gobble);
+instance_activate_object(ireader);
+instance_activate_object(timerblock);
+instance_activate_object(lightbulb);
+instance_activate_object(channelmaster);
+instance_activate_object(variableblock);
+instance_activate_object(displayscreen);
+instance_activate_object(onoffscreen);

@@ -1,0 +1,25 @@
+#define Other_10
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+if mytile!=0 {
+    tile_delete(mytile)
+}
+
+if (!spentblock() || global.gamemode="battle") {
+    mytile=tile_dyn(global.master[biome],280,264,16,16,x,y,2)
+} else {
+    mytile=tile_dyn(global.master[biome],296,264,16,16,x,y-1,2)
+    y=-verybignumber
+}
+#define Other_11
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+y=ystart
+spendblock()
+y=-verybignumber
