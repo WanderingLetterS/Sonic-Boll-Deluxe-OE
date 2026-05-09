@@ -15,6 +15,7 @@ Luigi
 [down][c]: Longjump (ground)
 [c]: Air Spin (air) / Spinjump (ground) 
 Jump out of a Groundpound to reach higher places
+Use [b] or [x] to run
 <fire>
 Luigi [flwr]
 #
@@ -25,6 +26,7 @@ Luigi [flwr]
 [b]: Fireball
 [c]: Air Spin (air) / Spinjump (ground) 
 Jump out of a Groundpound to reach higher places
+Use [b] or [x] to run
 <feather>
 Luigi [fthr]
 #
@@ -36,6 +38,7 @@ Luigi [fthr]
 [c]: Air Spin (air) / Spinjump (ground) 
 [c]: Tornado Glide (air)
 Jump out of a Groundpound to reach higher places
+Use [b] or [x] to run
 
 #define rosterorder
 9
@@ -472,7 +475,7 @@ if (bbut && (count_projectiles() < 2) && !crouch) {
     }
 }
 
-if (bkey) {
+if ((bkey || xkey)) {
     if (!jump && !bellyslide) run=1.5
 } else {
     if (carry) {
@@ -814,12 +817,12 @@ else if sprite!="wait" waittime=0
 
 coll=instance_place(x+(abs(hsp)+2)*xsc,y,cork)
 if (coll || carryid.object_index==cork) && (!coll.time) {
-	if (bkey && !carry && !spin && !dropkick && !galspin && size!=5) {
+	if ((bkey || xkey) && !carry && !spin && !dropkick && !galspin && size!=5) {
 		coll.carry=id coll.owner=id carryid=coll
 		carry=1
 		skidding=0
 		updatecarry()
-	} else if !(bkey) { 
+	} else if !((bkey || xkey)) { 
 		if (carry) {
 			updatecarry()
 			if (!down) {throw=16 instance_create(carryid.x,carryid.y,kickpart) sound("enemykick")}
@@ -832,12 +835,12 @@ if (coll || carryid.object_index==cork) && (!coll.time) {
 
 coll=instance_place(x+(abs(hsp)+2)*xsc,y,litbobomb)
 if (coll || carryid.object_index==litbobomb) && (!coll.time) {
-	if (bkey && !carry && !spin && !dropkick && !galspin && size!=5) {
+	if ((bkey || xkey) && !carry && !spin && !dropkick && !galspin && size!=5) {
 		coll.carry=id coll.owner=id carryid=coll
 		carry=1
 		skidding=0
 		updatecarry()
-	} else if !(bkey) { 
+	} else if !((bkey || xkey)) { 
 		if (carry) {
 			updatecarry()
 			if (!down) {throw=16 instance_create(carryid.x,carryid.y,kickpart) sound("enemykick")}
@@ -935,7 +938,7 @@ else spinframe=0
 if (spinframe>=8) spinframe=0
 if (sprung) {triplejump=0 triplexsc=0}
 
-if (!jump && run && !bkey) run=0
+if (!jump && run && !(bkey || xkey)) run=0
 if (!collpos(xsc*16,0) || !jump) hang=0
 if (pound) {
 crouch=1
@@ -1077,7 +1080,7 @@ if (coll) {
             if (coll.type="spiny" && (coll.vspeed-vsp)*coll.ysc<0) {
                 hurtplayer("enemy") exit
             } else if (!coll.kicked || (coll.stop && (coll.owner=id || coll.vspeed>=0))) {
-                if (bkey && !carry && !spin && !dropkick) {
+                if ((bkey || xkey) && !carry && !spin && !dropkick) {
                     coll.carry=id coll.owner=id coll.alarm[1]=600 coll.alarm[2]=-1 carryid=coll
                     carry=1
     skidding=0

@@ -12,16 +12,18 @@ Stanley
 [a]: Puff Jump (air)
 [down]: Groundpound (air)
 [c]/[b]: Puff 
-Bump into trapped enemies to gain a powerful attack!
+Bump into trapped enemies for a powerful attack!
 Jump out of a Groundpound to reach higher places
+Use [b] or [x] to run
 <fire>
 Stanley [flwr]
 #
 [a]: Puff Jump (air)
 [down]: Groundpound (air) 
 [c]/[b]: Puff 
-Bump into trapped enemies to gain a powerful attack!
+Bump into trapped enemies for a powerful attack!
 Jump out of a Groundpound to reach higher places
+Use [b] or [x] to run
 <feather>
 Stanley [fthr]
 #
@@ -30,8 +32,9 @@ Stanley [fthr]
 [down]: Groundpound (air)
 [c]/[b]: Puff 
 [fthr] Hold A while mid-air to descend very slowly
-Bump into trapped enemies to gain a powerful attack!
+Bump into trapped enemies for a powerful attack!
 Jump out of a Groundpound to reach higher places
+Use [b] or [x] to run
 
 #define rosterorder
 13
@@ -436,7 +439,7 @@ luijump=0
 }
 
 
-if (bkey) {
+if ((bkey || xkey)) {
     if (!jump) run=1.5
 } else {
     if (carry) {
@@ -786,7 +789,7 @@ else spinframe=0
 if (spinframe>=9) spinframe=9*!jump
 if (sprung) {triplejump=0 triplexsc=0}
 
-if (!jump && run && !bkey) run=0
+if (!jump && run && !(bkey || xkey)) run=0
 if (!collpos(xsc*16,0) || !jump) hang=0
 if (pound) {
 	crouch=1
