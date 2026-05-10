@@ -1,0 +1,149 @@
+[amy]
+name=Link
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+
+pitch spindash=yes
+jump ball animation=yes
+fire duration=2.75
+victory duration=50
+time until wait=300
+pipe squish=20
+pole center offset=7
+
+use paletting=true
+defaultspray 1=9
+defaultspray 2=10
+defaultspray 3=1
+defaultspray 4=0
+
+short small form=0.8
+
+center x=17
+center y=18
+
+box width=32
+box height=40
+
+single sheet=true
+singlesheet split width=8,8,264,8,8,8
+singlesheet spilt height=0,0,0,0,0,0
+
+custom sprite list=stand,lookup,pose,crouch,knock,dead,walk,run,brake,spring,ball,jump,fall,skip,flagslide,kick,twirl,climb,hammerfall,upper,hang,pikoball,piko
+
+reroute wait=stand
+reroute springfall=walk
+reroute bonk=jump
+reroute piping=pose
+reroute pipingup=pose
+reroute sidepiping=walk
+reroute doorenter=stand
+reroute doorexit=stand
+reroute hammerslam=hammerfall
+reroute climbing=climb
+reroute push=stand
+
+connect kick=true
+connect stand=true
+connect lookup=true
+connect pose=true
+connect crouch=true
+connect knock=true
+connect dead=true
+connect brake=true
+connect spring=true
+connect fall=true
+connect skip=true
+connect flagslide=true
+connect climb=true
+connect hammerfall=true
+connect hang=true
+
+hammerfall frames=2
+twirl frames=4
+pikoball frames=8
+stand frames=1
+wait frames=3
+lookup frames=3
+pose frames=1
+crouch frames=1
+knock frames=1
+dead frames=1
+walk frames=8
+spacer1 frames=2
+flagslide frames=1
+spacer2 frames=1
+run frames=4
+maxrun frames=4
+brake frames=1
+spring frames=1
+jump frames=2
+fall frames=2
+bonk frames=2
+ball frames=8
+push frames=4
+hang frames=4
+fire frames=2
+dash frames=2
+climb frames=2
+piko frames=6
+skip frames=2
+upper frames=4
+
+skip speed=0.25
+twirl speed=0.25
+hammerfall speed=0.25
+stand speed=0.2
+wait speed=0.1
+springfall speed=0.5
+lookup speed=0.1
+crouch speed=0.22
+dead speed=0.2
+pose speed=0.2
+walk speed=0.4
+run speed=0.25
+maxrun speed=0.25
+jump speed=0.25
+bonk speed=0.25
+knock speed=0.25
+brake speed=0.3
+spring speed=0.35
+ball speed=0.25
+pikoball speed=0.25
+spindash speed=0.5
+spincharge speed=0.5
+dropdash speed=0.5
+specfall speed=0.4
+piko speed=0.25
+push speed=0.1
+hang speed=0.2
+fire speed=0.1
+dash speed=0.25
+climb speed=0.125
+climbon2 speed=0.05
+piping speed=0.20
+upper speed=0.2
+
+upper loop=4
+fire loop=2
+fall loop=2
+jump loop=2
+piko loop=6
+hammerfall loop=2
+
+boll top=#E00808
+boll mid=#000000
+boll bot=#006EEE
+
+[lang]
+winspecial=Link Got A Chaos Emerald
+allspecial=Link Got All Chaos Emeralds
+princess=our Princess
+savetext1=Peace is Paved
+savetext2=With Kingdom Saved
+savetext3=Hurrah to Link
+savetext4=Our Only Hero 
+savetext5=This Ends Your Trip
+savetext6=Of a Long Friendship

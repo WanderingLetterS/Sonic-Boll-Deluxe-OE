@@ -1316,6 +1316,286 @@ boll top=#ddbb00
 boll mid=#0000aa
 boll bot=#ff0000
 
+[wario]
+name=Mighty
+
+sheetname=193mighty
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+
+multiple box sizes=true
+
+center x=12,16,16,16,16,12,16,16
+center y=13,18,18,18,18,13,18,18
+
+box width=24,32,32,32,32,24,32,32
+box height=32,40,40,40,40,32,40,40
+
+pitch spindash=yes
+jump ball animation=no
+fire duration=2.75
+victory duration=50
+time until wait=300
+pipe squish=20
+pole center offset=8
+minisheet=false
+
+use paletting=true
+defaultspray 1=5
+defaultspray 2=10
+defaultspray 3=5
+defaultspray 4=0
+
+single sheet=true
+singlesheet split width=8,200,456,456,456,8,456,456
+singlesheet split height=0,0,0,0,0,0
+
+custom sprite list= stand,wait,pose,crouch,knock,dead,walk,run,brake,spring,climbing,ball,jumpbll,spindash,dropdash,push,balance,flagslide,wall,fire,maxrun,hammerdrop,mightybounce,transform,dash
+
+connect wait=true
+connect pose=true
+connect crouch=true
+connect knock=true
+connect dead=true
+connect brake=true
+connect spring=true
+connect climbing=true
+connect dropdash=true
+connect balance=true
+connect wall=true
+connect fire=true
+connect maxrun=true
+connect mightybounce=true
+connect dash=true
+
+reroute jump=spring
+reroute fall=mightybounce
+reroute lookup=stand
+reroute maxrun=maxrun
+reroute springfall=walk
+reroute bonk=spring
+reroute spincharge=spindash
+reroute flagslide=flagslide
+reroute piping=pose
+reroute pipingup=spring
+reroute sidepiping=walk
+reroute doorenter=pose
+reroute doorexit=stand
+reroute specfall=dash
+reroute machrun=run
+reroute machbash=run
+reroute bash=maxrun
+reroute bashhit=dash
+reroute pound=hammerdrop
+reroute poundland=dropdash
+reroute throw=stand
+reroute standcarry=stand
+reroute walkcarry=walk
+reroute lookupcarry=stand
+reroute crouchcarry=crouch
+reroute jumpcarry=spring
+reroute bonkcarry=spring
+reroute fallcarry=mightybounce
+reroute rolling=ball
+reroute sliding=ball
+reroute swim=ball
+reroute paddle=dash
+reroute bashjump=dash
+reroute crawl=ball
+reroute bonkbrick=mightybounce
+reroute crouchjump=ball
+
+fartmaster graphic x=10
+fartmaster graphic y=88
+
+firedash graphic x=227
+firedash graphic y=46
+
+
+stand frames=1
+stand loop=1
+stand speed=0.1
+stand frametimes=0
+stand offset x=0
+stand offset y=0
+
+wait frames=3
+wait loop=2
+wait speed=0.05
+wait frametimes=0
+wait offset x=0
+wait offset y=0
+
+pose frames=1
+pose loop=1
+pose speed=0
+pose frametimes=0
+pose offset x=0
+pose offset y=0
+
+crouch frames=1
+crouch loop=1
+crouch speed=0.1
+crouch frametimes=0
+crouch offset x=0
+crouch offset y=0
+
+knock frames=1
+knock loop=1
+knock speed=0
+knock frametimes=0
+knock offset x=0
+knock offset y=0
+
+dead frames=1
+dead loop=1
+dead speed=0
+dead frametimes=0
+dead offset x=0
+dead offset y=0
+
+
+walk frames=8
+walk loop=1
+walk speed=0.45
+walk frametimes=0
+walk offset x=0
+walk offset y=0
+
+run frames=4
+run loop=1
+run speed=0.25
+run frametimes=0
+run offset x=0
+run offset y=0
+
+brake frames=1
+brake loop=1
+brake speed=0
+brake frametimes=0
+brake offset x=0
+brake offset y=0
+
+spring frames=1
+spring loop=1
+spring speed=0
+spring frametimes=0
+spring offset x=0
+spring offset y=0
+
+climbing frames=2
+climbing loop=1
+climbing speed=0.25
+climbing frametimes=0
+climbing offset x=0
+climbing offset y=0
+
+jump frames=8
+jump loop=1
+jump speed=0.5
+jump frametimes=0
+jump offset x=0
+jump offset y=0
+
+ball frames=8
+ball loop=1
+ball speed=0.3
+ball frametimes=0
+ball offset x=0
+ball offset y=0
+
+spindash frames=4
+spindash loop=1
+spindash speed=0.45
+spindash frametimes=0
+spindash offset x=-3
+spindash offset y=0
+
+dropdash frames=4
+dropdash loop=1
+dropdash speed=0.45
+dropdash frametimes=0
+dropdash offset x=0
+dropdash offset y=0
+
+size reroute beet=fire
+size reroute lui=fire
+
+push frames=4
+push loop=1
+push speed=0.1
+push frametimes=0
+push offset x=0
+push offset y=0
+
+balance frames=4
+balance loop=1
+balance speed=0.1
+balance frametimes=0
+balance offset x=-3
+balance offset y=0
+
+flagslide frames=1
+flagslide loop=1
+flagslide speed=0.5
+flagslide frametimes=0
+flagslide offset x=0
+flagslide offset y=0
+
+wall frames=1
+wall loop=1
+wall speed=0
+wall frametimes=0
+wall offset x=0
+wall offset y=0
+
+fire frames=2
+fire loop=2
+fire speed=1
+fire frametimes=6,10
+fire offset x=0
+fire offset y=0
+
+maxrun frames=4
+maxrun loop=1
+maxrun speed=0.5
+maxrun frametimes=0
+maxrun offset x=0
+maxrun offset y=0
+
+hammerdrop frames=6
+hammerdrop loop=3
+hammerdrop speed=0.3
+hammerdrop offset x=0
+hammerdrop offset y=0
+
+mightybounce frames=2
+mightybounce loop=1
+mightybounce speed=0.5
+mightybounce offset x=0
+mightybounce offset y=0
+
+transform frames=6
+transform loop=6
+transform speed=1
+transform frametimes=3,4,8,12,8,1
+transform offset x=0
+transform offset y=0
+
+dash frames=2
+dash loop=1
+dash speed=0.25
+dash frametimes=0
+dash offset x=0
+dash offset y=0
+
+boll top=#ddbb00
+boll mid=#0000aa
+boll bot=#ff0000
+
+
 
 
 [lang]
