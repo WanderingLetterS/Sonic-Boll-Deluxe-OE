@@ -1,0 +1,182 @@
+[kid]
+name=Snifit
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+center x=15
+center y=12
+box width=28
+box height=32
+marker offset=26
+
+carry offset x=5
+carry offset y=2
+fire duration=4
+blood splat=yes
+bow lag=yes
+victory duration=50
+time until wait=200
+pipe squish=20
+mario death=false
+death animation=false
+
+
+custom sprite list=stand,wall,walk,jump,fall,dash,pose,lookup,climbing,dead,bow
+
+use paletting=true
+defaultspray 1=5
+defaultspray 2=0
+defaultspray 3=0
+defaultspray 4=0
+
+connect stand=true
+connect wall=true
+connect flagslide=true
+connect walk2=true
+connect dead=true
+connect fall=true
+connect pose=true
+connect lookup2=true
+
+reroute bow2=bow
+reroute wait=stand
+reroute standcarry=stand
+reroute walkcarry=walk
+reroute jumpcarry=jump
+reroute piping=pose
+reroute pipingup=pose
+reroute doorenter=pose
+reroute doorexit=stand
+reroute sidepiping=walk
+reroute fallcarry=fall
+reroute dashcarry=dash
+reroute bonk=jump
+reroute bonkcarry=jump
+reroute run=walk
+reroute spin=walk
+reroute grind=walk
+reroute wallcarry=wall
+reroute jump=jump
+reroute walk=walk
+reroute stand2=stand2
+reroute fall=fall
+reroute wall=wall
+reroute walk2=walk
+reroute bonk2=jump
+reroute flagslide=climbing
+reroute standfire=stand
+reroute dash2=dash
+reroute lookup2=lookup
+reroute pose2=pose
+reroute fall2=fall
+
+stand frames=4
+wait frames=4
+lookup frames=4
+pose frames=1
+walk frames=4
+jump frames=2
+bonk frames=2
+fall frames=3
+wall frames=2
+dash frames=4
+spacer1 frames=1
+climbing frames=2
+bow frames=1
+spacer1 frames=1
+spacer2 frames=2
+
+jump loop=2
+fall loop=2
+bonk loop=2
+pose loop=8
+
+stand speed=0.2
+wait speed=0.2
+lookup speed=0.2
+pose speed=0.3
+walk speed=0.5
+jump speed=0.25
+bonk speed=0.25
+fall speed=0.25
+wall speed=0.25
+dash speed=0.25
+climbing speed=0.2
+
+standcarry frames=4
+walkcarry frames=4
+jumpcarry frames=2
+bonkcarry frames=2
+fallcarry frames=3
+dashcarry frames=4
+
+jumpcarry loop=2
+fallcarry loop=2
+bonkcarry loop=2
+
+standcarry speed=0.2
+walkcarry speed=0.5
+jumpcarry speed=0.25
+bonkcarry speed=0.25
+fallcarry speed=0.25
+dashcarry speed=0.25
+bow frames=1
+
+standfire frames=4
+lookup2 frames=4
+walk2 frames=4
+jump2 frames=2
+bonk2 frames=2
+fall2 frames=3
+wall2 frames=2
+dash2 frames=4
+
+jumpfire loop=2
+fallfire loop=2
+bonkfire loop=2
+
+standfire speed=0.2
+lookupfire speed=0.2
+walkfire speed=0.5
+jumpfire speed=0.25
+bonkfire speed=0.25
+fallfire speed=0.25
+wallfire speed=0.25
+dashfire speed=0.25
+
+
+grind frames=4
+piping frames=8
+pipingup frames=8
+sidepiping frames=4
+doorenter frames=4
+doorexit frames=4
+
+doorenter loop=4
+doorexit loop=2
+
+grind speed=0.2
+sidepiping speed=0.5
+doorenter speed=0.2
+doorexit speed=0.2
+
+run frames=9
+run speed=0.35
+run loop=5
+
+boll top=#FFF2F2
+boll mid=#E81A1A
+boll bot=#000000
+
+
+[lang]
+winspecial=Snifit got a Chaos Emerald
+allspecial=Snifit got all Chaos Emeralds
+princess=our Princess
+savetext1=Peace is Paved
+savetext2=With Kingdom Saved
+savetext3=Hurrah to Snifit
+savetext4=Our Only Hero 
+savetext5=This Ends Your Trip
+savetext6=Of a Long Friendship
