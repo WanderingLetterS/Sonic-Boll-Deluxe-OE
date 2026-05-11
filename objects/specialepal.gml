@@ -4,7 +4,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-x=view_xview[0]+xstart+floor((view_wview[0]-1074)/2)
+x=view_xview[0]+xstart+floor((view_wview[0]-1147)/2)
 y=view_yview[0]+view_hview[0]-51
 #define Mouse_4
 /*"/*'/**//* YYD ACTION

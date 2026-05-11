@@ -126,7 +126,7 @@ global.valign=0
 global.loadstate=0
 global.loadtime=0
 global.onlinemode=false;
-global.specialestr="S# ´`\/O.:t%@!bB123FT"
+global.specialestr="S# ´`\/O.:t%@!bB123FTM"
 global.plattable=
     "a0000000000a000a000a0a00a0a0a0aa0a0aaa0aaa0aaaaaa0aaaaabaaaaaaab"+
     "aaabaabaababababababbababababaabaabaaabaaaabaaaaaaaaaaaa0aaaaa0a"+

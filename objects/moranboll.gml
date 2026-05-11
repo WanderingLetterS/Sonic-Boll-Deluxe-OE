@@ -270,6 +270,8 @@ alpha=max(0,alpha-0.02)
 if (global.playback) decodemovie()
 else {input_get(global.input[0]) input_keystates() encodemovie()}
 
+if time<0 time=0
+
 if (dead && !result) {
     if (win && room != speciale) {
         alpha3=min(1,alpha3+0.025)
@@ -640,6 +642,17 @@ if (abs(other.x-x)<16 && abs(other.y-y)<16) {
         sound("specialpiston")
     }
 }
+#define Collision_bollmine
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+if (z>0 && z<24 && !falling && point_distance(x,y,other.x,other.y)<12) {
+    with (other) instance_destroy()
+    time-=15
+    sound("specialexplosion")
+}
 #define Other_5
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -824,6 +837,21 @@ with (bollcoin) if (a>0) {
     d3d_vertex_texture_color(x-xd,y-yd,4,95*u,95*v,global.color1,a)
     d3d_vertex_texture_color(x+xd,y+yd,4,79*u,95*v,global.color1,a)
     d3d_vertex_texture_color(x+xd,y+yd,20,79*u,79*v,global.color1,a)
+}
+with (bollmine) if (a>0) {
+d3d_vertex_texture_color(x-xd,y-yd,20,219*u,79*v,global.color1,a)
+d3d_vertex_texture_color(x+xd,y+yd,20,235*u,79*v,global.color1,a)
+d3d_vertex_texture_color(x-xd,y-yd,4,219*u,95*v,global.color1,a)
+d3d_vertex_texture_color(x-xd,y-yd,4,219*u,95*v,global.color1,a)
+d3d_vertex_texture_color(x+xd,y+yd,20,235*u,79*v,global.color1,a)
+d3d_vertex_texture_color(x+xd,y+yd,4,235*u,95*v,global.color1,a)
+
+d3d_vertex_texture_color(x-xd,y-yd,20,235*u,79*v,global.color1,a)
+d3d_vertex_texture_color(x-xd,y-yd,4,235*u,95*v,global.color1,a)
+d3d_vertex_texture_color(x+xd,y+yd,20,219*u,79*v,global.color1,a)
+d3d_vertex_texture_color(x-xd,y-yd,4,235*u,95*v,global.color1,a)
+d3d_vertex_texture_color(x+xd,y+yd,4,219*u,95*v,global.color1,a)
+d3d_vertex_texture_color(x+xd,y+yd,20,219*u,79*v,global.color1,a)
 }
 with (bolltimer) if (a>0) {
     d3d_vertex_texture_color(x-xd,y-yd,20,114*u,79*v,global.color1,a)

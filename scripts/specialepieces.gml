@@ -30,5 +30,5 @@ switch (argument[2]) {
 
     case ".": instance_create(dx,dy,bollcoin) break
     case ":": instance_create(dx-8,dy-8,bollcoin) instance_create(dx+8,dy-8,bollcoin) instance_create(dx-8,dy+8,bollcoin) instance_create(dx+8,dy+8,bollcoin) break
-
+    case "M": instance_create(dx,dy,bollmine) break
 }

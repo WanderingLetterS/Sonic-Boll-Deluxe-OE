@@ -14,7 +14,7 @@ if (settings("fullscreen")) {
 } else {
     if (room=speciale && !instance_exists(moranboll)) {
         s=1
-        rw=1074
+        rw=1124
         rh=700
     } else if (room=lemon && !global.lemontestviewhack) {
         s=1

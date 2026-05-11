@@ -27,6 +27,7 @@ pal[i]="2" i+=1
 pal[i]="3" i+=1
 pal[i]="F" i+=1
 pal[i]="T" i+=1
+pal[i]="M" i+=1
 
 check[0]=0
 check[0]=0
@@ -59,7 +60,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-cur=modulo(cur+mouse_wheel_down()-mouse_wheel_up(),0,21)
+cur=modulo(cur+mouse_wheel_down()-mouse_wheel_up(),0,22)
 
 if (keyboard_check_pressed(vk_f5) && !instance_exists(moranboll)) specialetest()
 if (keyboard_check_pressed(ord("S")) && keyboard_check(vk_control) && workingfn!="") specialesave(workingfn)
