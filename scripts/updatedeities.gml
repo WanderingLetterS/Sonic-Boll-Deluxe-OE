@@ -51,6 +51,7 @@
         if (data[1]="fire") frame=2
         if (data[1]="star") frame=3
         if (data[1]="1up") frame=4
+        if (data[1]="3up") frame=12
         if (data[1]="poison") frame=5
         if (data[1]="feather") frame=6
         if (data[1]="shield") frame=7
