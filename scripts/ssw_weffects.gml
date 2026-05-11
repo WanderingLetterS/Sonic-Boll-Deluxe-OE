@@ -12,7 +12,7 @@ switch (argument[0]) {
     case "walkdust": {frx=208+25*frame fry=8 w=24 h=24 frox=12 froy=12 break}
     case "badnikpoof": {frx=208+25*frame fry=33 w=24 h=24 frox=12 froy=12 break}
 
-    case "score": {frx=8+25*(value-5*(value>4)+(value==11)) fry=108+25*((value>4)+(value==11)) w=24 h=24 frox=12 froy=12 if (skindat("left")) xsc=-1 break}
+    case "score": {frx=8+25*(value-5*(value>4)+(value==11)-(value==13)) fry=108+25*((value>4)+(value>=11)+(value>=12)+(value>=13)) w=24 h=24 frox=12 froy=12 if (skindat("left")) xsc=-1 break}
     case "redscore": {frx=8+25*(redvalue-1) fry=258 w=24 h=24 frox=12 froy=-12 break}
 
     case "waterin": {frx=8+25*floor(frame) fry=158 w=24 h=24 frox=12 froy=12 xsc=side break}

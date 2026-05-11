@@ -7,7 +7,7 @@ applies_to=self
 visible=0
 beforelife=global.lifes
 if (give_item(other.id,"3up")) {
-    with (instance_create(x,y-16,scoreeffect)) value=10+settings("cog inflives")
+    with (instance_create(x,y-16,scoreeffect)) value=12-settings("cog inflives")
     if (!noglitter) instance_create(x,y,glitter)
     if settings("cog inflives") global.lifes=beforelife global.scor[other.p2]+=10000 //i am sorry.
     instance_destroy()
