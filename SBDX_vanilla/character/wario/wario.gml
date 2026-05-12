@@ -339,11 +339,11 @@ brickc=0
 seqcount=2
 getregion(x) 
 timer0=3
-timer1=90
+timer1=78
 depth=-1
 
-hspeed=xsc*3+owner.hsp*(xsc=sign(owner.hsp))
-speed=median(2,speed,5)
+hspeed=xsc*3+(owner.hsp*1.8)*(xsc=sign(owner.hsp))
+speed=median(2,speed,6)
 //playsfx("sonicboom")
 }
 if (event="step") {
@@ -419,7 +419,10 @@ break
 
 
 #define sprmanager
-frspd=1
+frspd=1 
+var crawlin;
+crawlin = (sprite == "crouch" || sprite == "crawl" || sprite == "crouchjump" || sprite == "crouchcarry" || sprite == "crawlcarry" || sprite="crouchjumpcarry")
+
 if (grabflagpole) {sprite="flagslide"}
 else if (fired) {sprite="fire" cantslowanim=1}
 else if (hurt) {sprite="knock"}
@@ -430,7 +433,7 @@ else if (pound) {sprite="pound"}
 else if (roll) {sprite="rolling" /*frspd=0.4*/}
 else if (slipnslide) {sprite="sliding" /*frspd=0.2*/}
 else if (water) {sprite="swim" if (swim) sprite="paddle"}
-else if (crouch) {if (h!=0 && !jump) {sprite="crawl" /*frspd=0.25*/} else if (jump) {sprite="crouchjump"} else sprite="crouch"}
+else if (crouch) {if (crawlin && !jump) {prevent_spr_reset = 1} if (h!=0 && !jump) {sprite="crawl" /*frspd=0.25*/} else if (jump) {sprite="crouchjump"} else {sprite="crouch"}}
 else if (machbash) {sprite="machbash" /*frspd=0.4*/}
 else if (jump) {
 	if (onvine) {sprite="climbing" frspd=sign(left+right+up+down)}
@@ -609,29 +612,38 @@ if (bbut) {
         bashdir=xsc
         bashtimer=60-30*(!size || size==5)
         bash=1
-flytimer=0
-flybash=0
-if jump && size=3 {flybash=1 vsp=0.01 playsfx(name+"jet",0) }
-soundinst=playsfx(name+"bash",1)
-    } else if crouch &&!fired && !count_projectiles() && size=2{
-fired=30
-if (sprite="fire") frame=0
-with fire_projectile(x,y) type="fire"
-my_flamesfx=playsfx(name+"fire",1)
+        flytimer=0
+        flybash=0
+        if jump && size=3 {flybash=1 vsp=0.01 playsfx(name+"jet",0) }
+        soundinst=playsfx(name+"bash",1)
+    } else if crouch && !fired && !pound && size=2{
+        fired=26
+        if (sprite="fire") frame=0
+        my_flamesfx=playsfx(name+"fire",1)
+    } else if !fired && count_projectiles() < 2 && size=6{
+        p2 = 10;
+        with fire_projectile(x+8*xsc,y+2) {
+            hspeed=max((1 + (abs(other.hsp) / 2.2)),1.2) * xsc; //yaargh me formula
+            vspeed = -2.4;
+            visible = 0;
+        }
+        if (!jump) throw = 16;
+        if (sprite = "throw") frame = 0;
+        p2 = real(ss);
 
-}
+        playsfx(name+"throw");
+    }
 }
 
 if (bkey) {
 if size=2 if bashtimer<10 bashtimer=10
 if bash && flybash && jump && !swim { flytimer+=1 if flytimer<60 vsp=0.01   }
-if !bash && fired>1 && fired<10 {
-fired=30
-if (sprite="fire") frame=0
-with fire_projectile(x,y) type="fire"
-}
-
-}else {flytimer=60 if fired>1 stopsfx(my_flamesfx)}
+if !bash && fired>1 && fired<10 && crouch && !pound && size=2 {
+    fired=26
+    if (sprite="fire") frame=0
+    with fire_projectile(x,y) {type="fire"}
+} else if !crouch || !size=2 {fired=0 stopsfx(my_flamesfx)}
+} else {flytimer=60 stopsfx(my_flamesfx)}
 
 
 
@@ -681,7 +693,6 @@ if (down && !up && !water) {
 			machrun=0
 			machbash=0
 		if !fired && bkey
-            hsp=1.5*h
             if (bash) {hsp=3.5*xsc buttslide=1 bash=0}
         }
     com_piping()
@@ -708,7 +719,7 @@ else mask_set(12,24)
 #define movement
 if (piped || move_lock) exit
 
-if ((loose && !jump) || (crouch && !jump)) {
+if (loose && !jump) {
 if (braking) xsc=brakedir
 braking=0
 frick=0.06
@@ -717,7 +728,7 @@ if (buttslide) frick=0.08
 hsp=max(0,abs(hsp)-frick)*sign(hsp)
 }
 
-maxspd=(2+water+swim+(size==5)*0.55+slipnslide+roll+1.5*(bash || buttslide))*wf
+maxspd=(2-(crouch*0.5)+water+swim+(size==5)*0.55+slipnslide+roll+1.5*(bash || buttslide))*wf
 if (abs(hsp)>maxspd) hsp=(abs(hsp)*2+maxspd)/3*sign(hsp)
 
 if (water) vsp-=0.06*sign(vsp)
@@ -873,7 +884,7 @@ fall=1
 vsp=min(1,vsp/2)
 jumpspd=1
 }
-water=1 wf=0.45 eoll=0
+water=1 wf=0.45 roll=0
 if (carry && carryid) {with (carryid) event_user(0) carryid=noone carry=0}
 } else {
 if (water) {
