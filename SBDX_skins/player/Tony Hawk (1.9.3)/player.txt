@@ -1,5 +1,6 @@
 [mecha]
 name=Tony Hawk
+credits=CowboyJoseph64, Zephiel87, Natsume
 
 icon speed=6
 icon loop=yes

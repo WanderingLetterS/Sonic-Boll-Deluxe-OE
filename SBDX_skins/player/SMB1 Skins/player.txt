@@ -44,6 +44,7 @@ reroute lookup=stand
 reroute pose=stand
 reroute run=walk
 reroute bonk=jump
+reroute bonkbrick=jump
 reroute fall=jump
 reroute runjump=jump
 reroute longjump=jump
