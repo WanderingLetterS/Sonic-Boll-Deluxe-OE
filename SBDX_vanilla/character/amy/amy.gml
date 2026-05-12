@@ -958,7 +958,7 @@ if (bbut) {
 			
 		}
 		
-		if (!jump && !piko && abs(hsp)<maxspd*0.9) {
+		if (!jump && !piko && !(abs(hsp)>maxspd*0.9 && (left || right))) {
 			piko=1
 			xsc=xsc2
 			jump=0
