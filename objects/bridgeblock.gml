@@ -22,7 +22,7 @@ i=instance_create(x+12,y,bridgepart) i.alarm[1]=1
 
 screenshake(x,2)
 
-with (instance_place(x,y-16,bowserboss)) panic=1
+panicbowsers()
 
 alarm[1]=1
 #define Alarm_1
@@ -39,8 +39,6 @@ action_id=603
 applies_to=self
 */
 alarm[0]=32
-
-panicbowsers()
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
