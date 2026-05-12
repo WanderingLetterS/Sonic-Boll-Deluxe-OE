@@ -2,7 +2,7 @@
 stand,wait,lookup,pose,crouch,knock,dead,walk,run,brake,jump,fall,bonk,hammerspin,ball,pikoball,skip,push,hang,piko,twirl,hammerfall,hammerslam,kick,upper,climb,flagslide,grind,piping,pipingup,sidepiping,doorenter,doorexit
 
 #define soundlist
-release,skid,spin,spindash,insta,dash,boom,firedash,slam,tatsu,upper,firekick,piko,walljump,vault
+release,skid,spin,spindash,insta,dash,boom,firedash,slam,tatsu,upper,firekick,pikostart,piko,walljump,vault,kick
 
 
 #define movelist
@@ -998,7 +998,10 @@ if (bbut) {
 
 if (cbut) {
 
-if (!jump && (size && size!=5) && !kick && !spin) {kick=48}
+if (!jump && (size && size!=5) && !kick && !spin) {
+	playsfx(name+"kick")
+	kick=48
+}
 
 	/*if (abs(hsp)>1 && !trip) {
 		jump=1

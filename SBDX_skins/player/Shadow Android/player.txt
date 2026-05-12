@@ -494,6 +494,190 @@ boll bot=#F0D818
 
 
 
+[tails]
+name=Shadow Android
+
+sheetname=androidshadow
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+time until wait=300
+center x=24
+center y=28
+box width=48
+box height=48
+
+pitch spindash=no
+jump ball animation=no
+fire duration=2.75
+victory duration=45
+time until wait=300
+pipe squish=20
+pole center offset=8
+enable spindust=true
+
+use paletting=true
+defaultspray 1=12
+defaultspray 2=7
+defaultspray 3=6
+defaultspray 4=5
+
+smooth flight bar drain=true
+
+spindash dust graphic x=10
+spindash dust graphic y=105
+
+custom sprite list=stand,wait,lookup,pose,crouch,knock,dead,walk,run,maxrun,brake,spring,springfall,jump,bonk,ball,spindash,push,hang,fire,dash,specfall,climbing,flagslide,dropdash,piping,pipingup,sidepiping,doorenter,doorexit,spacer1,spacer2,spacer3,spacer4,spacer5,spacer6,spacer7,spacer8,spacer9,spacernumberten,tailidle,tailspin,flyup,fly,flydown,flytired
+
+reroute fall=jump
+reroute flyfast=maxrun
+
+tailidle frames=1
+tailspin frames=1
+
+flyup frames=3
+flyup loop=2
+flyup speed=0.25
+
+fly frames=3
+fly loop=3
+fly speed=0.25
+
+flydown frames=2
+flydown speed=0.25
+
+flytired frames=2
+flytired speed=0.25
+
+stand frames=1
+wait frames=6
+lookup frames=2
+pose frames=4
+crouch frames=2
+knock frames=1
+dead frames=1
+walk frames=8
+run frames=14
+maxrun frames=6
+brake frames=4
+spring frames=2
+jump frames=8
+bonk frames=2
+ball frames=8
+springfall frames=3
+specfall frames=3
+spindash frames=4
+push frames=4
+hang frames=4
+fire frames=6
+dash frames=4
+dropdash frames=4
+climbing frames=4
+climbon2 frames=2
+flagslide frames=1
+piping frames=4
+
+wait loop=13
+pose loop=4
+crouch loop=2
+lookup loop=2
+jump loop=1
+bonk loop=2
+springfall loop=2
+dash loop=9
+specfall loop=2
+brake loop=4
+walk loop=1
+run loop=3
+maxrun loop=3
+fire loop=6
+
+stand speed=0.1
+pose speed=0.25
+wait speed=0.2
+springfall speed=0.45
+lookup speed=0.25
+crouch speed=0.25
+pose speed=0.20
+walk speed=0.35
+run speed=0.15
+maxrun speed=0.5
+jump speed=0.75
+bonk speed=0.25
+knock speed=0.25
+brake speed=0.3
+spring speed=0.25
+ball speed=0.5
+spindash speed=0.5
+specfall speed=0.5
+push speed=0.05
+hang speed=0.16
+fire speed=0.5
+dash speed=0.25
+dropdash speed=0.5
+climbing speed=0.125
+climbon2 speed=0.05
+piping speed=0.20
+
+stand frametimes=16,1,1
+wait frametimes=2,30,1,20,1,1
+pose frametimes=1,1,1,1
+lookup frametimes=1,37,3,3
+run frametimes=1,1,1,1,1,1,1,1,1,1,1,1,1,1
+crouch frametimes=1,37,3,3
+maxrun frametimes=1,1,1,1,1,1
+specfall frametimes=3,2,1,1
+brake frametimes= 1,1,2,10
+
+grind frames=1,4,4,4,1
+piping frames=8
+pipingup frames=8
+sidepiping frames=8
+doorenter frames=4
+doorexit frames=1,2,2,2,1
+
+grind speed=0.5
+piping speed=0.5
+pipingup speed=0.5
+sidepiping speed=0.5
+doorenter speed=0.20
+doorexit speed=0.20
+
+wait loop=6
+doorenter loop=4
+doorexit loop=2
+
+boll top=#D60000
+boll mid=#000000
+boll bot=#F0D818
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 [mighty]
@@ -895,7 +1079,6 @@ victory duration=45
 time until wait=300
 pipe squish=20
 pole center offset=8
-disable spindust=false
 
 use paletting=true
 defaultspray 1=12
@@ -903,10 +1086,49 @@ defaultspray 2=4
 defaultspray 3=6
 defaultspray 4=5
 
-custom sprite list=stand,wait,lookup,pose,crouch,knock,dead,walk,run,maxrun,brake,spring,springfall,jump,bonk,ball,spindash,push,hang,fire,dash,specfall,climbing,flagslide,dropdash,piping,pipingup,sidepiping,doorenter,doorexit
+custom sprite list=stand,wait,lookup,pose,crouch,knock,dead,walk,run,maxrun,brake,spring,springfall,jump,bonk,ball,spindash,push,hang,fire,dash,specfall,climbing,flagslide,dropdash,piping,pipingup,sidepiping,doorenter,doorexit,spacer1,spacer2,spacer3,spacer4,spacer5,piko,hammerfall,upper,kick,pikoball
+
+trail heart graphic x=228
+trail heart graphic y=46
 
 reroute fall=jump
 reroute spincharge=spindash
+reroute skip=dash
+
+piko frames=11
+piko loop=11
+piko speed=0.45
+piko frametimes=0
+piko offset x=6
+piko offset y=0
+
+hammerfall frames=3
+hammerfall loop=2
+hammerfall speed=0.3
+hammerfall frametimes=0
+hammerfall offset x=0
+hammerfall offset y=0
+
+upper frames=2
+upper loop=0
+upper speed=0.5
+upper frametimes=0
+upper offset x=0
+upper offset y=0
+
+kick frames=16
+kick loop=16
+kick speed=0.35
+kick frametimes=0
+kick offset x=10
+kick offset y=0
+
+pikoball frames=16
+pikoball loop=1
+pikoball speed=1
+pikoball frametimes=0
+pikoball offset x=0
+pikoball offset y=0
 
 stand frames=1
 wait frames=6

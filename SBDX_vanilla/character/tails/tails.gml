@@ -76,7 +76,7 @@ useflightdrainbar=funnytruefalse(playerskindat(p2,name+" smooth flight bar drain
 #define customhud
 
 //visible flight draining
-with (other) if (useflightdrainbar) {
+with (other) if (other.useflightdrainbar) {
 	if (other.energy!=0 && other.fly) {
 		draw_sprite_part_ext(
 			other.sheets[other.size],0,
