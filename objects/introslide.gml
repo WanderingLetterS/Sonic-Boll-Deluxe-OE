@@ -23,7 +23,7 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-image_index=choose(1,0)
+image_index=choose(1,0,2,3)
 image_speed=0
 
 x=420
