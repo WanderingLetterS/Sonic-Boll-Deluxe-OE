@@ -73,7 +73,7 @@ if (room==lemon || room==speciale) {
             name=external_call(global.dll_dragname,global.winhandle,i)
             if (file_exists(name)) {
                 if (room==lemon) {
-                    if (filename_ext(name)==".png") {
+                    if (filename_ext(name)==".png" || filename_ext(name)==".lemon") {
                         if (!drawregion.flooding) {
                             //load lemon file
                             editload(name)

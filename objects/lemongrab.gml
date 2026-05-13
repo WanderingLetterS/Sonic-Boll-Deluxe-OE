@@ -10,7 +10,7 @@ filename=""
 ky=224
 lefthand=0
 x=256
-compat="2.1.5"
+compat="2.1.6"
 
 lemonobjlist()
 

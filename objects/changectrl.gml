@@ -215,7 +215,7 @@ if (global.gamemode="battle") {
 global.halign=1
 
 if (skindat("cardtext")) {
-    if lemongrab.compat != "2.1.5" && global.lskins[global.levelskin+1,0]!=global.lbase {
+    if lemongrab.compat != "2.1.6" && global.lskins[global.levelskin+1,0]!=global.lbase {
         draw_skintext(x,32,roomname+"#[Level version: v"+lemongrab.compat+"]")
     } else {
         draw_skintext(x,32,roomname)
