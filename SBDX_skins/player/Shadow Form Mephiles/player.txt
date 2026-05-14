@@ -13,11 +13,29 @@ box height=48
 pitch spindash=no
 jump ball animation=no
 fire duration=2.75
-victory duration=30
+victory duration=45
 time until wait=300
 pipe squish=20
 pole center offset=8
 disable spindust=false
+
+size reroute fire=big
+size reroute feather=big
+size reroute beet=big
+size reroute lui=big
+
+max sizes=7
+
+use paletting=true
+total palettes=13
+
+defaultspray 1=0
+defaultspray 2=0
+defaultspray 3=0
+defaultspray 4=0
+
+featherdash graphic x=390
+featherdash graphic y=46
 
 custom sprite list=stand,wait,lookup,pose,crouch,knock,dead,walk,run,maxrun,brake,spring,springfall,jump,bonk,ball,spindash,push,hang,fire,dash,specfall,climbing,flagslide,dropdash,piping,pipingup,sidepiping,doorenter,doorexit
 
@@ -27,7 +45,7 @@ reroute spincharge=spindash
 stand frames=1
 wait frames=2
 lookup frames=2
-pose frames=4
+pose frames=3
 crouch frames=2
 knock frames=1
 dead frames=1
@@ -53,7 +71,7 @@ flagslide frames=1
 piping frames=4
 
 wait loop=2
-pose loop=4
+pose loop=3
 crouch loop=2
 lookup loop=2
 jump loop=1
@@ -96,7 +114,7 @@ piping speed=0.20
 
 stand frametimes=16,1,1
 wait frametimes=1,1
-pose frametimes=1,1,1,1
+pose frametimes=1,1,1
 lookup frametimes=1,37,3,3
 run frametimes=1,1,1,1,1,1,1,1,1,1,1,1,1,1
 crouch frametimes=1,37,3,3
@@ -126,12 +144,12 @@ boll mid=#000000
 boll bot=#F0D818
 
 [lang]
-winspecial=Shadow got a Chaos Emerald
-allspecial=Shadow got all Chaos Emeralds
+winspecial=Mephiles got a Chaos Emerald
+allspecial=Mephiles got all Chaos Emeralds
 princess=our Princess
-savetext1=I have an announcement to make
-savetext2=Shadow the Hedgehog is my hero
-savetext3=He defeated my kidnapper. 
-savetext4=That's right.
-savetext5=He took his gloved fists and completely beat them. 
+savetext1=...?
+savetext2=
+savetext3=Who are you?
+savetext4=
+savetext5=Why do you look so weird...? 
 savetext6=
