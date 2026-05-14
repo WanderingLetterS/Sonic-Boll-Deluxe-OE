@@ -58,9 +58,9 @@ var save; save=0
 if (!instance_exists(bollgate)) with (player) {
     if (abs((x-8)-other.x)<8 && (abs(y-(other.y-16))<24 || other.classic) && !other.passed) if (other.x=median(gamemanager.origin[p2],other.x,gamemanager.righthand[p2])) {
         if (!other.visible) {
-            if (global.gamemode="classic") global.check=other.cid
+            if (global.gamemode="classic" || global.gamemode="coop") global.check=other.cid
         } else {
-            if (global.gamemode="classic") {global.check=other.cid with (checkpoint) passed=0}
+            if (global.gamemode="classic" || global.gamemode="coop") {global.check=other.cid with (checkpoint) passed=0}
             other.passed=1
             coll=id
             with (other) if (inview()) {sound("itemcheck") with other give_item(id,"checkpoint") alarm[3]=300 if (bonus) {if !prevpassed {open=1 with (other) doscore_p(2000,1) prevpassed=1}}}

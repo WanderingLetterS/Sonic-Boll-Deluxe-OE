@@ -22,6 +22,7 @@ if (/*!hit &&*/ active && !argument[0].diggity) {
         pee2=p2 p2=-1
         with (argument[0]) { //reward moved to com_item
             give_item(id,"redcoinreward")
+            if global.gamemode="coop" with (player) {if (id!=other.id) give_item(id,"redcoinreward")}
         }
 
         p2=pee2
