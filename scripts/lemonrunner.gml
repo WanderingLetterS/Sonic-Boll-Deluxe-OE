@@ -7,8 +7,8 @@
    initial v. renex nov/2018
 
 */
-var offx,o,i,j,count,lg;
-
+var offx,o,i,j,count,lg,_tim;
+_tim = current_time
 lg=lemongrab.id
 
 with (spawner) {
@@ -80,9 +80,8 @@ repeat (8) {
                     o=instance_create(offx+x*16+off+off2x,y*16+off+off2y+16,_obj)
                     o.image_xscale = scalex;
                     o.image_yscale = scaley;
-                break;
+                if (obj != groundblock) break;
 
-                case groundblock:
                 default:
                     repeat (scalex) {
                         repeat (scaley) {
@@ -188,4 +187,4 @@ repeat (8) {
 with (objcontainer) instance_destroy()
 with (watercontainer) instance_destroy()
 with (semicontainer) instance_destroy()
-with (backcontainer) instance_destroy()
+with (backcontainer) instance_destroy() show_debug_message("tim: "+string(current_time - _tim))
