@@ -516,17 +516,17 @@ switch (obj) {
     }
 //}
 
+_xsc = image_xscale
+_ysc = image_yscale
+image_xscale *= scalex
+image_yscale *= scaley
+
 if (new) {
     x-=verybignumber
     if (place_meeting(xstart,y,drawregion.deity)) instance_destroy()
     x+=verybignumber
     new=0
 }
-
-_xsc = image_xscale
-_ysc = image_yscale
-image_xscale *= scalex
-image_yscale *= scaley
 
 /*with (deity) if (new) {
     x-=verybignumber

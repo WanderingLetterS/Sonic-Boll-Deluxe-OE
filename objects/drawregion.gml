@@ -176,9 +176,10 @@ if (current_obj=waterblock) {
         savema=selected_array[0]
         repeat (savema) {
             if moveback {selected_array[myarray_i-1]=selected_array[myarray_i]}
-            if (selected_array[myarray_i]==other.id ) {selected=0 event_user(0) selected_array[0]-=1 moveback=1}
+            if (selected_array[myarray_i]==other.id ) {selected=0 event_user(0) selected_array[0]-=1 moveback=1 updatedeities()}
             myarray_i+=1
         }moveback=0
+        event_user(7)
     }
     current_layermode=0
 } else if (current_obj=groundsemi||
@@ -195,9 +196,10 @@ if (current_obj=waterblock) {
         savema=selected_array[0]
         repeat (savema) {
             if moveback {selected_array[myarray_i-1]=selected_array[myarray_i]}
-            if (selected_array[myarray_i]==other.id ) {selected=0 event_user(0) selected_array[0]-=1 moveback=1}
+            if (selected_array[myarray_i]==other.id ) {selected=0 event_user(0) selected_array[0]-=1 moveback=1 updatedeities()}
             myarray_i+=1
         }moveback=0
+        event_user(7)
     }
       current_layermode=2
 
@@ -216,9 +218,10 @@ if (current_obj=waterblock) {
         savema=selected_array[0]
         repeat (savema) {
             if moveback {selected_array[myarray_i-1]=selected_array[myarray_i]}
-            if (selected_array[myarray_i]==other.id ) {selected=0 event_user(0) selected_array[0]-=1 moveback=1}
+            if (selected_array[myarray_i]==other.id ) {selected=0 event_user(0) selected_array[0]-=1 moveback=1 updatedeities()}
             myarray_i+=1
         }moveback=0
+        event_user(7)
 
     }
   current_layermode=3
@@ -228,9 +231,10 @@ if (current_obj=waterblock) {
         savema=selected_array[0]
         repeat (savema) {
             if moveback {selected_array[myarray_i-1]=selected_array[myarray_i]}
-            if (selected_array[myarray_i]==other.id ) {selected=0 event_user(0) selected_array[0]-=1 moveback=1}
+            if (selected_array[myarray_i]==other.id ) {selected=0 event_user(0) selected_array[0]-=1 moveback=1 updatedeities()}
             myarray_i+=1
         }moveback=0
+        event_user(7)
     }
   current_layermode=1
 }
@@ -281,7 +285,7 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
         //mouse inside level area
 
         if (!editcursor.left && !editcursor.right && !editcursor.middle && (editcursor.shift || editcursor.ctrl)) {
-            highlight=instance_position(curx,cury,deity)
+            highlight=instance_place(curx,cury,deity)
             with (highlight) {
                 str=""
                 j=editobjfind(obj)
@@ -293,12 +297,12 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
         if (positionpicker) {
             if (editcursor.rightp) {
                 positionpicker=false;
-                UPDATE_THE_DEITIES=1
+                /*UPDATE_THE_DEITIES=1*/
             }
             if (editcursor.leftp) {
                 positionpickerinst.data[positionpickerdata]=string(curx-positionpickerinst.x)+","+string(cury-positionpickerinst.y)
                 positionpicker=false;
-                UPDATE_THE_DEITIES=1
+                /*UPDATE_THE_DEITIES=1*/
             }
 
         } else if (editcursor.leftp && curx=median(curx,-max(1,1/editzoom.level),-1) && cury=median(cury,lemongrab.h[region]-lemongrab.horizon[region],lemongrab.h[region]-lemongrab.horizon[region]+max(1,1/editzoom.level)-1)) {
@@ -330,6 +334,8 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
                 event_user(7)
             }
             if (editcursor.leftp) {
+                if (!clicked) editsaveundo()
+                clicked = 2;
                 grabr=1
                 grabx=global.refx
                 graby=global.refy
@@ -337,7 +343,9 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
                 grabcy=editcursor.y
             }
         } else if (editcursor.rightp && (editcursor.shift || editcursor.tool=1) && (editcursor.tool=0 || editcursor.tool=1)) {
-            with (instance_position(curx,cury,deity)) {
+            if (!clicked) editsaveundo()
+            clicked = 2;
+            with (instance_place(curx,cury,deity)) {
                 other.unchanged=0
                 str=lemonobjname(obj)+"|-"
                 j=editobjfind(obj)
@@ -352,10 +360,8 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
                     with (drawregion.deity) if (obj=other.obj && selected) {
                         data[i]=other.data[i]
                         if (lemongrab.objlist[j,5+i]="align") {off2x=other.off2x off2y=other.off2y}
-                        editsaveundo()
-
-                    }
-                    with (other) {UPDATE_THE_DEITIES=1 event_user(7)}
+                    } updatedeities()
+                    with (other) {/*UPDATE_THE_DEITIES=1*/ event_user(7)}
                 }
             }
         } else if (editcursor.tool=0) { //pencil
@@ -366,22 +372,22 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
                 drawx=-1
                 drawy=-1
                 if (editcursor.ctrl) {
-                    with (instance_position(curx,cury,watercontainer)) {
+                    with (instance_place(curx,cury,watercontainer)) {
                         hotbar.obj[1]=editobjfind(obj)
                         lemonhotbarfamily()
                         sound("systemin")
                     }
-                    with (instance_position(curx,cury,backcontainer)) {
+                    with (instance_place(curx,cury,backcontainer)) {
                         hotbar.obj[1]=editobjfind(obj)
                         lemonhotbarfamily()
                         sound("systemin")
                     }
-                    with (instance_position(curx,cury,semicontainer)) {
+                    with (instance_place(curx,cury,semicontainer)) {
                         hotbar.obj[1]=editobjfind(obj)
                         lemonhotbarfamily()
                         sound("systemin")
                     }
-                    with (instance_position(curx,cury,deity)) {
+                    with (instance_place(curx,cury,deity)) {
                         hotbar.obj[1]=editobjfind(obj)
                         lemonhotbarfamily()
                         sound("systemin")
@@ -398,7 +404,7 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
                     if (!clicked) editsaveundo()
                     clicked=2
 
-                    with (instance_position(curx,cury,deity)) {
+                    with (instance_place(curx,cury,deity)) {
                         hotbar.obj[10]=editobjfind(obj)
                         lemonhotbarfamily()
                         sound("systemin")
@@ -416,7 +422,7 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
                     if (!clicked) editsaveundo()
                     clicked=2
                     if (lemongrab.objlist[hotbar.obj[hotbar.cur],0]=waterblock) {
-                        with (instance_position(curx,cury,watercontainer)) {
+                        with (instance_place(curx,cury,watercontainer)) {
                             instance_destroy()
                             if !(settings("nolemonsound")) sound("lemonerase")
                             with (other) event_user(7)
@@ -430,10 +436,10 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
                                 lemongrab.objlist[hotbar.obj[hotbar.cur],0]=uslopel2s||
                                 lemongrab.objlist[hotbar.obj[hotbar.cur],0]=usloper1s||
                                 lemongrab.objlist[hotbar.obj[hotbar.cur],0]=usloper2s){
-                        with (instance_position(curx,cury,semicontainer)) {
+                        with (instance_place(curx,cury,semicontainer)) {
                             instance_destroy()
                             if !(settings("nolemonsound")) sound("lemonerase")
-                            with (other) {UPDATE_THE_DEITIES=1 event_user(7)}
+                            with (other) {/*UPDATE_THE_DEITIES=1*/ event_user(7)}
                         }
                     } else if (lemongrab.objlist[hotbar.obj[hotbar.cur],0]=groundback||
                                 lemongrab.objlist[hotbar.obj[hotbar.cur],0]=slopel1b||
@@ -444,29 +450,31 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
                                 lemongrab.objlist[hotbar.obj[hotbar.cur],0]=uslopel2b||
                                 lemongrab.objlist[hotbar.obj[hotbar.cur],0]=usloper1b||
                                 lemongrab.objlist[hotbar.obj[hotbar.cur],0]=usloper2b){
-                        with (instance_position(curx,cury,backcontainer)) {
+                        with (instance_place(curx,cury,backcontainer)) {
                             instance_destroy()
                             if !(settings("nolemonsound")) sound("lemonerase")
-                            with (other) {UPDATE_THE_DEITIES=1 event_user(7)}
+                            with (other) {/*UPDATE_THE_DEITIES=1*/ event_user(7)}
                         }
                     }
-                    else with (instance_position(curx,cury,deity)) {
+                    else with (instance_place(curx,cury,deity)) {
                         instance_destroy()
                         if !(settings("nolemonsound")) sound("lemonerase")
-                        with (other)  {UPDATE_THE_DEITIES=1 event_user(7)}
+                        with (other)  {/*UPDATE_THE_DEITIES=1*/ event_user(7)}
                     }
                 }
             }
         } else if (editcursor.tool=1) { //selection rectangles
             if (editcursor.leftp) {
                 unchanged=0
+                if (!clicked) editsaveundo()
+                clicked = 2;
                 clicx=curx
                 clicy=cury
                 j=0
-                if current_layermode=0 with (watercontainer) if (selected && position_meeting(other.curx,other.cury,id)) j=1
-                if current_layermode=1 with (deity) if (selected && position_meeting(other.curx,other.cury,id)) j=1
-                if current_layermode=2 with (semicontainer) if (selected && position_meeting(other.curx,other.cury,id)) j=1
-                if current_layermode=3 with (backcontainer) if (selected && position_meeting(other.curx,other.cury,id)) j=1
+                if current_layermode=0 with (watercontainer) if (selected && place_meeting(other.curx,other.cury,id)) j=1
+                if current_layermode=1 with (deity) if (selected && place_meeting(other.curx,other.cury,id)) j=1
+                if current_layermode=2 with (semicontainer) if (selected && place_meeting(other.curx,other.cury,id)) j=1
+                if current_layermode=3 with (backcontainer) if (selected && place_meeting(other.curx,other.cury,id)) j=1
 
                 if (j) {
                     grabs=1
@@ -488,7 +496,7 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
                     }
                 } else {
                     selected_array[0]=0
-                    UPDATE_THE_DEITIES=1 event_user(7)
+                    /*UPDATE_THE_DEITIES=1*/ event_user(7)
                     selecting=1
                 }
             }
@@ -520,6 +528,8 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
         } else if (editcursor.tool=9) { //spawn
             unchanged=0
             if (editcursor.left) {
+                if (!clicked) editsaveundo()
+                clicked = 2;
                 var greenhillzone; greenhillzone=0 //              i       change spawning to allow multiple regions too
                 memx=lemongrab.spawnx
                 memy=lemongrab.spawny
@@ -531,6 +541,8 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
                 if (lemongrab.spawnx!=memx || lemongrab.spawny!=memy || lemongrab.spawnr!=memr) event_user(7)
             }
             else if (editcursor.right) {
+                if (!clicked) editsaveundo()
+                clicked = 2;
                 var greenhillzone; greenhillzone=0 //theoretically i could change spawning to allow multiple regions too but. idk maybe later
                 memx=lemongrab.tspawnx
                 memy=lemongrab.tspawny
@@ -543,16 +555,17 @@ if (within(editcursor.x,editcursor.y,mmx+100-mmw/2,mmy+72-mmh/2,mmw,mmh)) {
             }
         } else if (editcursor.tool=10) { //scale tool
             if (!_scaling) {
-                if current_layermode=0 _scaleoutline = instance_position(curx,cury,watercontainer)
-                if current_layermode=1 _scaleoutline = instance_position(curx,cury,deity)
-                if current_layermode=2 _scaleoutline = instance_position(curx,cury,semicontainer)
-                if current_layermode=3 _scaleoutline = instance_position(curx,cury,backcontainer)
+                if current_layermode=0 _scaleoutline = instance_place(curx,cury,watercontainer)
+                if current_layermode=1 _scaleoutline = instance_place(curx,cury,deity)
+                if current_layermode=2 _scaleoutline = instance_place(curx,cury,semicontainer)
+                if current_layermode=3 _scaleoutline = instance_place(curx,cury,backcontainer)
 
                 _scaleoutline = lemon_scaleable(_scaleoutline)
 
                 if (editcursor.leftp && _scaleoutline && (curx == (_scaleoutline.x - 1 + ((_scaleoutline.scalex) * _scaleoutline._xsc)) && cury == (_scaleoutline.y - 1 + ((_scaleoutline.scaley) * _scaleoutline._ysc)))) {
+                    if (!clicked) editsaveundo()
+                    clicked = 2;
                     _scaling = 1;
-
                     unchanged = 0;
                 }
             }
@@ -564,22 +577,27 @@ if (_scaling) {  //Please.
 
     if (!editcursor.left || editcursor.tool != 10 || !_scaleoutline || !instance_exists(_scaleoutline)) {
         _scaling = 0;
-        UPDATE_THE_DEITIES = 1;
+        if (_scaleoutline && instance_exists(_scaleoutline)) with (_scaleoutline) {
+            new = 1;
+            updatedeities();
+        }
         event_user(7)
     } else {
         _scaleoutline.scalex = min(max(1, min((curx - (_scaleoutline.x - 1)) div _scaleoutline._xsc, (lemongrab.w[region] - _scaleoutline.x) div _scaleoutline._xsc)),65535)
         _scaleoutline.scaley = min(max(1, min((cury - (_scaleoutline.y - 1)) div _scaleoutline._ysc, (lemongrab.h[region] - _scaleoutline.y) div _scaleoutline._ysc)),65535)
     }
 
+} else if (editcursor.tool != 10) {
+    _scaleoutline = noone;
 }
 
 if (drawing) {
     //drawing objects
-    if (!editcursor.left) {drawing=0 UPDATE_THE_DEITIES=1 event_user(7)}
+    if (!editcursor.left) {drawing=0 /*UPDATE_THE_DEITIES=1*/ event_user(7)}
     else if ((curx!=drawx || cury!=drawy) && curx=median(0,curx,lemongrab.w[region]-1) && cury=median(0,cury,lemongrab.h[region]-1)) {
          if (lemongrab.objlist[hotbar.obj[hotbar.cur],0]=waterblock) {
             //water painting
-            grabj=instance_position(curx,cury,watercontainer)
+            grabj=instance_place(curx,cury,watercontainer)
             if (!grabj && lemonhappy() && drawing=1) {
                 i=instance_create(curx,cury,lemongrab.waters[region])
                 i.region=region
@@ -598,7 +616,7 @@ if (drawing) {
                 with (deity) if (selected) {selected=0 event_user(0)}
                 with (semicontainer) if (selected) {selected=0 event_user(0)}
                 with (backcontainer) if (selected) {selected=0 event_user(0)}*/
-                UPDATE_THE_DEITIES=1 event_user(7)
+                //UPDATE_THE_DEITIES=1 event_user(7)
             } else if (drawing=1) grabj=noone
         } else if (lemongrab.objlist[hotbar.obj[hotbar.cur],0]=groundsemi||
             lemongrab.objlist[hotbar.obj[hotbar.cur],0]=slopel1s||
@@ -610,9 +628,10 @@ if (drawing) {
             lemongrab.objlist[hotbar.obj[hotbar.cur],0]=usloper1s||
             lemongrab.objlist[hotbar.obj[hotbar.cur],0]=usloper2s){
             //semi painting
-            grabj=instance_position(curx,cury,semicontainer)
+            grabj=instance_place(curx,cury,semicontainer)
             if (!grabj && lemonhappy() && drawing=1) {
                 i=instance_create(curx,cury,lemongrab.semis[region])
+                with i updatedeities()
                 i.region=region
                 i.obj=lemongrab.objlist[hotbar.obj[hotbar.cur],0]
                 i.spr=lemongrab.objlist[hotbar.obj[hotbar.cur],1]
@@ -629,7 +648,7 @@ if (drawing) {
                 with (deity) if (selected) {selected=0 event_user(0)}
                 with (semicontainer) if (selected) {selected=0 event_user(0)}
                 with (backcontainer) if (selected) {selected=0 event_user(0)}*/
-                UPDATE_THE_DEITIES=1 event_user(7)
+                /*UPDATE_THE_DEITIES=1*/ event_user(7)
             } else if (drawing=1) grabj=noone
         } else if (lemongrab.objlist[hotbar.obj[hotbar.cur],0]=groundback||
             lemongrab.objlist[hotbar.obj[hotbar.cur],0]=slopel1b||
@@ -641,9 +660,10 @@ if (drawing) {
             lemongrab.objlist[hotbar.obj[hotbar.cur],0]=usloper1b||
             lemongrab.objlist[hotbar.obj[hotbar.cur],0]=usloper2b){
             //back-ground painting
-            grabj=instance_position(curx,cury,backcontainer)
+            grabj=instance_place(curx,cury,backcontainer)
             if (!grabj && lemonhappy() && drawing=1) {
                 i=instance_create(curx,cury,lemongrab.backs[region])
+                with i updatedeities()
                 i.region=region
                 i.obj=lemongrab.objlist[hotbar.obj[hotbar.cur],0]
                 i.spr=lemongrab.objlist[hotbar.obj[hotbar.cur],1]
@@ -659,10 +679,10 @@ if (drawing) {
                 with (deity) if (selected) {selected=0 event_user(0)}
                 with (semicontainer) if (selected) {selected=0 event_user(0)}
                 with (backcontainer) if (selected) {selected=0 event_user(0)}*/
-                UPDATE_THE_DEITIES=1 event_user(7)
+                /*UPDATE_THE_DEITIES=1*/ event_user(7)
             } else if (drawing=1) grabj=noone
         } else {
-            grabj=instance_position(curx,cury,deity)
+            grabj=instance_place(curx,cury,deity)
             if (!grabj && lemonhappy() && drawing=1) {
                 j=hotbar.obj[hotbar.cur]
                 i=instance_create(curx,cury,deity)
@@ -688,7 +708,7 @@ if (drawing) {
                 with (semicontainer) if (selected) {selected=0 event_user(0)}
                 with (backcontainer) if (selected) {selected=0 event_user(0)}*/
 
-                UPDATE_THE_DEITIES=1 event_user(7)
+                /*UPDATE_THE_DEITIES=1*/ event_user(7)
             } else if (drawing=1) grabj=noone
         }
         drawx=curx
@@ -696,7 +716,7 @@ if (drawing) {
         //single click cancel
         if (drawing=2) {
             drawing=0
-            UPDATE_THE_DEITIES=1event_user(7)
+            /*UPDATE_THE_DEITIES=1*/ event_user(7)
         }
     }
 }
@@ -715,9 +735,9 @@ if (grabj) {
         }
         drawx=curx
         drawy=cury
-        UPDATE_THE_DEITIES=1
+        //UPDATE_THE_DEITIES=1
     }
-    if (!editcursor.left) { UPDATE_THE_DEITIES=1 event_user(7)/*with grabj updatedeities() grabj=noone*/}
+    if (!editcursor.left) { /*UPDATE_THE_DEITIES=1*/ event_user(7) with grabj updatedeities() /*grabj=noone*/}
 }
 if (grab) {
     //grab the view
@@ -827,7 +847,7 @@ if (selecting) {
                     }
                     selected=(x=median(other.selx,x,other.selx+other.selw-1) && y=median(other.sely,y,other.sely+other.selh-1))
                     if (selected) {
-                        other.selected_array[0]+=1 other.selected_array[other.selected_array[0]]=id
+                        other.selected_array[0]+=1 other.selected_array[other.selected_array[0]]=id updatedeities()
                     }
                 }
                 if current_layermode=1  with (deity) {
@@ -842,7 +862,7 @@ if (selecting) {
                     }
                     selected=(x=median(other.selx,x,other.selx+other.selw-1) && y=median(other.sely,y,other.sely+other.selh-1))
                     if (selected) {
-                        other.selected_array[0]+=1 other.selected_array[other.selected_array[0]]=id
+                        other.selected_array[0]+=1 other.selected_array[other.selected_array[0]]=id updatedeities()
                     } else{
 
 
@@ -859,7 +879,7 @@ if (selecting) {
                     }
                     selected=(x=median(other.selx,x,other.selx+other.selw-1) && y=median(other.sely,y,other.sely+other.selh-1))
                     if (selected) {
-                        other.selected_array[0]+=1 other.selected_array[other.selected_array[0]]=id
+                        other.selected_array[0]+=1 other.selected_array[other.selected_array[0]]=id updatedeities()
                     }
                 }
                 if current_layermode=3 with (backcontainer) {
@@ -873,10 +893,10 @@ if (selecting) {
                     }
                     selected=(x=median(other.selx,x,other.selx+other.selw-1) && y=median(other.sely,y,other.sely+other.selh-1))
                     if (selected) {
-                        other.selected_array[0]+=1 other.selected_array[other.selected_array[0]]=id
+                        other.selected_array[0]+=1 other.selected_array[other.selected_array[0]]=id updatedeities()
                     }
                 }
-                UPDATE_THE_DEITIES=1
+                /*UPDATE_THE_DEITIES=1*/
                 selecting=0
             }
         }
@@ -888,16 +908,16 @@ if (selecting) {
                 var yes;
                 switch(current_layermode) {
                     case 0:
-                        yes = position_meeting(x,y,lemongrab.waters[region])
+                        yes = place_meeting(x,y,lemongrab.waters[region])
                     break;
                     case 1:
-                        yes = position_meeting(x,y,deity)
+                        yes = place_meeting(x,y,deity)
                     break;
                     case 2:
-                        yes = position_meeting(x,y,lemongrab.semis[region])
+                        yes = place_meeting(x,y,lemongrab.semis[region])
                     break;
                     case 3:
-                        yes = position_meeting(x,y,lemongrab.backs[region])
+                        yes = place_meeting(x,y,lemongrab.backs[region])
                     break;
 
                 }
@@ -923,7 +943,7 @@ if (selecting) {
                         lemongrab.objlist[j,0]=uslopel2s||
                         lemongrab.objlist[j,0]=usloper1s||
                         lemongrab.objlist[j,0]=usloper2s){
-                            yes=instance_position(u,v,semicontainer)
+                            yes=instance_place(u,v,semicontainer)
                             if (!yes){
                                 i=instance_create(u,v,lemongrab.semis[region])
                                 i.region=region
@@ -943,7 +963,7 @@ if (selecting) {
                         lemongrab.objlist[j,0]=usloper1b||
                         lemongrab.objlist[j,0]=usloper2b){
                         //back-ground painting
-                            yes=instance_position(u,v,backcontainer)
+                            yes=instance_place(u,v,backcontainer)
                             if (!yes){
                                 i=instance_create(u,v,lemongrab.backs[region])
                                 i.region=region
@@ -953,7 +973,7 @@ if (selecting) {
 
                         } else if (lemongrab.objlist[j,0]=waterblock){
                         //water painting
-                            yes=instance_position(u,v,watercontainer)
+                            yes=instance_place(u,v,watercontainer)
                             if (!yes){
                                 i=instance_create(u,v,lemongrab.waters[region])
                                 i.region=region
@@ -962,7 +982,7 @@ if (selecting) {
                             }
 
                         } else {
-                            yes=instance_position(u,v,deity)
+                            yes=instance_place(u,v,deity)
                             if (!yes) {
                                 i=instance_create(u,v,deity)
                                 i.obj=lemongrab.objlist[j,0]
@@ -979,10 +999,11 @@ if (selecting) {
                             }
                         }
                         v+=1
+                        if (i && instance_exists(i)) with (i) updatedeities()
                     }
                     u+=1;
                 }
-                UPDATE_THE_DEITIES=1
+                /*UPDATE_THE_DEITIES=1*/
                 event_user(7)
             }
             selecting=0
@@ -1010,7 +1031,7 @@ if (grabs) {//grab selection
     if (!editcursor.left) {
         grabs=0
     }
-    UPDATE_THE_DEITIES=1 event_user(7)
+    /*UPDATE_THE_DEITIES=1*/ event_user(7)
 }
 
 if (editcursor.escape) {
@@ -1024,12 +1045,14 @@ if (editcursor.escape) {
 curx=median(0,curx,lemongrab.w[region]-1)
 cury=median(0,cury,lemongrab.h[region]-1)
 
-i=instance_number(deity)
+    /*
+i=instance_number(deity) + instance_number(watercontainer) + instance_number(semicontainer) + instance_number(backcontainer)
 if (i!=deityc || update) {
     deityc=i
     update=0
     event_user(7)
 }
+    */
 
 if (positionpicker) {
     if (curx!=grabx || cury!=graby) {
@@ -1037,6 +1060,9 @@ if (positionpicker) {
         event_user(7)
     }
 }
+
+
+if (usersevened) {event_user(8) usersevened=false}
 #define Other_5
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -1185,6 +1211,9 @@ if (isback) {
 }
 
 with (backcontainer) {
+    if (drawregion.UPDATE_THE_DEITIES && !drawregion.dont_update_eities)
+    updatedeities()
+
     draw_sprite_ext(spr,frame,x*16,y*16,scalex,scaley,0,c_white,draw_get_alpha())
 }
 
@@ -1406,13 +1435,18 @@ with (deity) {
     update=0
 }
 
+with (watercontainer) {
+    if (drawregion.UPDATE_THE_DEITIES && !drawregion.dont_update_eities)
+    updatedeities()
+
+    draw_sprite_ext(spr_editorwater,0,x*16,y*16,scalex,scaley,0,c_white,draw_get_alpha())
+}
+
 UPDATE_THE_DEITIES=0
 
 draw_set_alpha(1)
 
 //end draw deity
-
-with (watercontainer) draw_sprite_ext(spr_editorwater,0,x*16,y*16,scalex,scaley,0,c_white,draw_get_alpha())
 
 //spawner...
 if (region=lemongrab.spawnr) {
@@ -1482,8 +1516,8 @@ applies_to=self
 var ofx,ofy;
 
 d3d_transform_set_identity()
-if (!sureface_exists("drawregion") || !sureface_exists("drawregion2") || global.lemonjustundone) {usersevened=1 UPDATE_THE_DEITIES=1 global.lemonjustundone=0}
-if (usersevened) {event_user(8) usersevened=false}
+if (!sureface_exists("drawregion") || !sureface_exists("drawregion2") || global.lemonjustundone) {__emergency = 1; usersevened=1 UPDATE_THE_DEITIES=1 global.lemonjustundone=0}
+if (usersevened && __emergency) {event_user(8) usersevened=false __emergency = 0;}
 rect(0,0,width,height,0,1)
 draw_set_blend_mode_ext(bm_one,bm_one)
 draw_surface(s,0,0)
@@ -1513,9 +1547,9 @@ if ((selecting == 2 || scaling) && !dragsound) {
     if !(settings("nolemonsound")) soundstop("lemonbucketdrag")
     dragsound=0
 }
-i=1
-repeat (selected_array[0]) {
-    rect(selected_array[i].x*16-2,selected_array[i].y*16-2,20,20,selcol,0.5)
+i=1 var _s;
+repeat (selected_array[0]) { _s = selected_array[i]
+    rect((_s.x * 16) - 2, (_s.y * 16) - 2, ((_s.scalex * 16) * _s._xsc) + 2, ((_s.scaley * 16) * _s._ysc) + 2, selcol, 0.5)
     i+=1
 }
 /*
