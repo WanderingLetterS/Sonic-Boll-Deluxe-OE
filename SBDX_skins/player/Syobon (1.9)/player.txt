@@ -22,6 +22,8 @@ mario death=true
 death animation=true
 size reroute beet=big
 size reroute lui=big
+size reroute big=basic
+size reroute mini=basic
 
 
 custom sprite list=stand,wall,standfire,wallfire,walk,walkfire,jump,fall,jumpfire,fallfire,bow,dash,pose,dashfire,posefire,lookup,lookupfire,climbing,flagslide,dead

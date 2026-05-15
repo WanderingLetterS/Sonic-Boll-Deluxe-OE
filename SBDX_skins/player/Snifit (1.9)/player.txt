@@ -21,6 +21,10 @@ pipe squish=20
 mario death=false
 death animation=false
 
+size reroute big=basic
+size reroute mini=basic
+size reroute lui=basic
+size reroute beet=basic
 
 custom sprite list=stand,wall,walk,jump,fall,dash,pose,lookup,climbing,dead,bow
 
