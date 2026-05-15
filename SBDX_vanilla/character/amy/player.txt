@@ -291,3 +291,4 @@ savetext3=Hurrah to Amy
 savetext4=Our Only Hero 
 savetext5=This Ends Your hammerfall
 savetext6=Of a Long Friendship
+credits=

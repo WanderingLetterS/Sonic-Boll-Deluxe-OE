@@ -175,3 +175,4 @@ savetext3=Hurrah to Espio
 savetext4=Our Only Hero 
 savetext5=This Ends Your Trip
 savetext6=Of a Long Friendship
+credits=

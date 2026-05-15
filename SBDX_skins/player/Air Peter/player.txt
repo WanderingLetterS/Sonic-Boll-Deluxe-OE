@@ -1,6 +1,5 @@
 [giana]
 name=Air Peter
-credits=SuperSanic24
 
 icon speed=4
 icon loop=yes
@@ -145,3 +144,4 @@ savetext3=
 savetext4=
 savetext5=Flight
 savetext6=Over
+credits=SuperSanic24
