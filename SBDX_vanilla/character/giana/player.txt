@@ -10,6 +10,14 @@ box width=33
 box height=37
 pole center offset=6
 
+roster size=0
+
+use paletting=true
+defaultspray 1=7
+defaultspray 2=2
+defaultspray 3=5
+defaultspray 4=0
+
 additive blend dash effects=yes
 3d death=yes
 victory duration=76
@@ -80,6 +88,9 @@ stride1 frametimes=4
 stride1fall frametimes=10
 stride2 frametimes=4
 stride2fall frametimes=10
+
+size reroute beet=basic
+size reroute lui=basic
 
 pose loop=12
 stand loop=3
