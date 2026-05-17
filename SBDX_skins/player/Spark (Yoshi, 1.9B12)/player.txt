@@ -1,0 +1,168 @@
+[yoshi]
+name=Spark
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+
+multiple box sizes=true
+pole center offset=3
+
+center x=16,20,20,20,20,16
+center y=13,18,18,18,18,13
+
+box width=32,40,40,40,40,32
+box height=32,40,40,40,40,32
+
+carry offset x=0
+carry offset y=0
+fire duration=8
+victory duration=30
+time until wait=300
+pipe squish=20
+yoshis island death=no
+size reroute beet=big
+size reroute lui=big
+single sheet=true
+singlesheet split width=8,264,584,264,264,8
+singlesheet split height=0,0,0,0,0,0
+
+use paletting=true
+defaultspray 1=1
+defaultspray 2=6
+defaultspray 3=7
+defaultspray 4=2
+
+custom sprite list=stand,walk,run,jump,fall,flutter,brake,crouch,aim,spacer1,pose,climbing,pound,poundfall,swallow,fire,wait,spacer2,knock,dead,flagslide,tongue,spit,standhold,walkhold,runhold,jumphold,fallhold,flutterhold,brakehold,crouchhold
+
+connect walk=true
+connect run=true
+connect fall=true
+connect flutter=true
+connect brake=true
+connect crouch=true
+connect spacer1=true
+connect pose=true
+connect climbing=true
+connect swallow=true
+connect fire=true
+connect spacer2=true
+connect knock=true
+connect dead=true
+connect flagslide=true
+connect tongue=true
+connect spit=true
+connect walkhold=true
+connect runhold=true
+connect fallhold=true
+connect flutterhold=true
+connect brakehold=true
+connect crouchhold=true
+
+reroute lookup=stand
+reroute bonk=fall
+reroute tongueup=jump
+reroute tongueharmed=tongue
+reroute tongueupharmed=jump
+reroute lookuphold=standhold
+reroute bonkhold=fallhold
+reroute swim=fall
+reroute paddle=flutter
+reroute grind=stand
+reroute piping=pose
+reroute pipingup=jump
+reroute sidepiping=walk
+reroute doorenter=stand
+reroute doorexit=stand
+reroute standaim=aim
+reroute walkaim=walk
+reroute brakeaim=brake
+reroute jumpaim=jump
+reroute bonkaim=fall
+reroute fallaim=fall
+reroute standholdaim=standhold
+reroute walkholdaim=walkhold
+reroute runholdaim=runhold
+reroute brakeholdaim=brakehold
+reroute jumpholdaim=jumphold
+reroute bonkholdaim=fallhold
+reroute fallholdaim=fallhold
+reroute spit=spit
+
+
+stand frames=1
+wait frames=2
+pose frames=1
+crouch frames=1
+knock frames=1
+dead frames=1
+walk frames=4
+run frames=2
+brake frames=1
+jump frames=1
+fall frames=1
+flutter frames=4
+slide frames=1
+standhold frames=1
+walkhold frames=4
+runhold frames=2
+jumphold frames=1
+fallhold frames=1
+flutterhold frames=4
+throw frames=2
+pound frames=8
+fire frames=2
+swallow frames=3
+climbing frames=2
+climbing speed=0.125
+
+spacer1 frames=4
+
+pound loop=8
+swallow loop=2
+
+stand speed=0.2
+wait speed=0.2
+walk speed=0.25
+run speed=0.5
+walkhold speed=0.25
+runhold speed=0.5
+fire speed=1
+flutter speed=1
+climbing speed=0.25
+swallow speed=1
+
+stand frametimes=1,1,1
+swallow frametimes=10,10
+fire frametimes=10,6
+
+grind frames=1
+piping frames=8
+pipingup frames=8
+sidepiping frames=6
+doorenter frames=4
+doorexit frames=1
+
+piping speed=0.5
+pipingup speed=0.5
+sidepiping speed=0.4
+doorenter speed=0.20
+doorexit speed=0.20
+
+doorenter loop=4
+
+boll top=#E00808
+boll mid=#000000
+boll bot=#006EEE
+
+[lang]
+winspecial=Spark got a Chaos Emerald
+allspecial=Spark got all Chaos Emeralds
+credits=SuperSani24,Christine32307,Todadoat
+princess=our Princess
+savetext1=Peace is Paved
+savetext2=With Kingdom Saved
+savetext3=Hurrah to Spark
+savetext4=Our Only Hero 
+savetext5=This Ends Your Trip
+savetext6=Of a Long Friendship
