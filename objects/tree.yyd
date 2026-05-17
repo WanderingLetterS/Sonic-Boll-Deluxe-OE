@@ -47,6 +47,7 @@
 		|optvideo
 		|optvol
 		|optmusvol
+		|optaft
 	+replays
 		|replayctrl
 		|replaybox

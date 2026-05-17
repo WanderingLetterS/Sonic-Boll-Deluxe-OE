@@ -12,6 +12,7 @@ fastframe=(fastframe+0.25) mod 12
 frame8=(frame8+0.125) mod 8
 framefire=(framefire+0.25) mod 4
 frameitem=frameitem+1/max(1,skindat("itspd"))
+boostfrtimer=(boostfrtimer+1) mod 4
 
 global.fastframe2=floor(fastframe/2) mod 2
 global.fastframe3=floor(fastframe) mod 3
@@ -24,6 +25,8 @@ global.framefire=floor(framefire)
 global.dustframe=((frame8 mod 2)=0)
 global.boosttrail=8-(frame8*8) mod 8
 global.itemframe=floor(frameitem) mod 4
+
+if boostfrtimer=1 global.newaftfr=1 else global.newaftfr=0
 
 global.electric=max(0,global.electric-1)
 if (global.electric=0) global.electric=choose(5,10,30)

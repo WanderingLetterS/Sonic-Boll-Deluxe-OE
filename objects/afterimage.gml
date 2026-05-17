@@ -5,25 +5,34 @@ action_id=603
 applies_to=self
 */
 t=0
-alarm[0]=10
-alpha=0.5
 blend=$ffffff
+
+if settings("newaft") { //new
+    alpha=0.9
+} else { //old
+    alarm[0]=10
+    alpha=0.5
+}
 #define Alarm_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
-instance_destroy()
+if !settings("newaft") instance_destroy()
 #define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
-k=(k+1) mod 8
-
-visible=k<2
+if (!settings("newaft")) {
+    k=(k+1) mod 8
+    visible=k<2
+} else {
+    alpha-=0.05
+    if alpha=0 instance_destroy()
+}
 #define Other_10
 /*"/*'/**//* YYD ACTION
 lib_id=1
