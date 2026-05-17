@@ -140,6 +140,7 @@
 		|spr_eggtoggle
 		|spr_menumusic
 		|spr_discord
+		|spr_afttoggle
 	+results
 		|spr_graph
 		|spr_resulticons

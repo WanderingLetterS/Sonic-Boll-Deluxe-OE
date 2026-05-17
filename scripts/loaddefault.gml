@@ -27,6 +27,7 @@ settings("camshimmie",0)
 settings("lock ashura",1)
 settings("lock super",1)
 settings("lock kid",1)
+settings("newaft",1)
 settings("legacyui extension disabled",1)
 
 for (i=0;i<9;i+=1) {
