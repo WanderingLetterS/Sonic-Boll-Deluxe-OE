@@ -101,12 +101,16 @@ punch=0
 hasgted=0
 
 #define effectsfront
+if projectilepalettes scr_applyPaletteSegmentedAlpha(global.shaderPaletteSwapAlpha,global.palettesprites[p2*100],global.pal_1[p2]+1,global.pal_2[p2]+1,global.pal_3[p2]+1,global.pal_4[p2]+1,size,alpha*(1-0.75*shadow),totpal+1)
+
 //glide ring
 if glide && size=3 && glidetimer<30 draw_sprite_part_ext(sheet,0,featherdash_sheetx[size*projcoordbysize]+floor(glidetimer/10)*17,featherdash_sheety[size*projcoordbysize],16,32,round(x+8*xsc),round(y-12),1*xsc,1,$ffffff,1)
 
 if (spindash && !disablespindust) { //spindust
 	draw_sprite_part_ext(sheets[size*!global.singlesheet[p2]],0,spindust_sheetx[size*projcoordbysize]+27*(floor(spindust)),spindust_sheety[size*projcoordbysize],26,20,round(x-27*xsc),round(y-5)+dy,xsc,1,$ffffff,alpha)
 }
+
+if projectilepalettes shader_reset()
 
 //draw_skintext(floor(x),floor(y)-56,ggf)
 //draw_skintext(floor(x),floor(y)-48,ggf2)
@@ -288,8 +292,10 @@ if (coll) {
     }
 }
 if (event="draw") {
+        if owner.projectilepalettes scr_applyPaletteSegmentedAlpha(global.shaderPaletteSwapAlpha,global.palettesprites[owner.p2*100],global.pal_1[owner.p2]+1,global.pal_2[owner.p2]+1,global.pal_3[owner.p2]+1,global.pal_4[owner.p2]+1,owner.size,1*(1-0.75*shadow),owner.totpal+1)
         if (vspeed=0) {draw_sprite_part_ext(sheet,0,flameknucklehor_sheetx[owner.size*owner.projcoordbysize],flameknucklehor_sheety[owner.size*owner.projcoordbysize]+17*frame,32,16,round(x-24*xsc),round(y-8),xsc,1,$ffffff,1)}
         else {draw_sprite_part_ext(sheet,0,flameknucklevert_sheetx[owner.size*owner.projcoordbysize]+(17*frame),flameknucklevert_sheety[owner.size*owner.projcoordbysize],16,32,round(x-8),round(y-8),1,1,$ffffff,1)}
+		if owner.projectilepalettes shader_reset()
     }
 
 
