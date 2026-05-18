@@ -119,7 +119,7 @@ with (globalmanager) {
         "redorbinaut,"+
         "bumperorbinaut,"+
         "bombstand,bombwalk,bombignite,"+
-        "thwimp,"
+        "thwimp,pig,"
 
 
     global.enemysprites2=string_count(",",list2)

@@ -34,7 +34,7 @@ if (argument[0]=1) {
 if (argument[0]=2) {
     l[ 0]=-1           l[ 1]=goomba        l[ 2]=koopa       l[ 3]=piranha        l[ 4]=fbarblock          l[ 5]=sonicspike    l[ 6]=spikecrusher     l[ 7]=ballcannon         l[8]=ballcannonquad      l[ 9]=singlecheep      l[10]=blooper               l[11]=newtron           l[12]=montymole  l[13]=lakitu         l[14]=bowserboss  l[15]=bombenemy         l[16]=-1  l[17]=delfruit       l[18]=-1     l[19]=-1
     l[20]=-1           l[21]=goombrat      l[22]=hopkoopa    l[23]=firepiranha    l[24]=podoboo            l[25]=spike         l[26]=swinginghammer   l[27]=bulletbill         l[28]=bullseyebill       l[29]=fishbones        l[30]=boo                   l[31]=crabmeat          l[32]=rexbig     l[33]=spiny          l[34]=-1          l[35]=bobomb            l[36]=-1  l[37]=enemydummy             l[38]=-1     l[39]=-1
-    l[40]=-1           l[41]=spikenemy     l[42]=drybones    l[43]=hammerbro      l[44]=fireballshooter    l[45]=grinder       l[46]=thwomp           l[47]=cannon             l[48]=redcannon          l[49]=urchin           l[50]=chopper                    l[51]=orbinautgreen     l[52]=pokey         l[53]=beetle         l[54]=-1          l[55]=-1                l[56]=-1  l[57]=-1             l[58]=-1     l[59]=-1
+    l[40]=-1           l[41]=spikenemy     l[42]=drybones    l[43]=hammerbro      l[44]=fireballshooter    l[45]=grinder       l[46]=thwomp           l[47]=cannon             l[48]=redcannon          l[49]=urchin           l[50]=chopper               l[51]=orbinautgreen     l[52]=pokey      l[53]=beetle         l[54]=-1          l[55]=-1                l[56]=-1  l[57]=pig             l[58]=-1     l[59]=-1
 }
 //Gizmos (Needs Reorganization)
 if (argument[0]=3) {

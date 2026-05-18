@@ -20,11 +20,9 @@ turncount=0
 active=1
 enemy2=1
 
-type=0
 getregion(x)
 
-type="pig"
-sub=""
+sprite="pig"
 
 wait=instance_position(x+24,y,enemy)
 if (wait) if (wait.object_index=piranha) wait=noone
@@ -83,6 +81,8 @@ if firstframe=1 {
 visible=1
 }
 if !firstframe firstframe=1
+if object_index=lakitu exit
+if object_index=chopper exit
 if (trap) {
     x=(x*4+trap.x)/5
     y=(y*4+trap.y)/5
@@ -91,6 +91,7 @@ if (trap) {
     x-=hspeed
     y-=vspeed
 } else if (active && !carry && !throwncolls) {
+    if (wakehit) {wakehit-=1 if (wakehit=0) with (hitplayer) hurtplayer("enemy")}
     //if hsp!=0|| hspeed!=0 player_magnetslope()
     x+=hsp
     hsp=max(0,abs(hsp)-0.0625)*sign(hsp)
@@ -102,6 +103,7 @@ if (trap) {
             vspeed=1
         } else vspeed=min(3,vspeed+grav)
     } else {
+        //yground=easyground()
         if (collision(0,esign(vspeed,1))) {
 
             if !grounded{
@@ -110,6 +112,8 @@ if (trap) {
             while (collision(0,0)) {
                 y-=s
             }
+            if (vspeed!=0 && object_index=spiny && instance_exists(player))
+                hspeed=0.5*esign(nearestplayer().x-x,-1)
 
             vspeed=0
 
@@ -119,12 +123,33 @@ if (trap) {
 
             if (hsp!=0) vspeed=-abs(hsp)
             }
+            if (object_index=hopkoopa ) vspeed=-2.75
+            if (object_index=paragoomba ){
+                bouncecount+=1
+                if bouncecount=4 {cooldown=60*!brat bouncecount=0 if brat hspeed*=-1}
+                if bouncecount=3 vspeed=-2.75-brat
+                if bouncecount=2 vspeed=-1
+                if bouncecount=1 {if cooldown {cooldown-=1 bouncecount=0} else vspeed=-1 }
+                if sign(nearestplayer().x-x)!=sign(hspeed) && cooldown && !brat {cooldown=0 hspeed*=-1}
+            }
 
             grounded=1
-            if (kicked) {instance_create(x,y,smoke) with (instance_create(other.x,other.y,scoreeffect)) {value=15} doscore_p(5000,1) sound("enemypigdeath") instance_destroy()}
-        } else if !collision(hspeed,1){
-            grounded=0
-            vspeed=min(3,vspeed+grav)
+            redturn=1
+        } else if !collision(hspeed,1) {
+            var dofall;
+            dofall=true;
+            if (((brat && object_index!=paragoomba) || ((object_index=redkoopa || object_index=blukoopa || object_index=bombshellkoopa) && !paramode) || object_index=crabmeat || object_index=wigglerhead || object_index=drybones || object_index=wigglerbod ) && redturn && !collision(hspeed+1*sign(hspeed),4)) {
+                redturn=0 hspeed*=-1 x+=hspeed
+                dofall=false;
+            }
+            if ((object_index=yelkoopa && !paramode && grounded) && !collision(hspeed+1*sign(hspeed),4)){
+                redturn=0 vspeed=-5.25
+            }
+
+            if (dofall) {
+                grounded=0
+                vspeed=min(3,vspeed+grav)
+            }
         }
     }
     turnaround()
@@ -136,8 +161,6 @@ if (trap) {
         if (xsc!=oxsc) turncount=10
     }
 }
-
-sprite=type+sub
 #define Collision_enemy
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -187,6 +210,6 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-if !animated {enemy_animate() animated=1}
+if !animated {enemy_spritechange() enemy_animate() animated=1}
 
 if (active && !carry) ssw_enemy(sprite)
