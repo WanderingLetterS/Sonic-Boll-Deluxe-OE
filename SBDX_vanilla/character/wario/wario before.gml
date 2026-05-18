@@ -1,8 +1,8 @@
 #define spritelist
-stand,wait,lookup,pose,crouch,knock,dead,walk,machrun,machbash,brake,machbrake,crawl,jump,bonk,bonkbrick,fall,crouchjump,pound,poundland,idleswim,swim,paddle,standcarry,lookupcarry,crouchcarry,walkcarry,jumpcarry,bonkcarry,fallcarry,crouchjumpcarry,throw,bash,bashjump,bashhit,sliding,rolling,fire,climbing,flagslide,grind,piping,pipingup,sidepiping,doorenter,doorexit
+stand,wait,lookup,pose,crouch,knock,dead,walk,machrun,machbash,brake,crawl,jump,bonk,bonkbrick,fall,crouchjump,pound,poundland,idleswim,swim,paddle,standcarry,lookupcarry,crouchcarry,walkcarry,jumpcarry,bonkcarry,fallcarry,crouchjumpcarry,throw,bash,bashjump,bashhit,sliding,rolling,fire,climbing,flagslide,grind,piping,pipingup,sidepiping,doorenter,doorexit
 
 #define soundlist
-bash,bashkill,hit,carry,fire,flipover,jet,pound,roll,throw,machbashstart,machbashloop,machstop,skid
+bash,bashkill,hit,carry,fire,flipover,jet,pound,roll,throw,machbashstart,machbashloop
 
 #define movelist
 Wario
@@ -43,10 +43,7 @@ if (bash || machbash) {
 }
 else bashefx=0
 
-//draw_skintext(floor(x),floor(y)-40,hsp)
-//draw_skintext(floor(x),floor(y)-32,brakingmach)
-//draw_skintext(floor(x),floor(y)-24,xsc)
-//draw_skintext(floor(x),floor(y)-16,h)
+//draw_skintext(floor(x)-string_length(string(hsp))*4,floor(y)-32,brakingmach)
 
 #define grabbedflagpole
 grabbedflagpole=1
@@ -64,7 +61,6 @@ grow=0
 hurt=0
 push=0
 pound=0
-brakingmach=0
 
 
 #define itemget
@@ -438,7 +434,6 @@ else if (roll) {sprite="rolling" /*frspd=0.4*/}
 else if (slipnslide) {sprite="sliding" /*frspd=0.2*/}
 else if (water) {sprite="swim" if (swim) sprite="paddle"}
 else if (crouch) {if (crawlin && !jump) {prevent_spr_reset = 1} if (h!=0 && !jump) {sprite="crawl" /*frspd=0.25*/} else if (jump) {sprite="crouchjump"} else {sprite="crouch"}}
-else if (brakingmach) {if brakingmach=2 sprite="machbrake" else sprite="brake"}
 else if (machbash) {sprite="machbash" /*frspd=0.4*/}
 else if (jump) {
 	if (onvine) {sprite="climbing" frspd=sign(left+right+up+down)}
@@ -535,8 +530,8 @@ if ((h!=0 || bash) && !water) {
                 braking=0
             }
         } else {
-            if (size==5) hsp+=(0.17+0.17*bash)*wf*(h && !machbash)
-            else hsp+=(0.12+0.12*bash)*wf*(h && !machbash)
+            if (size==5) hsp+=(0.17+0.17*bash)*wf*h
+            else hsp+=(0.12+0.12*bash)*wf*h
             xsc=h
         }
     }
@@ -574,7 +569,6 @@ vsp=1.5*sign(down-up)
         }
     }
     else if (!jump ||fall=69 || grabflagpole) {
-	    brakingmach=0
         jumpsnd=playsfx(name+"jump",0,1+(size==5)/3)
         vsp=-(4.7-crouch+min(1,abs(hsp)/8))
         jump=1
@@ -605,7 +599,7 @@ if (akey) {
     luijump=0
 }
 
-if (bbut && !brakingmach) {
+if (bbut) {
     if (carry) {
         updatecarry()
         if (!down) {throw=16 instance_create(carryid.x,carryid.y,kickpart) sound("enemykick")}
@@ -641,7 +635,7 @@ if (bbut && !brakingmach) {
     }
 }
 
-if (bkey  && !brakingmach) {
+if (bkey) {
 if size=2 if bashtimer<10 bashtimer=10
 if bash && flybash && jump && !swim { flytimer+=1 if flytimer<60 vsp=0.01   }
 if !bash && fired>1 && fired<10 && crouch && !pound && size=2 {
@@ -666,7 +660,6 @@ if (ckey && size && size!=5 && !water) {
 
 if (machrun && abs(hsp)>0.5 && !water) {
 machtime=min(1,machtime+0.02)
-if (abs(hsp)<4 && h=0) machtime=0
 } else {machtime=0 machbash=0}
 
 if (left || right) hsp+=(machtime)*xsc
@@ -742,28 +735,26 @@ if (abs(hsp)>maxspd) hsp=(abs(hsp)*2+maxspd)/3*sign(hsp)
 if (water) vsp-=0.06*sign(vsp)
 vsp=min(7+downpiped,vsp)
 
-
-if (machbash && h!=xsc && !jump && !brakingmach) {
-    if (abs(hsp)>=4) {
-    brakingmach=2 soundstop(name+"machbashloop") soundstop(name+"machbashstart")
-	machbash=0 machrun=0 machtime=0 playsfx(name+"skid")
-	} else if brakingmach!=2 {
-    brakingmach=1 soundstop(name+"machbashloop") soundstop(name+"machbashstart")
-	machbash=0 machrun=0 machtime=0 playsfx(name+"skid")
-	}
+/*if (machbash && xsc!=h && h!=0 && !jump) {
+	brakingmach=2 braketimer=30 machbash=0 machrun=0 machtime=0 playsfx(name+"skid")
 }
+if (machbash && h=0 && !jump && brakingmach!=2) {
+	brakingmach=1 braketimer=30 machbash=0 machrun=0 machtime=0 playsfx(name+"skid")
+}
+
 
 braketimer=max(0,braketimer-1)
-if (brakingmach && !jump && abs(hsp)<0.5) {
+if (brakingmach && !jump && braketimer=0) {
 	if (brakingmach=2) {
-	   machbash=1
-	   xsc=-xsc
-	   hsp=3*xsc
-	   machtime=1
-	   brakingmach=0
+	xsc=-xsc
+	hsp=3*xsc
+	brakingmach=0
 	}
 	if brakingmach=1 {brakingmach=0}
-}
+	
+
+}*/
+
 
 ///movement
 //hi moster here dont uncomment the yground or easyground stuff because its required for the cool new slope system to work
@@ -910,9 +901,6 @@ if underwater() {bash=0 machbash=0 slipnslide=0 roll=0}
 
 //smoke generation
 if (global.dustframe) {
-if (brakingmach) {
-        i=shoot(x,y+10,psmoke) i.depth=depth+2
-    }
 if (slipnslide) {
 i=shoot(x,y+10,psmoke) i.depth=depth+2
 }
@@ -1175,7 +1163,6 @@ hyperspeed=0
 luijump=0
 hp=0
 star=0
-brakingmach=0
 if (super) stopsuper()   
 
 
@@ -1276,7 +1263,7 @@ if (!collpos(sign(hitside)*10,8,1)) {
 if (water) {com_piping()}
 
 hsp=0
-if (roll || (bash || machbash) && (coll.object_index!=phaser || coll.dir=0)) {instance_create(x+8,y,kickpart) playsfx(name+"hit") x-=hsp hsp=(-0.4-jump)*xsc vsp=-2 jump=1 crouch=0 stunlok=20 if (bash || machbash) stunsprite="bashhit" else stunsprite="knock" bash=0 roll=0}
+if (roll || (bash || machbash) && (coll.object_index!=phaser || coll.dir=0)) {instance_create(x+8,y,kickpart) playsfx(name+"hit") x-=hsp hsp=(-0.4-jump)*xsc vsp=-2 jump=1 crouch=0 stunlok=20 if (bash) stunsprite="bashhit" else stunsprite="knock" bash=0 roll=0}
 slipnslide=0 
 hyperspeed=0         
 
