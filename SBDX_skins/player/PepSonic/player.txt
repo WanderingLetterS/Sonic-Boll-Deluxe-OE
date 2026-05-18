@@ -1,0 +1,366 @@
+[sonic]
+name=Blue Lemonader
+
+sheetname=pepsonic
+
+icon speed=3.33
+icon loop=yes
+animation speed=1.0
+multiple box sizes=false
+center x=24
+center y=28
+box width=48
+box height=48
+
+pitch spindash=yes
+jump ball animation=no
+fire duration=2.75
+victory duration=150
+time until wait=300
+pipe squish=20
+pole center offset=8
+
+use paletting=true
+defaultspray 1=2
+defaultspray 2=6
+defaultspray 3=5
+defaultspray 4=0
+
+short small form=0.8
+
+size reroute small=big
+size reroute fire=big
+size reroute feather=big
+size reroute extra=big
+size reroute mini=big
+size reroute beet=big
+size reroute lui=big
+
+total palettes=13
+
+custom sprite list=stand,pose,crouch,crawl,knock,dead,walk,machrun,run,maxrun,brake,machturn,ball,bonk,spindash,spincharge,dropdash,fall,specfall,poundland,spring,idleswim,paddle,fire,dash,bashhit,climbing,flagslide,grinding,piping,doorenter
+
+connect crouch=true
+connect crawl=true
+connect knock=true
+connect dead=true
+connect machrun=true
+connect run=true
+connect maxrun=true
+connect machturn=true
+connect ball=true
+connect bonk=true
+connect spincharge=true
+connect dropdash=true
+connect specfall=true
+connect poundland=true
+connect spring=true
+connect paddle=true
+connect fire=true
+connect dash=true
+connect bashhit=true
+connect flagslide=true
+connect grinding=true
+connect piping=true
+connect doorenter=true
+
+reroute wait=stand
+reroute lookup=stand
+reroute jump=ball
+reroute springfall=spring
+reroute push=walk
+reroute balance=stand
+reroute pipingup=piping
+reroute sidepiping=walk
+reroute doorexit=stand
+
+single sheet=true
+singlesheet split width=8,8,8,8,8,8
+singlesheet split height=0,0,0,0,0,0
+
+sonic boom graphic x=363
+sonic boom graphic y=88
+
+instashield graphic x=291
+instashield graphic y=46
+
+firedash graphic x=454
+firedash graphic y=46
+
+featherdash graphic x=616
+featherdash graphic y=46
+
+spindash dust graphic x=363
+spindash dust graphic y=105
+spindash dust frames=8
+spindash dust speed=1
+
+stand frames=21
+pose frames=9
+crouch frames=3
+crawl frames=4
+knock frames=3
+dead frames=3
+walk frames=8
+machrun frames=8
+run frames=3
+maxrun frames=3
+brake frames=4
+machturn frames=8
+ball frames=8
+bonk frames=2
+spindash frames=6
+spincharge frames=8
+dropdash frames=8
+fall frames=5
+specfall frames=3
+poundland frames=2
+spring frames=6
+idleswim frames=4
+paddle frames=8
+fire frames=3
+dash frames=3
+bashhit frames=2
+climbing frames=4
+flagslide frames=1
+grinding frames=4
+piping frames=8
+doorenter frames=3
+
+pose loop=9
+crouch loop=3
+bonk loop=2
+brake loop=4
+machturn loop=6
+poundland loop=2
+fire loop=3
+bashhit loop=2
+doorenter loop=3
+
+stand speed=0.333
+pose speed=0.3
+crouch speed=0.22
+crawl speed=0.2
+knock speed=0.333
+dead speed=0.5
+walk speed=0.5
+machrun speed=0.333
+run speed=0.5
+maxrun speed=0.6
+brake speed=0.4
+machturn speed=0.333
+ball speed=0.5
+bonk speed=0.25
+poundland speed=0.25
+spindash speed=0.5
+spincharge speed=0.5
+dropdash speed=0.5
+spring speed=0.5
+idleswim speed=0.1
+paddle speed=0.5
+fire speed=0.35
+dash speed=0.2
+bashhit speed=0.5
+climbing speed=0.125
+grinding speed=0.5
+piping speed=0.5
+levelend speed=0.20
+
+pose frametimes=1,1,1,1,14,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+crouch frametimes=1,1,1.5,1
+brake frametimes= 1,1,2,10
+
+boll top=#0077FF
+boll mid=#000000
+boll bot=#ff0000
+
+[wario]
+name=Blue Lemonader
+
+sheetname=pepsonic
+
+icon speed=3.33
+icon loop=yes
+animation speed=1.0
+multiple box sizes=false
+center x=24
+center y=28
+box width=48
+box height=48
+
+pitch spindash=yes
+jump ball animation=no
+fire duration=2.75
+victory duration=150
+time until wait=300
+pipe squish=20
+pole center offset=8
+
+use paletting=true
+defaultspray 1=2
+defaultspray 2=6
+defaultspray 3=5
+defaultspray 4=0
+
+short small form=0.8
+
+size reroute small=big
+size reroute fire=big
+size reroute feather=big
+size reroute extra=big
+size reroute mini=big
+size reroute beet=big
+size reroute lui=big
+
+total palettes=13
+
+custom sprite list=stand,pose,crouch,crawl,knock,dead,walk,machrun,machbash,maxrun,brake,machturn,rolling,ballbonk,sliding,spincharge,dropdash,jump,bonk,fall,pound,poundland,spring,idleswim,paddle,throw,bash,bashhit,climbing,flagslide,grinding,piping,doorenter
+
+connect crouch=true
+connect crawl=true
+connect knock=true
+connect dead=true
+connect machrun=true
+connect machbash=true
+connect maxrun=true
+connect machturn=true
+connect rolling=true
+connect ballbonk=true
+connect spincharge=true
+connect dropdash=true
+connect bonk=true
+connect fall=true
+connect pound=true
+connect poundland=true
+connect spring=true
+connect paddle=true
+connect throw=true
+connect bash=true
+connect bashhit=true
+connect flagslide=true
+connect grinding=true
+connect piping=true
+connect doorenter=true
+
+reroute wait=stand
+reroute lookup=stand
+reroute crouchjump=crouch
+reroute springfall=spring
+reroute swim=crawl
+reroute standcarry=stand
+reroute lookupcarry=stand
+reroute crouchcarry=crouch
+reroute walkcarry=walk
+reroute jumpcarry=jump
+reroute bonkcarry=bonk
+reroute fallcarry=fall
+reroute crouchjumpcarry=crouch
+reroute bashjump=bash
+reroute fire=throw
+reroute push=walk
+reroute balance=stand
+reroute pipingup=piping
+reroute sidepiping=walk
+reroute doorexit=stand
+reroute machturn=brake
+reroute crawlcarry=crawl
+reroute bonkbrick=bonk
+
+single sheet=true
+singlesheet split width=8,8,8,8,8,8
+singlesheet split height=0,0,0,0,0,0
+
+stand frames=21
+pose frames=9
+crouch frames=3
+crawl frames=4
+knock frames=3
+dead frames=3
+walk frames=8
+machrun frames=8
+machbash frames=3
+maxrun frames=3
+brake frames=4
+machturn frames=8
+rolling frames=8
+ballbonk frames=2
+sliding frames=6
+spincharge frames=8
+dropdash frames=8
+jump frames=2
+bonk frames=2
+fall frames=1
+pound frames=3
+poundland frames=2
+spring frames=6
+idleswim frames=4
+paddle frames=8
+throw frames=3
+bash frames=3
+bashhit frames=2
+climbing frames=4
+flagslide frames=1
+grinding frames=4
+piping frames=8
+doorenter frames=3
+
+pose loop=9
+crouch loop=3
+jump loop=2
+bonk loop=2
+brake loop=4
+machturn loop=6
+poundland loop=2
+throw loop=3
+bashhit loop=2
+doorenter loop=3
+
+stand speed=0.333
+pose speed=0.3
+crouch speed=0.22
+crawl speed=0.2
+knock speed=0.333
+dead speed=0.5
+walk speed=0.5
+machrun speed=0.333
+machbash speed=0.5
+maxrun speed=0.6
+brake speed=0.4
+machturn speed=0.333
+rolling speed=0.5
+jump speed=0.25
+bonk speed=0.25
+poundland speed=0.125
+sliding speed=0.5
+spincharge speed=0.5
+dropdash speed=0.5
+spring speed=0.5
+idleswim speed=0.1
+paddle speed=0.5
+throw speed=0.35
+bash speed=0.2
+bashhit speed=0.25
+climbing speed=0.125
+grinding speed=0.5
+piping speed=0.5
+levelend speed=0.20
+
+pose frametimes=1,1,1,1,14,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+crouch frametimes=1,1,1.5,1
+brake frametimes= 1,1,2,10
+
+boll top=#0077FF
+boll mid=#000000
+boll bot=#ff0000
+
+[lang]
+winspecial=Sonic got a Chaos Emerald
+allspecial=Sonic got all Chaos Emeralds
+princess=our Princess
+credits= 
+savetext1=Peace is Paved
+savetext2=With Kingdom Saved
+savetext3=Hurrah to Sonic
+savetext4=Our Weird Hero 
+savetext5=This Ends Your Trip
+savetext6=Of a Long Friendship
