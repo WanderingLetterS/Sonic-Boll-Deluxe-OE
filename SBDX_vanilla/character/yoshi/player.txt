@@ -16,6 +16,7 @@ victory duration=30
 time until wait=300
 pipe squish=20
 yoshis island death=yes
+tongue behind yoshi=no
 
 max sizes=7
 seperate projectile coords by size=true
