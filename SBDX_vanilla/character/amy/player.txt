@@ -35,6 +35,16 @@ hammer rotate offset y0=-1
 
 hammer rotate offset x1=-10
 hammer rotate offset y1=-4
+hammer rotate offset x2=-10
+hammer rotate offset y2=-4
+hammer rotate offset x3=-10
+hammer rotate offset y3=-4
+hammer rotate offset x4=-10
+hammer rotate offset y4=-4
+hammer rotate offset x6=-10
+hammer rotate offset y6=-4
+hammer rotate offset x7=-10
+hammer rotate offset y7=-4
 
 hammer rotate offset x5=-10
 hammer rotate offset y5=-1
