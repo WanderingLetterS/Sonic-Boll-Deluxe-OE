@@ -40,6 +40,8 @@ reroute machbash=machrun
 reroute crouchjump=crouch
 reroute bonkbrick=bonk
 reroute idleswim=swim
+reroute machturn=brake
+reroute crawlcarry=crawl
 
 machrun offset y=2
 

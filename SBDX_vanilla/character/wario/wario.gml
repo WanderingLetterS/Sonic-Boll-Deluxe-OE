@@ -1,5 +1,5 @@
 #define spritelist
-stand,wait,lookup,pose,crouch,knock,dead,walk,machrun,machbash,brake,machbrake,crawl,jump,bonk,bonkbrick,fall,crouchjump,pound,poundland,idleswim,swim,paddle,standcarry,lookupcarry,crouchcarry,walkcarry,jumpcarry,bonkcarry,fallcarry,crouchjumpcarry,throw,bash,bashjump,bashhit,sliding,rolling,fire,climbing,flagslide,grind,piping,pipingup,sidepiping,doorenter,doorexit
+stand,wait,lookup,pose,crouch,knock,dead,walk,machrun,machbash,brake,machturn,crawl,jump,bonk,bonkbrick,fall,crouchjump,pound,poundland,idleswim,swim,paddle,standcarry,lookupcarry,crouchcarry,walkcarry,jumpcarry,bonkcarry,fallcarry,crouchjumpcarry,crawlcarry,throw,bash,bashjump,bashhit,sliding,rolling,fire,climbing,flagslide,grind,piping,pipingup,sidepiping,doorenter,doorexit
 
 #define soundlist
 bash,bashkill,hit,carry,fire,flipover,jet,pound,roll,throw,machbashstart,machbashloop,machstop,skid
@@ -438,7 +438,7 @@ else if (roll) {sprite="rolling" /*frspd=0.4*/}
 else if (slipnslide) {sprite="sliding" /*frspd=0.2*/}
 else if (water) {sprite="swim" if (swim) sprite="paddle"}
 else if (crouch) {if (crawlin && !jump) {prevent_spr_reset = 1} if (h!=0 && !jump) {sprite="crawl" /*frspd=0.25*/} else if (jump) {sprite="crouchjump"} else {sprite="crouch"}}
-else if (brakingmach) {if brakingmach=2 sprite="machbrake" else sprite="brake"}
+else if (brakingmach) {if brakingmach=2 sprite="machturn" else sprite="brake"}
 else if (machbash) {sprite="machbash" /*frspd=0.4*/}
 else if (jump) {
 	if (onvine) {sprite="climbing" frspd=sign(left+right+up+down)}
@@ -746,7 +746,7 @@ vsp=min(7+downpiped,vsp)
 if (machbash && h!=xsc && !jump && !brakingmach) {
     if (abs(hsp)>=4) {
     brakingmach=2 soundstop(name+"machbashloop") soundstop(name+"machbashstart")
-	machbash=0 machrun=0 machtime=0 playsfx(name+"skid")
+	machbash=0 machrun=0 machtime=0 playsfx(name+"machstop")
 	} else if brakingmach!=2 {
     brakingmach=1 soundstop(name+"machbashloop") soundstop(name+"machbashstart")
 	machbash=0 machrun=0 machtime=0 playsfx(name+"skid")

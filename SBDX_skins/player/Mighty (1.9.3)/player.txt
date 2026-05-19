@@ -65,16 +65,16 @@ reroute doorenter=pose
 reroute doorexit=stand
 reroute specfall=dash
 
-sonic boom graphic x=10
+sonic boom graphic x=363
 sonic boom graphic y=88
 
-instashield graphic x=64
+instashield graphic x=291
 instashield graphic y=46
 
-firedash graphic x=227
+firedash graphic x=454
 firedash graphic y=46
 
-featherdash graphic x=227
+featherdash graphic x=616
 featherdash graphic y=46
 
 spindash dust graphic x=454
@@ -538,7 +538,7 @@ pipe squish=20
 pole center offset=8
 minisheet=false
 
-max sizes=9
+max sizes=11
 
 use paletting=true
 defaultspray 1=5
@@ -583,16 +583,16 @@ reroute doorenter=pose
 reroute doorexit=stand
 reroute specfall=dash
 
-sonic boom graphic x=10
+sonic boom graphic x=363
 sonic boom graphic y=88
 
-instashield graphic x=64
+instashield graphic x=291
 instashield graphic y=46
 
-firedash graphic x=227
+firedash graphic x=454
 firedash graphic y=46
 
-featherdash graphic x=227
+featherdash graphic x=616
 featherdash graphic y=46
 
 spindash dust graphic x=454
@@ -814,13 +814,13 @@ single sheet=true
 singlesheet split width=8,200,456,456,456,8,456,456
 singlesheet split height=0,0,0,0,0,0
 
-waterfall graphic x=10
+waterfall graphic x=363
 waterfall graphic y=105
 
-instashield graphic x=64
+instashield graphic x=291
 instashield graphic y=46
 
-bubbles graphic x=10
+bubbles graphic x=463
 bubbles graphic y=88
 
 spindash dust graphic x=454
@@ -1116,16 +1116,16 @@ reroute pound=hammerdrop
 reroute slide=ball
 reroute twirl=dropdash
 
-sonic boom graphic x=10
-sonic boom graphic y=88
+hadouken graphic x=363
+hadouken graphic y=88
 
-instashield graphic x=64
+instashield graphic x=291
 instashield graphic y=46
 
-firedash graphic x=227
+firedash graphic x=454
 firedash graphic y=46
 
-featherdash graphic x=227
+featherdash graphic x=616
 featherdash graphic y=46
 
 spindash dust graphic x=454
@@ -1399,12 +1399,14 @@ reroute jumpcarry=spring
 reroute bonkcarry=spring
 reroute fallcarry=mightybounce
 reroute rolling=ball
-reroute sliding=ball
+reroute sliding=spindash
 reroute swim=ball
 reroute paddle=dash
 reroute bashjump=dash
 reroute crawl=ball
 reroute bonkbrick=mightybounce
+reroute machturn=brake
+reroute crawlcarry=crawl
 reroute crouchjump=ball
 
 fartmaster graphic x=10

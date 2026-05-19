@@ -25,7 +25,8 @@ defaultspray 4=9
 
 custom sprite list=stand,wait,lookup,pose,crouch,knock,dead,walk,machrun,machbash,brake,crawl,jump,bonk,fall,crouchjump,pound,poundland,idleswim,swim,paddle,standcarry,lookupcarry,crouchcarry,walkcarry,jumpcarry,bonkcarry,fallcarry,crouchjumpcarry,throw,bash,bashjump,bashhit,sliding,rolling,fire,climbing,flagslide,grind,piping,pipingup,sidepiping,doorenter,doorexit
 
-reroute machbrake=brake
+reroute machturn=brake
+reroute crawlcarry=crawl
 
 
 stand frames=3
