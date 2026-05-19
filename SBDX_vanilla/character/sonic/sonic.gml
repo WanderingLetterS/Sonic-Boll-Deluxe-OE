@@ -490,7 +490,7 @@ if (!akey) {
 if (bbut) {
     if (spindash || (hsp=0 && crouch && push=0)) {
         if (spindash) spinchargetimer=20
-        playsfx(name+"spindash",0,1+(median(0,spindash-1,3)/3)*skindat("pitchdash"+string(p2)))
+        playsfx(name+"spindash",0,1+(median(0,spindash-1,3)/3)*playerskindat(p2,"pitchdash"+string(p2)))
         spindash=min(4,spindash+1)
         tempbrick=1
     } else {
@@ -634,7 +634,7 @@ if ((cbut || jumpbufferdo) && (!springin)) {
     if (!jump||fall=69||grabflagpole) { //grounded
         if (spindash || (hsp=0 && crouch && push=0)) {
             if (spindash) spinchargetimer=20
-            playsfx(name+"spindash",0,1+(median(0,spindash-1,3)/3)*skindat("pitchdash"+string(p2)))
+            playsfx(name+"spindash",0,1+(median(0,spindash-1,3)/3)*playerskindat(p2,"pitchdash"+string(p2)))
             spindash=min(4,spindash+1)
             tempbrick=1
         }
