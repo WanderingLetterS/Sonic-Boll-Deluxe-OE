@@ -77,6 +77,7 @@ boll mid=#000000
 boll bot=#3135CC
 
 [lang]
+credits=Emília, Christian32307
 winspecial=Mecha Sonic got a Chaos Emerald
 allspecial=Mecha Sonic got all Chaos Emeralds
 princess=our Princess

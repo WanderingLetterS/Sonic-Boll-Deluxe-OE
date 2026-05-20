@@ -144,6 +144,7 @@ boll mid=#000000
 boll bot=#F0D818
 
 [lang]
+credits=Emília, Christian32307
 winspecial=Mephiles got a Chaos Emerald
 allspecial=Mephiles got all Chaos Emeralds
 princess=our Princess

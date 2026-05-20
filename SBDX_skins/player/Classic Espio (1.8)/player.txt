@@ -166,6 +166,7 @@ boll mid=#000000
 boll bot=#ff0000
 
 [lang]
+credits=Emília, Toadadoat
 winspecial=Espio Chaos Emerald
 allspecial=Espio Got All Chaos Emeralds
 princess=The Chaotix
@@ -175,4 +176,3 @@ savetext3=Hurrah to Espio
 savetext4=Our Only Hero 
 savetext5=This Ends Your Trip
 savetext6=Of a Long Friendship
-credits=

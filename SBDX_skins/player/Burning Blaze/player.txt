@@ -20,6 +20,8 @@ time until wait=0
 pipe squish=20
 disable spindust=true
 
+use super sheets=true
+
 use paletting=false
 
 custom sprite list=stand,wait,lookup,pose,crouch,knock,dead,walk,run,maxrun,brake,spring,springfall,jump,bonk,ball,spindash,push,hang,transform,dash,specfall,climbing,flagslide,dropdash,piping,pipingup,sidepiping,doorenter,doorexit
@@ -128,6 +130,7 @@ boll mid=#000000
 boll bot=#F0D818
 
 [lang]
+credits=Emília, Christian32307
 winspecial=Blaze got a Sol Emerald
 allspecial=Blaze got all Sol Emeralds
 princess=our Princess
@@ -137,4 +140,3 @@ savetext3=Hurrah to Blaze
 savetext4=Our Only Hero 
 savetext5=This Ends Your Trip
 savetext6=Of a Long Friendship
-credits=Emily

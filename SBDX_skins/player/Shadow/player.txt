@@ -1,6 +1,5 @@
 [sonic]
 name=Shadow
-credits=Emilia, -S-, Christian32307
 icon speed=6
 icon loop=yes
 animation speed=1.0
@@ -135,6 +134,7 @@ boll mid=#000000
 boll bot=#F0D818
 
 [lang]
+credits=Emília, -S-, Christian32307
 winspecial=Shadow got a Chaos Emerald
 allspecial=Shadow got all Chaos Emeralds
 princess=our Princess

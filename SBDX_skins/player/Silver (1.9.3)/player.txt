@@ -222,6 +222,7 @@ boll mid=#000000
 boll bot=#00dd00
 
 [lang]
+credits=Emília, Christian32307
 winspecial=Silver Got a Chaos Emerald
 allspecial=Silver Got All Chaos Emeralds
 princess=our Princess
