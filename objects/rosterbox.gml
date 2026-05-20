@@ -25,7 +25,6 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-
 if !showbox {
 global.topleftplayerskin[p2]=global.playerskin[p2] - (global.playerskin[p2] mod 2)
 sideselect=global.playerskin[p2] mod 2
@@ -98,6 +97,16 @@ if (showbox) {
     held.visible=0}
     global.topleftplayerskin[p2]=topleft
     global.playerskin[p2]=currsel
+}
+
+if p2!=0 exit
+
+if (keyboard_check_pressed(vk_f3) && global.playerskin[p2] && (string(playerskindat(p2,"credits"+string(p2)))!="" && string(playerskindat(p2,"credits"+string(p2)))!="0")) {
+    ping(
+        playerskindat(p2,"name"+string(p2))
+        +"#-#"+
+        string(playerskindat(p2,"credits"+string(p2)))
+    )
 }
 #define Step_2
 /*"/*'/**//* YYD ACTION

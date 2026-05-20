@@ -54,6 +54,11 @@ if (what="less" || what="all") {
     playerskindat(slot,"rostersize"+ss,median(-1,unreal(playerskindat(slot,name+" roster size"),-1),playerskindat(slot,"maxsizes"+ss)))
     if (playerskindat(slot,"rostersize"+ss) == -1)
         playerskindat(slot,"rostersize"+ss,1)
+
+    //credits are an optional lang string
+    if playerskindat(slot,"credits"+ss,playerskindat(slot,"lang"+" credits"))==0 {
+        show_debug_message("missing skin string: credits")
+    } 
 }
 
 if (what="more" || what="all") { 
@@ -278,12 +283,11 @@ if (what="more" || what="all") {
     playerskinstr(slot,"savetext4"+ss,playerskinstr(slot,laniel+" savetext4"))
     playerskinstr(slot,"savetext5"+ss,playerskinstr(slot,laniel+" savetext5"))
     playerskinstr(slot,"savetext6"+ss,playerskinstr(slot,laniel+" savetext6"))
-    
-    //credits are an optional string.
-    if playerskindat(slot,"credits"+ss,playerskindat(slot,laniel+" credits"))==0 {
+              
+    //credits are an optional lang string
+    if playerskindat(slot,"credits"+ss,playerskindat(slot,"lang"+" credits"))==0 {
         show_debug_message("missing skin string: credits")
     } 
-              
     
     if (dir != allyourbase) {
         charmusdir = allyourbase
