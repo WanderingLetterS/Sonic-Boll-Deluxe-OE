@@ -25,6 +25,14 @@ seperate projectile coords by size=true
 
 old hammer rotation=false
 
+use paletting=true
+defaultspray 1=4
+defaultspray 2=9
+defaultspray 3=6
+defaultspray 4=5
+
+total palettes=13
+
 reroute pikoball=pikoball
 
 hammer rotate graphic x0=21
@@ -56,19 +64,19 @@ stand frametimes=16,1,1
 stand offset x=0
 stand offset y=0
 
-wait frames=5
-wait loop=4
+wait frames=6
+wait loop=5
 wait speed=0.1
 wait frametimes=0
 wait offset x=0
 wait offset y=0
 
-lookup frames=1
-lookup loop=1
+lookup frames=4
+lookup loop=2
 lookup speed=0.2
-wait frametimes=0
-wait offset x=0
-wait offset y=0
+lookup frametimes=1,16,1,1
+lookup offset x=0
+lookup offset y=0
 
 pose frames=1
 pose loop=1
