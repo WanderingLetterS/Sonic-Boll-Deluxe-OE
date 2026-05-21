@@ -100,6 +100,15 @@ switch (argument[0]) {
         if (type=3) {if (t) return "Shift Block" return "Note Block"}
         if (type=4) return "Bonus Target: "+i
     }
+
+    case customobject:
+        if type>0{
+            global.cobjectlemonreturnvalue="[NO DATA]"
+            lemon_get_lemoninfo("editobjdataname",type,argument[2])
+        return string(global.cobjectlemonreturnvalue)
+        }else return "Custom Object: " + string(i)
+    break;
+
     case monitor: {
         if (type=1) {
             if (i="10coin") return "Contains: 10 Coins"

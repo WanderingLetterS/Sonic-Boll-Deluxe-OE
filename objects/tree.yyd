@@ -689,6 +689,7 @@
 			|event_auto
 			|event_input
 			|event_enemy
+		|customobject
 		|staticdummy
 		|objectdummy
 		|enemydummy

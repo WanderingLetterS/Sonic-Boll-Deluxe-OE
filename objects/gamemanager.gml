@@ -327,6 +327,14 @@ if !players[view_current].dontdrawdefaulthud && hud_alpha[view_current] > 0.0 {
     drawskinnablehud()
 }
 
+if !pause && !players[view_current].hudoff_custom{
+    with customobject {
+        global.cobjectentrypoint="draw_hud"
+        code_execute(my_code)
+
+    }
+}
+
 //moved red rings to drawskinnablehud because they're a part of the hud :) -moster
 
 with (players[view_current]) charm_run("customhud") 

@@ -51,7 +51,7 @@ if (argument[0]=4) {
 //WIP
 if (argument[0]=5) {
     l[ 0]=-1 l[ 1]=-1 l[ 2]=terrainspring     l[ 3]=groundback l[ 4]=wigglerhead     l[ 5]=freemover   l[ 6]=nslopl    l[ 7]=-1 l[ 8]=-1 l[ 9]=-1 l[10]=-1 l[11]=-1 l[12]=-1 l[13]=-1 l[14]=-1 l[15]=-1
-    l[16]=-1 l[17]=-1 l[18]=pokey l[19]=-1 l[20]=beetroot   l[21]=greenlui l[22]=pig  l[23]=-1 l[24]=-1 l[25]=-1 l[26]=-1 l[27]=-1 l[28]=-1 l[29]=-1 l[30]=-1 l[31]=-1
+    l[16]=-1 l[17]=-1 l[18]=pokey l[19]=-1 l[20]=beetroot   l[21]=greenlui l[22]=pig  l[23]=-1 l[24]=-1 l[25]=-1 l[26]=-1 l[27]=customobject l[28]=-1 l[29]=-1 l[30]=-1 l[31]=-1
     l[32]=-1 l[33]=-1 l[34]=pollenflower    l[35]=-1 l[36]=-1 l[37]=-1   l[38]=-1    l[39]=-1 l[40]=-1 l[41]=-1 l[42]=-1 l[43]=-1 l[44]=-1 l[45]=-1 l[46]=-1 l[47]=-1
 }
 
