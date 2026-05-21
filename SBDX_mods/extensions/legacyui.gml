@@ -497,9 +497,6 @@ if view_current=0 {
 	if (global.mariosonicc>=180) {global.mariosonicc=0 if (global.mariosonicgo) global.mariosonicgo=-1 else global.mariosonicgo=1}
 	global.mariosonic=median(0,global.mariosonic+0.25*global.mariosonicgo,3)
 	
-	with rostercursor {
-		draw_omitext(x,y,might,$ffffff,1)
-	}
 } 
 
 //im lazy
