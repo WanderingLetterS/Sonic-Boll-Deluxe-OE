@@ -1,6 +1,6 @@
 /*
 *****************************************************************************
-* Sonic Boll v1.8 / v1.9 b12 UI                                             *
+* Sonic Boll Classic / v1.8 / v1.9 b12 UI                                   *
 *****************************************************************************
 
 Extension by Christian32307 
@@ -11,20 +11,37 @@ Big thank you to the former Boll Team members, and those at Cherry Treehouse!
 
 #define data
 name="Legacy UI"
-desc="Changes the Main Menu and certain system graphics to look like version 1.8 and early 1.9."
+desc="Changes the Main Menu and certain system graphics to look like Classic, 1.8, and early 1.9."
 
 #define create
 extdir=global.workdir+"SBDX_mods\extensions\"
 
 //first boot
 if !settings('ext_legacyui_firstboot') {
-	settings('ext_legacyui_watermarktype',"216")
-	settings('ext_legacyui_useloadgraphic',1)
+	settings('ext_legacyui_watermarktype',"2.1.6")
+	//settings('ext_legacyui_useloadgraphic',1)
+	settings('ext_legacyui_loadgraphic',"timer")
+	settings('ext_legacyui_border',"shaded")
 	settings('ext_legacyui_firstboot',1)
 }
 
+if string(settings('ext_legacyui_useloadgraphic'))=="1" {settings('ext_legacyui_useloadgraphic',0) settings('ext_legacyui_loadgraphic',"timer")}
+if string(settings('ext_legacyui_loadgraphic'))=="" settings('ext_legacyui_loadgraphic',"timer")
+if string(settings('ext_legacyui_border'))=="" settings('ext_legacyui_border',"shaded")
+
+if (settings('ext_legacyui_watermarktype')=="216" || settings('ext_legacyui_watermarktype')=="180") {
+	ping("Legacy UI: Thexx settings values have changed. #Please visit the Mod Loader.")
+	message.depth=captain.depth-1
+}
+
+//if !settings('ext_legacyui_customwatermark') settings('ext_legacyui_customwatermark',"SONIC BOLL DELUXE")
+
 global.sprite150=sprite_add(extdir+"legacyui\sprite150.png",0,0,0,15,3)
 global.sprite216=sprite_add(extdir+"legacyui\sprite150-216.png",0,0,0,15,3)
+global.spr_borderlegacy=sprite_add(extdir+"legacyui\bg_story.png",0,0,0,0,0)
+global.spr_borderclassic=sprite_add(extdir+"legacyui\bg_story_classic.png",0,0,0,0,0)
+global.spr_load=sprite_add(extdir+"legacyui\spr_load.png",0,0,0,4,10)
+global.spr_firebarloader=sprite_add(extdir+"legacyui\spr_firebar.png",4,1,0,8,8)
 global.spr_menuback=sprite_add(extdir+"legacyui\spr_menuback.png",0,0,0,15,3)
 global.spr_rostergo=sprite_add(extdir+"legacyui\spr_rostergo_strip2.png",0,0,0,64,8)
 global.spr_rostergo_over=sprite_add(extdir+"legacyui\spr_rostergo_strip2_over.png",0,0,0,64,8)
@@ -35,21 +52,25 @@ global.spr_gamemode_classic=sprite_add(extdir+"legacyui\spr_gamemode_classic.png
 global.spr_gamemode_classic_over=sprite_add(extdir+"legacyui\spr_gamemode_classic_over.png",0,0,0,52,4)
 global.spr_gamemode_battle=sprite_add(extdir+"legacyui\spr_gamemode_battle.png",0,0,0,52,4)
 global.spr_gamemode_battle_over=sprite_add(extdir+"legacyui\spr_gamemode_battle_over.png",0,0,0,52,4)
-global.spr_gamemode_timeattack=sprite_add(extdir+"legacyui\spr_gamemode_timeattack.png",0,0,0,52-15,4)
-global.spr_gamemode_timeattack_over=sprite_add(extdir+"legacyui\spr_gamemode_timeattack_over.png",0,0,0,52-15,4)
+global.spr_gamemode_timeattack=sprite_add(extdir+"legacyui\spr_gamemode_timeattack.png",0,0,0,52,4)
+global.spr_gamemode_timeattack_over=sprite_add(extdir+"legacyui\spr_gamemode_timeattack_over.png",0,0,0,52,4)
 global.spr_gamemode_coop=sprite_add(extdir+"legacyui\spr_gamemode_coop.png",0,0,0,52,4)
 global.spr_gamemode_coop_over=sprite_add(extdir+"legacyui\spr_gamemode_coop_over.png",0,0,0,52,4)
 
 
-sprite_replace(spr_border,extdir+"legacyui\bg_story.png",0,0,0,0,0)
+//sprite_replace(spr_border,extdir+"legacyui\bg_story.png",0,0,0,0,0)
 sprite_replace(spr_bigbuttons,extdir+"legacyui\spr_bigbuttons_strip30.png",30,0,0,24,24)
 sprite_replace(spr_matchoptionsbg,extdir+"legacyui\spr_matchoptionsbg_strip3.png",0,0,0,0,0)
 sprite_replace(spr_rostercard,extdir+"legacyui\spr_rostercard_strip12.png",12,0,0,17,17)
 sprite_replace(spr_rosteroptions,extdir+"legacyui\spr_rostercog_strip4.png",4,0,0,12,12)
 
-global.og_spr_loader=sprite_duplicate(spr_loader)
-if settings('ext_legacyui_useloadgraphic') sprite_replace(spr_loader,extdir+"legacyui\spr_load.png",0,0,0,4,10)
+global.og_spr_border=sprite_duplicate(spr_border)
+if settings('ext_legacyui_border')=='shaded' sprite_assign(spr_border,global.spr_borderlegacy)
+if settings('ext_legacyui_border')=='flat' sprite_assign(spr_border,global.spr_borderclassic)
 
+global.og_spr_loader=sprite_duplicate(spr_loader)
+if settings('ext_legacyui_loadgraphic')=='timer' sprite_assign(spr_loader,global.spr_load)
+if settings('ext_legacyui_loadgraphic')=='fireball' sprite_assign(spr_loader,global.spr_firebarloader) 
 
 if mariosonicbg=0 {
 	globalvar mariosonicbg;
@@ -128,22 +149,45 @@ object_setevent(ext_legacyuicog, ev_step, 0, "
 	}
 	
 	if imconfigure {
+		extdir=global.workdir+'mods\extensions\'
 		genericcursor.visible=0
 		a=approach_val(a,1,0.05) 
 		
 		if (bkey || input_esc()) imconfigure=0
 		
 		if (xbut) {
-			if settings('ext_legacyui_watermarktype')='216' settings('ext_legacyui_watermarktype','180')
-			else if settings('ext_legacyui_watermarktype')='180' settings('ext_legacyui_watermarktype','none') 
-			else if settings('ext_legacyui_watermarktype')='none' settings('ext_legacyui_watermarktype','216') 
+			if settings('ext_legacyui_watermarktype')=='2.1.6' settings('ext_legacyui_watermarktype','1.8 DEMO')
+			else if settings('ext_legacyui_watermarktype')=='1.8 DEMO' settings('ext_legacyui_watermarktype','custom') 
+			else if settings('ext_legacyui_watermarktype')=='custom' settings('ext_legacyui_watermarktype','none') 
+			else if settings('ext_legacyui_watermarktype')=='none' settings('ext_legacyui_watermarktype','2.1.6') 
+			else settings('ext_legacyui_watermarktype','none')
+		}
+		
+		if (sbut && settings('ext_legacyui_watermarktype')='custom') {
+			settings('ext_legacyui_customwatermark',get_string('Enter text:','SONIC BOLL DELUXE'))
 		}
 		
 		if (ybut) {
-			extdir=global.workdir+'mods\extensions\'
-			settings('ext_legacyui_useloadgraphic',!settings('ext_legacyui_useloadgraphic'))
-			if settings('ext_legacyui_useloadgraphic') sprite_replace(spr_loader,extdir+'legacyui\spr_load.png',0,0,0,4,10)
-			if !settings('ext_legacyui_useloadgraphic') sprite_assign(spr_loader,global.og_spr_loader) 
+			//settings('ext_legacyui_useloadgraphic',!settings('ext_legacyui_useloadgraphic'))
+			//if settings('ext_legacyui_useloadgraphic') sprite_replace(spr_loader,extdir+'legacyui\spr_load.png',0,0,0,4,10)
+			//if !settings('ext_legacyui_useloadgraphic') sprite_assign(spr_loader,global.og_spr_loader) 
+			
+			if settings('ext_legacyui_loadgraphic')=='timer' settings('ext_legacyui_loadgraphic','fireball')
+			else if settings('ext_legacyui_loadgraphic')=='fireball' settings('ext_legacyui_loadgraphic','modern')
+			else settings('ext_legacyui_loadgraphic','timer')
+			
+			if settings('ext_legacyui_loadgraphic')=='timer' sprite_assign(spr_loader,global.spr_load) 
+			if settings('ext_legacyui_loadgraphic')=='fireball' sprite_assign(spr_loader,global.spr_firebarloader) 
+			if settings('ext_legacyui_loadgraphic')=='modern' sprite_assign(spr_loader,global.og_spr_loader) 
+		}
+		
+		if (zbut) {
+			if settings('ext_legacyui_border')=='shaded' settings('ext_legacyui_border','flat')
+			else settings('ext_legacyui_border','shaded')
+			
+			if settings('ext_legacyui_border')=='shaded' sprite_assign(spr_border,global.spr_borderlegacy) 
+			else if settings('ext_legacyui_border')=='flat' sprite_assign(spr_border,global.spr_borderclassic) 
+			else sprite_assign(spr_border,global.og_spr_border) 
 		}
 		
 	} else {a=approach_val(a,0,0.05) genericcursor.visible=1}  
@@ -160,9 +204,18 @@ object_setevent(ext_legacyuicog, ev_draw, 0, '
 		draw_set_alpha(a) draw_rectangle(134,76,135+130,77+85,1) draw_set_alpha(1) 
 		rect(135,77,130,85,$008000,a) 
 		draw_systext(135+32,77+3," Config #--------",$ffffff,a) 
+		
 		draw_omitext(135+18+2,77+25,"watermark:",$ffffff,a) draw_omitext(135+18+70,77+25,string(settings("ext_legacyui_watermarktype")),$ffffff,a) 
-		draw_omitext(135+18+2,77+25+10,"use load graphic:",$ffffff,a) draw_omitext(135+18+70,77+25+10,string(settings("ext_legacyui_useloadgraphic")),$ffffff,a) 
-		draw_systext(135+4,77+23,replacebuttonnames("[x]"),$ffffff,a) draw_systext(135+4,77+23+10,replacebuttonnames("[y]"),$ffffff,a) 
+		if settings("ext_legacyui_watermarktype")="custom" draw_systext(135+18+70+28,77+23,replacebuttonnames("[s]"),$ffffff,a) 
+		
+		draw_omitext(135+18+2,77+25+10,"loader graphic:",$ffffff,a) draw_omitext(135+18+70,77+25+10,string(settings("ext_legacyui_loadgraphic")),$ffffff,a) 
+		
+		draw_omitext(135+18+2,77+25+20,"border style:",$ffffff,a) draw_omitext(135+18+70,77+25+20,string(settings("ext_legacyui_border")),$ffffff,a) 
+		
+		draw_systext(135+4,77+23,replacebuttonnames("[x]"),$ffffff,a) 
+		draw_systext(135+4,77+23+10,replacebuttonnames("[y]"),$ffffff,a) 
+		draw_systext(135+4,77+23+20,replacebuttonnames("[z]"),$ffffff,a)
+		
 		draw_systext(135+1,77+73,"Press "+replacebuttonnames("[b]")+" to close",$ffffff,a) 
 	}
 ')
@@ -197,29 +250,50 @@ object_setevent(rostercard, ev_create, 0, "
 
 	is_mod=0
 	if (room=roster || room=ta_roster) y+=8
+")
+
+object_event_add(rostercard,ev_step,0,"
+	if !swappedforlegacyui {
+		icon=global.chariconlegacyui[charm_get_id(name),0]
+		swappedforlegacyui=1
+	}
+")
+
+object_event_add(rosterctrl, ev_create, 0, "
+	with rostercursor { 
+		if room=roster {
+			y+=8
+			if p2<5 x=48+16*p2 else x=(400-128-8)+16*(p2-4)
+		}
+		else if room=ta_roster {
+			y=224-32
+			x+=62
+		}
+	}
 	
-	
+	if room=ta_roster {
+		instance_create(94,60,rostergm)
+	}
 ")
 
-object_setevent(rosterscroll, ev_create, 0, "
+object_event_add(rosterscroll, ev_create, 0, "
 	if (room=roster || room=ta_roster) y+=8
 ")
 
-object_setevent(rosterscrolldown, ev_create, 0, "
+object_event_add(rosterscrolldown, ev_create, 0, "
 	if (room=roster || room=ta_roster) y+=8
 ")
 
-object_setevent(rosterbox, ev_create, 0, "
-	ready=0
-	frame=0
-	sndi=-1
-	frh=1
-	lok=0
-	hlok=0
-	showbox=0
-
-	card=noone
+object_event_add(rosterbox, ev_create, 0, "
 	if (room=roster || room=ta_roster) y+=8
+")
+
+object_clearevent(rostergo, ev_create, 0)
+object_setevent(rostergo, ev_create, 0, "
+	event_inherited()
+	mask_index=spr_optbox
+
+	go=0 f=0
 ")
 
 object_clearevent(rostergo, ev_draw, 0)
@@ -262,7 +336,7 @@ object_setevent(rosterctrl, ev_draw, 0, "
 	global.halign=1
 	num1=200
 	num2=248-16
-	if room=ta_roster {num1=248 num2=28+8}
+	if room=ta_roster {num1=248+8 num2=28+8}
 	draw_systext(num1,num2,prx+string(page+1)+'/'+string(maxpage))
 	global.halign=0
 ")
@@ -277,13 +351,14 @@ object_setevent(rosteroptions, ev_draw, 0, "
 	over=0
 ")
 
-object_clearevent(rostergm, ev_step, 0)
-object_setevent(rostergm,ev_step,0,"
+object_clearevent(rostergm, ev_step, ev_step_end)
+object_setevent(rostergm,ev_step,ev_step_end,"
 	pcount=-1
 	with (rosterbox) if (ready) other.pcount+=1
 	
 	over=0
 	with rostercursor if instance_place(x,y,other) other.over=1
+	if room=ta_roster global.gamemode='timeattack'
 ")
 
 object_clearevent(rostergm, ev_draw, 0)
@@ -313,7 +388,8 @@ object_setevent(rostergm,ev_draw,0,"
 	else if global.gamemode=='timeattack' col=$FF3860
 
 	global.halign=1
-	draw_systext(x,y,lang('gamemode '+global.gamemode),col,1)
+	if global.gamemode=='timeattack' draw_systext(x+12,y,lang('gamemode '+global.gamemode),col,1)
+	else draw_systext(x,y,lang('gamemode '+global.gamemode),col,1)
 	global.halign=0
 ")
 object_clearevent(segafade,ev_draw,0)
@@ -368,45 +444,62 @@ if (room!=boot && !global.ext_legacyui_loadedcards) {
 	for (ext_l_ui_J=0;ext_l_ui_J<global.characters;ext_l_ui_J+=1) {
 		if (!global.charmod[ext_l_ui_J] || (string(global.charname[ext_l_ui_J])="simple" || string(global.charname[ext_l_ui_J])="mighty")) { //replace base character cards (or if you're one of these two)
 			if file_exists(extdir+"legacyui\playercards\"+string(global.charname[ext_l_ui_J])+"-card.png") {
-				global.charicon[ext_l_ui_J,0]=sprite_add(extdir+"legacyui\playercards\"+string(global.charname[ext_l_ui_J])+"-card.png",1,0,0,12,12)
-				global.chariconlegacyui[ext_l_ui_J,0]=global.charicon[ext_l_ui_J,0] 
+				if string(global.charname[ext_l_ui_J])="mighty" global.ext_legacyui_mightyexists=ext_l_ui_J+1
+				global.chariconlegacyui[ext_l_ui_J,0]=sprite_add(extdir+"legacyui\playercards\"+string(global.charname[ext_l_ui_J])+"-card.png",1,0,0,12,12)
 			}
 		} 
 		else { //replace charm character cards, if possible
 			if file_exists(globalmanager.moddir+"character\"+string(global.charname[ext_l_ui_J])+"\"+string(global.charname[ext_l_ui_J])+"-card-legacyui.png") {
-				global.charicon[ext_l_ui_J,0]=sprite_add(globalmanager.moddir+"character\"+string(global.charname[ext_l_ui_J])+"\"+string(global.charname[ext_l_ui_J])+"-card-legacyui.png",1,0,0,12,12)
-				global.chariconlegacyui[ext_l_ui_J,0]=global.charicon[ext_l_ui_J,0] 
+				global.chariconlegacyui[ext_l_ui_J,0]=sprite_add(globalmanager.moddir+"character\"+string(global.charname[ext_l_ui_J])+"\"+string(global.charname[ext_l_ui_J])+"-card-legacyui.png",1,0,0,12,12)
 			}
 		}
 		
 	}
 	global.ext_legacyui_loadedcards=1
 }
-/*
-if (room=roster || room=ta_roster) {
-	with rostercard if (string(name)!=0 && string(name)!="") && !swappedforlegacyui {
-		for (ext_l_ui_J=0;ext_l_ui_J<global.characters;ext_l_ui_J+=1) {
-			if string(name)=global.charname[ext_l_ui_J] {
-				//if global.chariconlegacyui[ext_l_ui_J,0]!=0 icon=global.chariconlegacyui[ext_l_ui_J,0]
-			}
-			swappedforlegacyui=1
-		}
-	}
-}*/
 
 if room=modloader && !instance_exists(ext_legacyuicog) {instance_create(x,y,ext_legacyuicog)}
 
 if instance_exists(rostergo) rostergo.y=rostergo.ystart+2 rostergo.mask_index=global.spr_rostergo //hitbox fix?? why do i have to do this??
 
+//mighty easter egg from b12
+if (room=roster || room=ta_roster)
+
+with rostercursor if global.ext_legacyui_mightyexists {
+	if global.option[p2]>-1 && abut {
+		if (global.charname[global.option[p2]]!="sonic" && global.charname[global.option[p2]]!="knux") might=0
+			else {
+				if (global.charname[global.option[p2]]="sonic" && !(might mod 2)) might+=1
+				else if (global.charname[global.option[p2]]="knux" && (might mod 2) && might<7) might+=1
+				else might=0
+				//im evil
+				if (might=7) {
+					global.option[p2]=global.ext_legacyui_mightyexists-1 
+					with mybox {global.playerskin[p2]=-1 event_user(1)} 
+					with rostercard if name="mighty" other.mybox.card=id
+					might=0
+				}
+				
+			}
+	}
+}
 
 #define draw
 if view_current=0 {
-	if settings('ext_legacyui_watermarktype')='216' draw_sprite(global.sprite216,0,15,3)
-	else if settings('ext_legacyui_watermarktype')='180' draw_sprite(global.sprite150,0,15,3)
+	if settings('ext_legacyui_watermarktype')='2.1.6' draw_sprite(global.sprite216,0,15,3)
+	else if settings('ext_legacyui_watermarktype')='1.8 DEMO' draw_sprite(global.sprite150,0,15,3)
+	else if settings('ext_legacyui_watermarktype')='custom' {
+		rect(0,0,4*real(string_length(settings('ext_legacyui_customwatermark')))+1,7,$000000,1) 
+		draw_omitext(1,1,string(settings('ext_legacyui_customwatermark')),$ffffff,1)
+	}
 	
 	global.mariosonicc+=1
 	if (global.mariosonicc>=180) {global.mariosonicc=0 if (global.mariosonicgo) global.mariosonicgo=-1 else global.mariosonicgo=1}
 	global.mariosonic=median(0,global.mariosonic+0.25*global.mariosonicgo,3)
+	
+	with rostercursor {
+		draw_omitext(x,y,might,$ffffff,1)
+	}
 } 
 
 //im lazy
