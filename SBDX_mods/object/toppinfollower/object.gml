@@ -10,19 +10,24 @@ switch(global.cobjectentrypoint){
 
 		mask_index=spr_mask12x12
 
+		realtype=unreal(data_1,0)
+		
+		if !sprite_exists(global.spr_bt_toppinfollower) ||global.spr_bt_toppinfollower==0{
+			global.spr_bt_toppinfollower=sprite_add(globalmanager.moddir+"object\"+data[0]+"\toppins.png",0,1,0,0,0)
+		}
+		sheet=global.spr_bt_toppinfollower
+		
 	break;
 	case "step":
 
 	if !imfollow {
 		with instance_place(x,y,player) {
 				other.imfollow=1
-				//o=instance_create(x,y,geromefollow)
-				sound("itemcoin")
+				sound("itemcoin") //temp
 				if (!follower) {follower=other.id last=other.id}
 				else {other.follower=follower follower.follow=other.id follower=other.id}
 				other.follow=id
 				other.owner=id
-				//o.toppintype=real(other.toppintype)
 		}
 	
 	}
@@ -95,30 +100,100 @@ switch(global.cobjectentrypoint){
 	}
 
 	break;
-	case "draw":
-		draw_sprite(spr_spawner,0,x-8,y-8)
+	case "draw":	
+		if readyfollow {
+			if realtype!=5 {
+				xsc=owner.xsc
+				if owner.hsp=0 draw_sprite_part_ext(sheet,0,112,24*realtype,16,24,x-(8*xsc),y-16,xsc,1,c_white,1)
+				else draw_sprite_part_ext(sheet,0,64+16*(global.frame mod 3),24*realtype,16,24,x-(8*xsc),y-16,xsc,1,c_white,1)
+			} else {
+				xsc=owner.xsc 
+				if owner.hsp=0 draw_sprite_part_ext(sheet,0,32,40,32,40,x-16,y-32,1,1,c_white,1)
+				else draw_sprite_part_ext(sheet,0,0+32*(global.frame mod 2),80,32,40,x-(16*xsc),y-32,xsc,1,c_white,1)
+			}
+		} else {
+			if realtype!=5 {
+				draw_sprite_part_ext(sheet,0,128,0,24,24,x-4,y-8,1,1,c_white,1)
+			} else {
+				draw_sprite_part_ext(sheet,0,32,0,32,40,x-16,y-24,1,1,c_white,1)
+			}
+		}
+		
+		
+		//draw_sprite(spr_spawner,0,x-8,y-8)
 	break;
 	
 	
 	case "lemon_display":
 		xsc=1
 		ysc=1
-		if !sprite_exists(global.spr_bt_gerome) ||global.spr_bt_gerome==0{
-			global.spr_bt_gerome=sprite_add(globalmanager.moddir+"object\"+data[0]+"\gerome.png",0,1,0,0,0)
+		
+		realtype=unreal(data[1],0)
+		
+		if !sprite_exists(global.spr_bt_toppinfollower) ||global.spr_bt_toppinfollower==0{
+			global.spr_bt_toppinfollower=sprite_add(globalmanager.moddir+"object\"+data[0]+"\toppins.png",0,1,0,0,0)
 		}
-		sheet=global.spr_bt_gerome
-		draw_sprite(spr_spawner,0,(x-8),(y-8))
-
+		sheet=global.spr_bt_toppinfollower
+		if realtype!=5 {
+			draw_sprite_part_ext(sheet,0,128,0,24,24,(x*16)-4,(y*16)-8,1,1,c_white,1)
+			draw_sprite_part_ext(sheet,0,112,0.5+24*realtype,16,24,(x*16),(y*16)-8,xsc,1,c_white,0.65)
+		} else {
+			draw_sprite_part_ext(sheet,0,32.5,0,32,40,(x*16)-8,(y*16)-24,1,1,c_white,1)
+		}
 		//draw_sprite_part_ext(sheet,0,8+34*frame,7,33,46,((x+1)*16)-17*xsc,y*16+2,xsc,1,c_white,1)
 
 	break;
 	case "deloaded":
-		if !sprite_exists(global.spr_bt_gerome) ||global.spr_bt_gerome==0{
+		if !sprite_exists(global.spr_bt_toppinfollower) ||global.spr_bt_toppinfollower==0{
 			//no need to deload anything.	
 		}else {
-			sprite_delete(global.spr_bt_gerome) global.spr_bt_gerome=0
+			sprite_delete(global.spr_bt_toppinfollower) global.spr_bt_toppinfollower=0
 		}
 	
+	break;
+
+	case "editobjmenu":
+		
+		if global.cobjectlemontype>3 {global.cobjectlemonreturnvalue=  "----"}
+		
+		else if (global.cobjectlemontype=2) {
+            global.cobjectlemonreturnvalue=  get_string("Object's X Offset",global.cobjectlemondefault)
+		
+		
+		}
+		else if (global.cobjectlemontype=3) {
+            global.cobjectlemonreturnvalue=  get_string("Object's Y Offset",global.cobjectlemondefault)
+		
+		
+		}
+		else if (global.cobjectlemontype=1) {
+            i=show_contextmenu("Toppin Type:|-|Mushroom|Flower|1up|Star|Feather|Gerome",0)
+            if (!i) global.cobjectlemonreturnvalue=  global.cobjectlemondefault
+            else global.cobjectlemonreturnvalue=  string(i-1)
+		
+		
+		}
+	
+	break;
+	case "editobjdataname":
+		i=global.cobjectlemondefault
+		type=global.cobjectlemontype
+		if global.cobjectlemontype>3 {global.cobjectlemonreturnvalue= "[NO DATA]"}
+		else if type==2{
+			global.cobjectlemonreturnvalue="Offset X: " + string(i)
+		}else if type==3{
+			global.cobjectlemonreturnvalue="Offset Y: " + string(i)
+		}else if type==1{
+			if i=="0" global.cobjectlemonreturnvalue= "Mushroom";
+			if i=="1" global.cobjectlemonreturnvalue=  "Flower";
+			if i=="2" global.cobjectlemonreturnvalue=  "1up";
+			if i=="3" global.cobjectlemonreturnvalue=  "Star";
+			if i=="4" global.cobjectlemonreturnvalue=  "Feather";
+			if i=="5" global.cobjectlemonreturnvalue=  "Gerome";
+			else global.cobjectlemonreturnvalue= "Mushroom";
+		
+		}
+		
 	break;
 
 }

@@ -30,7 +30,7 @@ if string(settings('ext_legacyui_loadgraphic'))=="" settings('ext_legacyui_loadg
 if string(settings('ext_legacyui_border'))=="" settings('ext_legacyui_border',"shaded")
 
 if (settings('ext_legacyui_watermarktype')=="216" || settings('ext_legacyui_watermarktype')=="180") {
-	ping("Legacy UI: Thexx settings values have changed. #Please visit the Mod Loader.")
+	ping("Legacy UI: The settings values have changed. #Please visit the Mod Loader.")
 	message.depth=captain.depth-1
 }
 
