@@ -138,7 +138,7 @@ switch(global.cobjectentrypoint){
 			draw_sprite_part_ext(sheet,0,128,0,24,24,(x*16)-4,(y*16)-8,1,1,c_white,1)
 			draw_sprite_part_ext(sheet,0,112,0.5+24*realtype,16,24,(x*16),(y*16)-8,xsc,1,c_white,0.65)
 		} else {
-			draw_sprite_part_ext(sheet,0,32.5,0,32,40,(x*16)-8,(y*16)-24,1,1,c_white,1)
+			draw_sprite_part_ext(sheet,0,32.5,40.5,32,40,(x*16)-8,(y*16)-24,1,1,c_white,1)
 		}
 		//draw_sprite_part_ext(sheet,0,8+34*frame,7,33,46,((x+1)*16)-17*xsc,y*16+2,xsc,1,c_white,1)
 
