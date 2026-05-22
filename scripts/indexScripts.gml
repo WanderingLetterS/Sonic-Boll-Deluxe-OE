@@ -4,6 +4,7 @@ if !(global.lemontest) || (global.lemonfilename == "") {
     if (dir == "") {
         dir = global.lbase
     }
+    dir = globalmanager.moddir + dir
 } else {
     dir = filename_path(global.lemonfilename);
 }
