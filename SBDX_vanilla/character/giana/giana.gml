@@ -45,6 +45,7 @@ hurt=0
 braking=0
 gianadash=0
 push=0
+mynewitems=0
 
 
 #define itemget
@@ -60,7 +61,7 @@ if ((!piped && !hurt && !(global.mplay>1 && flash)) || monitem) {
 			if (skidding) {soundstop(name+"skid") skidding=0}
 			energy+=1
 			itemget=1
-			if (size=0 || size=5) {playgrowsfx("") set_sprite("grow") growing_rn=60 sprite_angle=0 } else {playgrowsfx("2")}
+			if (size=0 || size=5 || size=6 || size=7) {playgrowsfx("") set_sprite("grow") growing_rn=60 sprite_angle=0 } else {playgrowsfx("2")}
 		}
 	}
 	else if (type="fflower") {
@@ -73,7 +74,7 @@ if ((!piped && !hurt && !(global.mplay>1 && flash)) || monitem) {
 			if (skidding) {soundstop(name+"skid") skidding=0}
 			energy+=1
 			itemget=1
-			if (size=0 || size=5) {playgrowsfx("") set_sprite("grow") growing_rn=60 sprite_angle=0 } else {playgrowsfx("2")}           
+			if (size=0 || size=5 || size=6 || size=7) {playgrowsfx("") set_sprite("grow") growing_rn=60 sprite_angle=0 } else {playgrowsfx("2")}           
 		}
 	}
 	else if (type="bfeather") {
@@ -137,7 +138,43 @@ if ((!piped && !hurt && !(global.mplay>1 && flash)) || monitem) {
 			shielded=1
 			itemget=1
 		}
-	} //else if (type!="jumprefresh" && type!="1up" && type!="coin" && type!="ring") com_item()
+	} 
+	else if (type="btroot") {
+        coll=other.id
+        if (p2!=other.p2) {
+            itemc+=1
+            doscore_p(1000,1)
+        }
+        playgrowsfx("6")
+        if (skidding) {
+            soundstop(name+"skid")
+            skidding=0
+        }
+        if (!super && size!=6) grow=1
+        //oldsize=size
+        //size=6
+        itemget=1
+		{playgrowsfx("2") set_sprite("grow") mynewitems=1 growing_rn=60 sprite_angle=0 }
+    }
+    else if (type="glui") {
+        coll=other.id
+        if (p2!=other.p2) {
+            itemc+=1
+            doscore_p(1000,1)
+        }
+        playgrowsfx("7")
+        if (skidding) {
+            soundstop(name+"skid")
+            skidding=0
+        }
+        if (!super && size!=7) grow=1
+        //oldsize=size
+        //size=7
+        itemget=1
+		{playgrowsfx("2") set_sprite("grow") mynewitems=2 growing_rn=60 sprite_angle=0 }
+    }
+	
+	//else if (type!="jumprefresh" && type!="1up" && type!="coin" && type!="ring") com_item()
 }
 if (type="1up") {
     sound("item1up")
@@ -811,7 +848,7 @@ vsp=0
 vspeed=0
 gianadash=0
 twirl=0
-if growing_rn=1 {size=1}
+if growing_rn=1 {if mynewitems=1 {size=6 mynewitems=0} else if mynewitems=2 {size=7 mynewitems=0} else size=1}
 }
 hurting_rn-=1
 if hurting_rn{set_sprite("knock")
