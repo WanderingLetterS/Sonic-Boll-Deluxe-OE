@@ -8,8 +8,9 @@ switch(global.cobjectentrypoint){
 		lok=0
 		fresh=1
 
-		mask_index=spr_mask12x12
-
+		mask_index=spr_monitormask
+		y-=4
+		
 		realtype=unreal(data_1,0)
 		x+=unreal(data_2,0)
 		y+=unreal(data_3,0)
@@ -115,14 +116,14 @@ switch(global.cobjectentrypoint){
 			}
 		} else {
 			if realtype!=5 {
-				draw_sprite_part_ext(sheet,0,128,0,24,24,x-4,y-8,1,1,c_white,1)
+				draw_sprite_part_ext(sheet,0,128,0,24,24,x-3,y-4,1,1,c_white,1)
 			} else {
-				draw_sprite_part_ext(sheet,0,32,0,32,40,x-16,y-24,1,1,c_white,1)
+				draw_sprite_part_ext(sheet,0,32,0,32,40,x-8,y-20,1,1,c_white,1)
 			}
 		}
 		
 		
-		//draw_sprite(spr_spawner,0,x-8,y-8)
+		if global.debug draw_sprite_ext(mask_index,0,x,y,1,1,0,c_white,0.5)
 	break;
 	
 	
