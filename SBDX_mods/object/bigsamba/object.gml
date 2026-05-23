@@ -32,7 +32,7 @@ switch(global.cobjectentrypoint){
 		if !dead {
 			global.pizzatime=1 
 			with other sound("sambahit")
-			with other {regionmarker.typemus="pizzatime" stagemusic(id,p2)}
+			regionmarker.typemus="pizzatime" stagemusic(other.id,other.p2)
 			//other.combo+=1
 			//global.inf_time=0
 			gamemanager.tick=real(timeamount)*60

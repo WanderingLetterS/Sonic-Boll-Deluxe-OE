@@ -12,6 +12,19 @@ switch(global.cobjectentrypoint){
 
 		timer=1
 
+		if !(global.lemontest) || (global.lemonfilename == "") {
+			wskin = global.lskins[global.levelskin+1,0]
+			if (wskin == "") {
+				wskin = global.lbase
+			}
+			wskin = globalmanager.moddir + wskin
+		} else {
+			wskin = filename_path(global.lemonfilename);
+		}
+		
+		wskin=wskin+global.levelfname+'\'
+		
+		
 		//look im desperate
 		for (k=0;k<2;k+=1) {
 			
@@ -50,18 +63,6 @@ switch(global.cobjectentrypoint){
 			}
 
 		}
-		
-		if !(global.lemontest) || (global.lemonfilename == "") {
-			wskin = global.lskins[global.levelskin+1,0]
-			if (wskin == "") {
-				wskin = global.lbase
-			}
-			wskin = globalmanager.moddir + wskin
-		} else {
-			wskin = filename_path(global.lemonfilename);
-		}
-		
-		wskin=wskin+global.levelfname+'\'
 		
 		replacesound("itemtoppingclock",wskin+"sfx\bellcollectsmall.ogg")
 		replacesound("itemtoppingbell",wskin+"sfx\bellcollectbig.ogg")
@@ -121,7 +122,7 @@ switch(global.cobjectentrypoint){
 	}
 
 	with (warpbox) with instance_place(x,y,player) with other {
-		if string(target)=="Lap2" && global.pizzatime && mylap2<2{
+		if string(target)=="Lap2" && global.pizzatime && mylap2<1{
 			/*Do all the funny Lap 2 effects and shit*/
 			if !mylap2 && !t
 			t=instance_create(global.lap2x,global.lap2y,warpbox){t.visible=0 t.iamlap2=1 t.name="Lap2" with t getregion(x)}
@@ -129,6 +130,7 @@ switch(global.cobjectentrypoint){
 			t.mylap2=mylap2
 			
 			global.pizzatime+=1
+			with other {regionmarker.typemus="lap2"} 
 			gamemanager.frog_escape_timer=0
 			with instance_create(x,y,scriptblock) {
 				scriptname="pizzatimeanim"
@@ -137,14 +139,15 @@ switch(global.cobjectentrypoint){
 			}
 			depth=other.depth-1
 			with other {
+				gamemanager.frog_escape=0
+				stagemusic(id,p2)
+				gamemanager.frog_escape=1
 				set_sprite("roll")
 				piped=1
 				pipeid=other.id
 				type="warpbox"
 				pipe=6
 				visible=0
-				
-				regionmarker.typemus="lap2" stagemusic(id,p2)
 			}
 			hit=1
 			t.hit=1

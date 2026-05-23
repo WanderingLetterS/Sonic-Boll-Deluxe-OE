@@ -47,20 +47,30 @@ switch(global.cobjectentrypoint){
 					i.vspeed=-2
 					i.hspeed=-2
 					i.spritepart=0
+					i.visible=0
+					i.toppingcagepart=1
 
 					i=instance_create(x,y,part)
 					i.vspeed=2
 					i.hspeed=2
 					i.spritepart=1
-
+					i.visible=0
+					i.toppingcagepart=1
+					
 					i=instance_create(x,y,part)
 					i.vspeed=-2
 					i.hspeed=2
 					i.spritepart=1
+					i.visible=0
+					i.toppingcagepart=1
+					
 					i=instance_create(x,y,part)
 					i.vspeed=2
 					i.hspeed=-2
 					i.spritepart=0
+					i.visible=0
+					i.toppingcagepart=1
+					
 					sound("itemblockbreak")
 				}
 			}
@@ -154,6 +164,9 @@ switch(global.cobjectentrypoint){
 			}
 		}
 		
+		with (part) if toppingcagepart {
+			draw_sprite_part_ext(other.sheet,0,128+8*other.spritepart,24,8,8,x,y,1,1,c_white,1)
+		}
 		
 		if global.debug draw_sprite_ext(mask_index,0,x,y,1,1,0,c_white,0.5)
 	break;
