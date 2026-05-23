@@ -25,12 +25,17 @@ switch(global.cobjectentrypoint){
 		if (toppingtype!=5 || !gamemanager.kaerublockstate) {
 			with instance_place(x,y,player) {
 				with other {
-					if (give_item(other.id,"bigtopping")) {
-						stats("toppings collected",stats("toppings collected")+1)
-						//with other sound("itembigtopping")
-						with other sound("itemjumprefresh") //temp
-						instance_destroy()
+					with other {
+						itemget=0
+						give_item(id,"bigtopping")
+						if itemget=0 bigtopping_get=1
 					}
+					
+					
+					stats("toppings collected",stats("toppings collected")+1)
+					//with other sound("itemtopping")
+					with other sound("itemjumprefresh") //temp
+					instance_destroy()
 				}
 			}
 	}

@@ -47,6 +47,11 @@ for (k=0;k<2;k+=1) {
 
 }
 
+with instance_create(x,y,scriptblock) {
+		scriptname="charmodifiers"
+		event_user(0)
+	}
+
 #define step
 gamemanager.sekiro=1
 skindat("hurry",0)
@@ -69,6 +74,7 @@ with (warpbox) with instance_place(x,y,player) with other {
 		mylap2+=1
 		t.mylap2=mylap2
 		
+		global.pizzatime+=1
 		gamemanager.time=0 
         gamemanager.tick=0
 		with instance_create(x,y,scriptblock) {
