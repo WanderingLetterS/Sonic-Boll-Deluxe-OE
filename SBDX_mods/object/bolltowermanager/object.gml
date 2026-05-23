@@ -51,7 +51,17 @@ switch(global.cobjectentrypoint){
 
 		}
 		
-		wskin=global.lemonlskin+"\"
+		if !(global.lemontest) || (global.lemonfilename == "") {
+			wskin = global.lskins[global.levelskin+1,0]
+			if (wskin == "") {
+				wskin = global.lbase
+			}
+			wskin = globalmanager.moddir + wskin
+		} else {
+			wskin = filename_path(global.lemonfilename);
+		}
+		
+		wskin=wskin+global.levelfname+'\'
 		
 		replacesound("itemtoppingclock",wskin+"sfx\bellcollectsmall.ogg")
 		replacesound("itemtoppingbell",wskin+"sfx\bellcollectbig.ogg")
