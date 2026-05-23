@@ -310,6 +310,23 @@ if (keyboard_check_pressed(vk_enter) && !off) {
             }
         break}
 
+        case "scriptreload":
+        case "reloadscript":
+        case "script_reload":
+        case "reload_script":
+        case "scriptrel":
+        case "screl":
+        {
+            if room!=game {
+                sound("systemreturn")
+                ping("Cannot use command outside of a game.")
+                exit;
+            }
+            cleanupScripts();
+            indexScripts();
+            with scriptblock {event_user(0)}
+        break}
+
         case "skinnext":
         {
             if (global.gamemode == "timeattack") {
