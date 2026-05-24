@@ -41,8 +41,8 @@ switch(global.cobjectentrypoint){
 					//Custom Music
 					with (globalmanager) {
 						if !ds_map_exists(mushandles, other.typemus) {
-							musc+=1 mload[musc]=global.biome[i]
-							musc+=1 mload[musc]=global.biome[i]+"fast"
+							musc+=1 mload[musc]=other.typemus
+							musc+=1 mload[musc]=other.typemus+"fast"
 							ds_map_add(mushandles, other.typemus, 0)
 							ds_map_add(mushandles, other.typemus+"_filename", 0)
 						}
