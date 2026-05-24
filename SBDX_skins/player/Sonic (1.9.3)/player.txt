@@ -34,7 +34,7 @@ single sheet=true
 singlesheet split width=8,200,456,456,456,8
 singlesheet split height=0,0,0,0,0,0
 
-custom sprite list= stand,wait,pose,crouch,knock,dead,walk,run,brake,spring,climbing,ball,jump,spindash,dropdash,push,balance,flagslide,fire,spacer2,dash
+custom sprite list= stand,wait,pose,crouch,knock,dead,walk,run,brake,spring,climbing,ball,jump,spindash,dropdash,push,balance,flagslide,fire,spacer2,dash,spacer3,maxrun
 
 connect stand=true
 connect wait=true
@@ -53,7 +53,6 @@ connect dash=true
 
 
 reroute lookup=stand
-reroute maxrun=run
 reroute springfall=walk
 reroute bonk=jump
 reroute spincharge=spindash
@@ -232,9 +231,19 @@ dash frametimes=0
 dash offset x=0
 dash offset y=0
 
+maxrun frames=4
+maxrun loop=1
+maxrun speed=0.25
+maxrun frametimes=0
+maxrun offset x=0
+maxrun offset y=0
+
 boll top=#0077FF
 boll mid=#000000
 boll bot=#ff0000
+
+size reroute beet=big
+size reroute lui=big
 
 [super]
 name=Super Sonic
@@ -250,11 +259,11 @@ multiple box sizes=true
 
 supermusic=You sit upon a throne of True...
 
-center x=12,16,16,16,16,12,16,16,16,16
-center y=13,18,18,18,18,13,18,18,18,18
+center x=12,16,16,16,16,12,16,16,16,16,16,16
+center y=13,18,18,18,18,13,18,18,18,18,18,18
 
-box width=24,32,32,32,32,24,32,32,32,32
-box height=32,40,40,40,40,32,40,40,40,40
+box width=24,32,32,32,32,24,32,32,32,32,32,32
+box height=32,40,40,40,40,32,40,40,40,40,40,40
 
 pitch spindash=yes
 jump ball animation=no
@@ -275,7 +284,7 @@ defaultspray 4=1
 
 reroutespray 4=1
 
-roster size=6
+roster size=8
 
 single sheet=true
 singlesheet split width=8,200,456,456,712,8,712,712,712,712
