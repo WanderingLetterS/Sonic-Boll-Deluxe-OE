@@ -25,6 +25,9 @@ time until wait=300
 pipe squish=20
 pole center offset=8
 
+fairdash frames=4
+fairdash speed=0.2
+
 stand frames=8
 wait frames=6
 lookup frames=3
