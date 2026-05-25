@@ -489,9 +489,11 @@ else if (newbonk=1) sprite="splat"
 else if (newbonk=2) sprite="splatknock"
 else if (newbonk=3) sprite="bonkwallr"
 else if (bounced) {bounced-=1 sprite="stomp"}
-else if (crouch) {sprite="crouch"}
+else if (hammerslam) sprite="fairdash"
+
 else if (dash) {sprite="dash"}
 else if (wall) {sprite="wallrun" fallspr="spring"}
+else if (crouch) {sprite="crouch" if abs(hsp)>0 sprite="crawl"}
 else if (brakingmach) {sprite="machturn"}
 else if (dive) {sprite="dive"}
 else if (jump) {
@@ -517,7 +519,7 @@ else if (jump) {
         else {sprite="stand"}
     } else {
         if (braking) sprite="brake"
-else if (abs(hsp)>(maxspd-0.1) && !finish && runspd>2.25) {sprite="megaspeed" frspd=runspd/2}
+else if (abs(hsp)>(maxspd-0.1) && !finish && runspd>=2) {sprite="megaspeed" frspd=runspd/2}
 else if (abs(hsp)>(maxspd-0.1) && !finish && runspd>1.25) {sprite="maxrun" frspd=runspd/2}
         else if (abs(hsp)>3.4 && !finish) {sprite="run" frspd=abs(hsp/3)}
         else {sprite="walk" frspd=0.2+abs(hsp/4)}
