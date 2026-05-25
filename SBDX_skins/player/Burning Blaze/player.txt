@@ -26,7 +26,7 @@ use paletting=false
 
 custom sprite list=stand,wait,lookup,pose,crouch,knock,dead,walk,run,maxrun,brake,spring,springfall,jump,bonk,ball,spindash,push,hang,transform,dash,specfall,climbing,flagslide,dropdash,piping,pipingup,sidepiping,doorenter,doorexit
 
-max sizes=9
+max sizes=11
 
 size reroute fire=big
 size reroute feather=big

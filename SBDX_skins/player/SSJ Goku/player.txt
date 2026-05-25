@@ -12,7 +12,7 @@ box width=48
 box height=48
 pole center offset=8
 
-max sizes=9
+max sizes=11
 
 pitch spindash=yes
 jump ball animation=no
