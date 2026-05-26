@@ -267,7 +267,7 @@ box height=32,40,40,40,40,32,40,40,40,40,40,40
 
 pitch spindash=yes
 jump ball animation=no
-fire duration=2.75
+fire duration=16
 victory duration=50
 time until wait=300
 pipe squish=20
@@ -287,7 +287,7 @@ reroutespray 4=1
 roster size=8
 
 single sheet=true
-singlesheet split width=8,200,456,456,712,8,712,712,712,712
+singlesheet split width=8,200,456,456,712,8,200,200,712,712,712,712
 singlesheet split height=0,0,0,0,0,0,0,0,0,0
 
 custom sprite list= stand,wait,pose,crouch,knock,dead,walk,run,brake,spring,climbing,ball,jump,spindash,dropdash,push,balance,flagslide,fire,spacer2,dash,transform
@@ -516,7 +516,7 @@ box height=32,40,40,40,40,32
 
 pitch spindash=yes
 jump ball animation=no
-fire duration=2.75
+fire duration=16
 victory duration=50
 time until wait=300
 pipe squish=20

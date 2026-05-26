@@ -1,0 +1,220 @@
+[sonic]
+name=Shaggy
+
+sheetname=193shaggy
+
+icon speed=4
+icon loop=no
+animation speed=1.0
+
+multiple box sizes=true
+
+center x=12,16,16,16,16,12,16,16
+center y=13,18,18,18,18,13,18,18
+
+box width=24,32,32,32,32,24,32,32
+box height=32,40,40,40,40,32,40,40
+
+pitch spindash=no
+jump ball animation=no
+fire duration=16
+victory duration=50
+time until wait=300
+pipe squish=20
+pole center offset=8
+minisheet=false
+
+use paletting=true
+defaultspray 1=0
+defaultspray 2=0
+defaultspray 3=0
+defaultspray 4=0
+
+single sheet=true
+singlesheet split width=8,176,400,400,176,8,400,400
+singlesheet split height=0,0,0,0,0,0
+
+custom sprite list=stand,wait,crouch,walk
+connect wait=true
+connect crouch=true
+connect walk=true
+
+reroute lookup=wait
+reroute pose=stand
+reroute knock=walk
+reroute dead=walk
+reroute run=walk
+reroute maxrun=walk
+reroute brake=walk
+reroute spring=walk
+reroute springfall=walk
+reroute jump=walk
+reroute bonk=walk
+reroute fall=walk
+reroute ball=walk
+reroute spindash=walk
+reroute spincharge=walk
+reroute dropdash=walk
+reroute push=walk
+reroute balance=stand
+reroute fire=walk
+reroute dash=walk
+reroute specfall=walk
+reroute climbing=walk
+reroute flagslide=walk
+reroute hanging=walk
+reroute hangmove=walk
+reroute grinding=stand
+reroute piping=stand
+reroute pipingup=stand
+reroute sidepiping=walk
+reroute doorenter=stand
+reroute doorexit=stand
+
+sonic boom graphic x=10
+sonic boom graphic y=88
+
+instashield graphic x=64
+instashield graphic y=46
+
+firedash graphic x=227
+firedash graphic y=46
+
+featherdash graphic x=227
+featherdash graphic y=46
+
+spindash dust graphic x=454
+spindash dust graphic y=10
+spindash dust frames=1
+spindash dust speed=1
+
+stand frames=1
+wait frames=4
+crouch frames=1
+walk frames=1
+wait speed=0.2
+
+boll top=#ddbb00
+boll mid=#00aa00
+boll bot=#ff0000
+
+[super]
+name=Shaggy
+
+sheetname=193shaggy
+
+icon speed=4
+icon loop=no
+animation speed=1.0
+
+multiple box sizes=true
+
+supermusic=You sit upon a throne of True...
+
+center x=12,16,16,16,16,12,16,16,16,16,16,16
+center y=13,18,18,18,18,13,18,18,18,18,18,18
+
+box width=24,32,32,32,32,24,32,32,32,32,32,32
+box height=32,40,40,40,40,32,40,40,40,40,40,40
+
+pitch spindash=no
+jump ball animation=no
+fire duration=16
+victory duration=50
+time until wait=300
+pipe squish=20
+pole center offset=8
+minisheet=false
+
+max sizes=11
+
+use paletting=true
+defaultspray 1=0
+defaultspray 2=0
+defaultspray 3=0
+defaultspray 4=0
+
+roster size=8
+
+single sheet=true
+singlesheet split width=8,176,400,400,176,8,400,400,400,400,400,400
+singlesheet split height=0,0,0,0,0,0,0,0,0,0
+
+custom sprite list=stand,wait,crouch,walk
+connect wait=true
+connect crouch=true
+connect walk=true
+
+reroute lookup=wait
+reroute pose=stand
+reroute knock=walk
+reroute dead=walk
+reroute run=walk
+reroute maxrun=walk
+reroute brake=walk
+reroute spring=walk
+reroute springfall=walk
+reroute jump=walk
+reroute bonk=walk
+reroute fall=walk
+reroute ball=walk
+reroute spindash=walk
+reroute spincharge=walk
+reroute dropdash=walk
+reroute push=walk
+reroute balance=stand
+reroute fire=walk
+reroute dash=walk
+reroute specfall=walk
+reroute climbing=walk
+reroute flagslide=walk
+reroute hanging=walk
+reroute hangmove=walk
+reroute transform=walk
+reroute grinding=stand
+reroute piping=stand
+reroute pipingup=stand
+reroute sidepiping=walk
+reroute doorenter=stand
+reroute doorexit=stand
+
+sonic boom graphic x=10
+sonic boom graphic y=88
+
+instashield graphic x=64
+instashield graphic y=46
+
+firedash graphic x=227
+firedash graphic y=46
+
+featherdash graphic x=227
+featherdash graphic y=46
+
+spindash dust graphic x=454
+spindash dust graphic y=10
+spindash dust frames=1
+spindash dust speed=1
+
+stand frames=1
+wait frames=4
+crouch frames=1
+walk frames=1
+wait speed=0.2
+
+boll top=#ddbb00
+boll mid=#00aa00
+boll bot=#ff0000
+
+[lang]
+winspecial=Shaggy got a Chaos Emerald
+allspecial=Shaggy got all Chaos Emeralds
+princess=Scooby Doo
+savetext1=Congratulations!
+savetext2=We knew you could do it.
+savetext3=You have saved Scooby Doo!
+savetext4=This ends your quest.
+savetext5=And lucky for you,
+savetext6=you're a dog lover.
+credits=is here to kick ass and take names
+
+

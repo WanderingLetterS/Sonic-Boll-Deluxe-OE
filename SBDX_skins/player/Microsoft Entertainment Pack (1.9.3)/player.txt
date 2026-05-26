@@ -17,6 +17,12 @@ fire duration=8
 victory duration=30
 
 max sizes=7
+use paletting=true
+projectile palettes=false
+defaultspray 1=0
+defaultspray 2=0
+defaultspray 3=0
+defaultspray 4=0
 seperate projectile coords by size=true
 
 claw graphic x0=112
@@ -86,6 +92,9 @@ jump speed=0.25
 ball speed=0.5
 claw speed=1
 fly speed=0.25
+
+size reroute beet=fire
+size reroute lui=feather
 
 boll top=#aaaaaa
 boll mid=#000000
