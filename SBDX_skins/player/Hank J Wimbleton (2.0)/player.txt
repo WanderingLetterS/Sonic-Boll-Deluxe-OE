@@ -1,0 +1,105 @@
+[kid]
+name=Hank J. Wimbleton
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+center x=24
+center y=27
+box width=48
+box height=48
+
+custom sprite list=stand,wait,lookup,pose,walk,jump,bonk,fall,wall,dash,bow,stand2,wait2,lookup2,pose2,walk2,jump2,bonk2,fall2,wall2,dash2,bow2,flagslide,climbing
+
+reroute standcarry=stand
+reroute walkcarry=walk
+reroute jumpcarry=jump
+reroute piping=pose
+reroute pipingup=pose
+reroute doorenter=pose
+reroute doorexit=stand
+reroute sidepiping=walk
+reroute fallcarry=fall
+reroute dashcarry=dash
+reroute bonkcarry=bonk
+reroute run=walk
+reroute spin=walk
+reroute grind=walk
+reroute wallcarry=wall
+
+size reroute big=basic
+size reroute fire=basic
+size reroute feather=basic
+size reroute lui=basic
+size reroute beet=basic
+
+fire duration=4
+blood splat=yes
+bow lag=no
+victory duration=30
+time until wait=200
+pipe squish=20
+
+stand frames=4
+wait frames=6
+lookup frames=4
+walk frames=8
+jump frames=3
+bonk frames=2
+fall frames=3
+wall frames=2
+dash frames=3
+climbing frames=2
+
+jump loop=3
+fall loop=3
+bonk loop=2
+
+stand speed=0.2
+wait speed=0.2
+lookup speed=0.2
+walk speed=0.3
+jump speed=0.25
+bonk speed=0.25
+fall speed=0.25
+wall speed=0.25
+dash speed=0.25
+climbing speed=0.12
+
+standfire frames=4
+lookupfire frames=4
+walkfire frames=4
+jumpfire frames=3
+bonkfire frames=2
+fallfire frames=3
+wallfire frames=2
+dashfire frames=3
+
+jumpfire loop=3
+fallfire loop=3
+bonkfire loop=2
+
+standfire speed=0.2
+lookupfire speed=0.2
+walkfire speed=0.3
+jumpfire speed=0.25
+bonkfire speed=0.25
+fallfire speed=0.25
+wallfire speed=0.25
+dashfire speed=0.25
+
+boll top=#363636
+boll mid=#FF0000
+boll bot=#363636
+
+[lang]
+winspecial=Hank got a Chaos Emerald
+allspecial=Hank got all Chaos Emeralds
+princess=our Princess
+savetext1=Peace is Paved
+savetext2=With Kingdom Saved
+savetext3=not so Hurrah to Hank
+savetext4=Our Only Hero 
+savetext5=This Ends Your Trip
+savetext6=Of a Long killing spree
+credits=scartingz

@@ -1,0 +1,137 @@
+[stan]
+name=Bubblun
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+center x=24
+center y=27
+box width=48
+box height=48
+
+fire duration=2.75
+victory duration=30
+time until wait=200
+pipe squish=20
+pole center offset=8
+
+use paletting=true
+defaultspray 1=8
+defaultspray 2=7
+defaultspray 3=4
+defaultspray 4=0
+
+custom sprite list=stand,wait,fired,lookup,lookupfired,pose,dance,knock,deadair,deadland,walk,walkfired,walkup,walkupfired,brake,jump,bonk,fall,jumpfired,jumpup,jumpupfired,jumpdown,jumpdownfired,suckin,ball,slide,double,triple,climbing,flagslide
+
+reroute sidepiping=walk
+reroute piping=pose
+reroute pipingup=jumpup
+reroute doorenter=stand
+reroute doorexit=stand
+reroute doublejump=double
+reroute doublejumpbonk=double
+reroute doublejumpfall=double
+reroute triplejump=triple
+reroute triplejumpbonk=triple
+reroute triplejumpfall=triple
+reroute swim=fall
+reroute paddle=jump
+reroute groundpound=ball
+reroute poundfall=slide
+reroute brickbonk=bonk
+reroute grind=dance
+
+size reroute fire=big
+size reroute feather=big
+size reroute lui=big
+size reroute beet=big
+size reroute mini=basic
+
+stand frames=3
+wait frames=3
+lookup frames=3
+fired frames=2
+lookupfired frames=2
+pose frames=1
+crouch frames=2
+knock frames=1
+dead frames=4
+deadlanded frames=1
+walk frames=8
+walkfired frames=8
+walkaimup frames=8
+walkaimupfired frames=8
+brake frames=1
+jump frames=3
+bonk frames=2
+fall frames=3
+jumpfired frames=2
+jumpup frames=1
+jumpupfired frames=2
+jumpdown frames=2
+jumpdownfired frames=2
+climbing frames=2
+sliding frames=1
+dance frames=2
+suckin frames=3
+ball frames=8
+slide frames=1
+double frames=3
+triple frames=9
+deadair frames=2
+
+
+jumpdown loop=2
+bonk loop=2
+jump loop=3
+fall loop=3
+fired loop=2
+lookupfired loop=2
+jumpdownfired loop=2
+jumpfired loop=2
+triple loop=9
+double loop=3
+stand speed=0.1
+lookup speed=0.1
+fired speed=0.1
+lookupfired speed=0.1
+jumpdownfired speed=0.1
+jumpfired speed=0.1
+wait speed=0.1
+walk speed=0.5
+jump speed=0.3
+fall speed=0.3
+double speed=0.3
+springfall speed=0.4
+fire speed=0.1
+climbing speed=0.12
+sliding speed=0.05
+dance speed=0.1
+ball speed=0.75
+ball loop=8
+deadair speed=0.1
+jump frametimes=0.3,0.3,9999
+double frametimes=0.3,0.3,9999
+fall frametimes=0.3,0.3,9999
+suckin frametimes= 20,1,15
+triple frametimes= 1,1,1,1,1,1,1,1,9999
+
+bonk speed=0.1
+
+
+boll top=#E1DDD5
+boll mid=#000000
+boll bot=#1870F0
+
+
+[lang]
+winspecial=Bubblun got a Chaos Emerald
+allspecial=Bubblun got all Chaos Emeralds
+princess=our Princess
+savetext1=Peace is Paved
+savetext2=With Kingdom Saved
+savetext3=Hurrah to Bubblun
+savetext4=Our Only Hero 
+savetext5=This Ends Your Trip
+savetext6=Of a Long Friendship
+credits=WildCard78

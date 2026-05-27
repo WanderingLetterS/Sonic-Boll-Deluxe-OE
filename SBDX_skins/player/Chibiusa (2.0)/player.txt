@@ -1,0 +1,116 @@
+[kid]
+name=Chibiusa
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+center x=14
+center y=12
+box width=28
+box height=32
+
+fire duration=12
+blood splat=yes
+bow lag=no
+victory duration=30
+time until wait=200
+pipe squish=20
+pole center offset=6
+
+custom sprite list=stand,wait,lookup,pose,walk,jump,bonk,fall,wall,dash,bow,stand2,wait2,lookup2,pose2,walk2,jump2,bonk2,fall2,wall2,dash2,bow2,flagslide
+
+use paletting=true
+defaultspray 1=4
+defaultspray 2=5
+defaultspray 3=2
+defaultspray 4=0
+
+reroute standcarry=stand
+reroute walkcarry=walk
+reroute jumpcarry=jump
+reroute piping=pose
+reroute pipingup=pose
+reroute doorenter=pose
+reroute doorexit=stand
+reroute sidepiping=walk
+reroute fallcarry=fall
+reroute dashcarry=dash
+reroute bonkcarry=bonk
+reroute run=walk
+reroute spin=walk
+reroute grind=walk
+reroute wallcarry=wall
+reroute climbing=walk
+
+size reroute big=basic
+size reroute fire=basic
+size reroute feather=basic
+size reroute lui=basic
+size reroute beet=basic
+
+connect flagslide=true
+
+
+stand frames=4
+wait frames=4
+lookup frames=4
+walk frames=4
+jump frames=3
+bonk frames=1
+fall frames=3
+wall frames=2
+dash frames=4
+
+jump loop=2
+fall loop=2
+bonk loop=1
+
+stand speed=0.2
+wait speed=0.2
+lookup speed=0.2
+walk speed=0.5
+jump speed=0.25
+bonk speed=0.25
+fall speed=0.25
+wall speed=0.25
+dash speed=0.25
+
+stand2 frames=4
+lookup2 frames=4
+walk2 frames=4
+jump2 frames=3
+bonk2 frames=2
+fall2 frames=3
+wall2 frames=2
+dash2 frames=4
+flagslide frames=1
+
+jump2 loop=2
+fall2 loop=2
+bonk2 loop=2
+
+stand2 speed=0.2
+lookup2 speed=0.2
+walk2 speed=0.5
+jump2 speed=0.25
+bonk2 speed=0.25
+fall2 speed=0.25
+wall2 speed=0.25
+dash2 speed=0.25
+
+boll top=#A52B6E
+boll mid=#A52B6E
+boll bot=#0068F0
+
+
+[lang]
+winspecial=Chibiusa got a Chaos Emerald
+allspecial=Chibiusa got all Chaos Emeralds
+princess=our Princess
+savetext1=Peace is Paved
+savetext2=With Kingdom Saved
+savetext3=Hurrah to Chibiusa
+savetext4=Our Only Hero 
+savetext5=This Ends Your Trip
+savetext6=Of a Long Friendship
+credits=Amelia
