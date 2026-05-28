@@ -1,0 +1,341 @@
+[sonic]
+name=Sonic
+
+sheetname=sonic-megaman-nes
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+
+multiple box sizes=false
+
+center x=17
+center y=17
+box width=33
+box height=37
+marker offset=26
+
+skin offset=128
+victory duration=50
+short small form=true
+
+use paletting=true
+defaultspray 1=1
+defaultspray 2=7
+defaultspray 3=5
+defaultspray 4=1
+
+single sheet=true
+singlesheet split width=8,272,536,272,8
+singlesheet split height=0,0,0,0,0,0
+
+custom sprite list=stand,lookup,pose,crouch,knock,dead,climbing,walk,run,jump,springfall,brake,dropdash,ball,fire,spacerclimbing,dash
+
+reroute wait=stand
+reroute bonk=jump
+reroute spindash=jump
+reroute spincharge=jump
+reroute push=stand
+reroute flagslide=climbing
+reroute specfall=springfall
+reroute maxrun=run
+reroute spring=springfall
+
+connect lookup=true
+connect pose=true
+connect crouch=true
+connect knock=true
+connect dead=true
+connect climbing=true
+connect run=true
+connect brake=true
+connect dropdash=true
+connect fire=true
+connect spacerclimbing=true
+connect dash=true
+
+sonic boom graphic x=59
+sonic boom graphic y=88
+
+instashield graphic x=113
+instashield graphic y=46
+
+firedash graphic x=275
+firedash graphic y=46
+
+featherdash graphic x=437
+featherdash graphic y=46
+
+spindash dust graphic x=59
+spindash dust graphic y=105
+spindash dust frames=1
+spindash dust speed=1
+
+stand frames=1
+
+lookup frames=1
+
+pose frames=1
+wait frames=1
+
+crouch frames=1
+
+knock frames=1
+
+dead frames=1
+
+climbing frames=2
+climbing speed=0.1
+
+walk frames=4
+walk speed=0.4
+
+run frames=4
+run speed=0.35
+
+jump frames=8
+jump speed=0.75
+
+ball frames=2
+ball speed= 0.25
+
+dash frames=1
+
+specfall frames=1
+
+brake frames=1
+
+dropdash frames=4
+dropdash speed=0.5
+
+fire frames=1
+
+boll top=#FFF2F2
+boll mid=#E81A1A
+boll bot=#000000
+
+[kid]
+name=Sonic
+
+sheetname=sonic-megaman-nes
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+center x=17
+center y=17
+box width=33
+box height=37
+marker offset=26
+
+carry offset x=10
+carry offset y=2
+fire duration=8
+blood splat=no
+bow lag=no
+victory duration=50
+time until wait=200
+pipe squish=20
+mario death=true
+death animation=true
+
+skin offset=128
+
+use paletting=true
+defaultspray 1=1
+defaultspray 2=7
+defaultspray 3=5
+defaultspray 4=1
+
+single sheet=true
+singlesheet split width=536,536,536,536,536,272,272,536
+singlesheet split height=0,0,0,0,0,0
+
+custom sprite list=stand,lookup,pose,spacercrouch,spacerknock,dead,climbing,walk,spacerrun,jump,fall,spacerdropdash,spacerball,stand2,wall,dash,bow
+
+reroute bonk=jump
+reroute fall2=fall
+reroute walk2=walk
+reroute jump2=fall
+reroute dash2=dash
+reroute bonk2=bonk
+reroute wall2=wall
+reroute climbing2=wall
+reroute flagslide=climbing
+
+connect lookup=true
+connect pose=true
+connect spacercrouch=true
+connect spacerknock=true
+connect dead=true
+connect climbing=true
+connect spacerrun=true
+connect spacerdropdash=true
+connect stand2=true
+connect wall=true
+connect dash=true
+connect bow=true
+
+roster size=0
+
+bullet graphic x=10
+bullet graphic y=88
+
+blood graphic x=29
+blood graphic y=102
+
+gib head graphic x=10
+gib head graphic y=99
+
+gib limbs graphic x=30
+gib limbs graphic y=88
+
+stand frames=1
+pose frames=1
+wait frames=1
+
+crouch frames=1
+
+knock frames=1
+
+dead frames=1
+
+climbing frames=2
+climbing speed=0.1
+
+walk frames=4
+walk speed=0.25
+
+run frames=4
+run speed=0.25
+
+bonk frames=8
+bonk speed=0.75
+
+spacerball frames=2
+
+dash frames=1
+
+jump frames=8
+jump speed=1
+
+boll top=#FFF2F2
+boll mid=#E81A1A
+boll bot=#000000
+
+[zerosonic]
+name=Sonic
+
+sheetname=sonic-megaman-nes
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+
+multiple box sizes=false
+
+center x=17
+center y=17
+box width=33
+box height=37
+marker offset=26
+
+skin offset=128
+short small form=true
+
+use paletting=true
+defaultspray 1=1
+defaultspray 2=7
+defaultspray 3=5
+defaultspray 4=1
+
+single sheet=true
+singlesheet split width=8,272,536,272,8
+singlesheet split height=0,0,0,0,0,0
+
+custom sprite list=stand,crouch,knock,dead,climbing,walk,run,jump,springfall,dropdash,ball,spacerstand,spacerclimbing,dash
+
+reroute wait=stand
+reroute lookup=stand
+reroute pose=stand
+reroute bonk=jump
+reroute spindash=jump
+reroute spincharge=jump
+reroute push=stand
+reroute fire=stand
+reroute flagslide=climbing
+reroute specfall=springfall
+reroute maxrun=run
+reroute spring=springfall
+
+connect crouch=true
+connect knock=true
+connect dead=true
+connect climbing=true
+connect run=true
+connect dropdash=true
+connect spacerstand=true
+connect spacerclimbing=true
+connect dash=true
+
+sonic boom graphic x=10
+sonic boom graphic y=118
+
+instashield graphic x=113
+instashield graphic y=46
+
+firedash graphic x=113
+firedash graphic y=86
+
+featherdash graphic x=227
+featherdash graphic y=46
+
+spindash dust graphic x=59
+spindash dust graphic y=105
+spindash dust frames=1
+spindash dust speed=1
+
+stand frames=1
+pose frames=1
+wait frames=1
+
+crouch frames=1
+
+knock frames=1
+
+dead frames=1
+
+climbing frames=2
+climbing speed=0.1
+
+walk frames=4
+walk speed=0.4
+
+run frames=4
+run speed=0.25
+
+jump frames=8
+jump speed=0.75
+
+ball frames=1
+
+dash frames=1
+
+specfall frames=1
+
+dropdash frames=4
+
+boll top=#FFF2F2
+boll mid=#E81A1A
+boll bot=#000000
+
+[lang]
+winspecial=Sonic got a Chaos Emerald
+allspecial=Sonic got all Chaos Emeralds
+princess=our Princess
+savetext1=Peace is Paved
+savetext2=With Kingdom Saved
+savetext3=Hurrah to Sonic
+savetext4=Our Only Hero 
+savetext5=This Ends Your Trip
+savetext6=Of a Long Friendship
