@@ -1,0 +1,128 @@
+[knux]
+name=Jotaro Kujo
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+center x=24
+center y=28
+box width=48
+box height=48
+
+fire duration=8
+victory duration=60
+time until wait=0
+pipe squish=20
+pole center offset=8
+
+pitch spindash=no
+glide animation=yes
+jump ball animation=yes
+
+use paletting=false
+defaultspray 1=5
+defaultspray 2=10
+defaultspray 3=5
+defaultspray 4=8
+
+custom sprite list=stand,lookup,pose,crouch,knock,dead,walk,run,brake,jump,bonk,fall,ball,spindash,push,hang,fire,upper,climb,glide,glideturn,slide,climbing
+reroute fall=fall
+reroute wait=stand
+reroute spring=jump
+reroute spincharge=spindash
+reroute climbstill=climb
+reroute climbdown=climb
+reroute recover=fall
+reroute flagslide=jump
+reroute grind=crouch
+reroute piping=pose
+reroute pipingup=jump
+reroute sidepiping=walk
+reroute doorenter=stand
+reroute doorexit=stand
+
+flame knuckle vert graphic x=10
+flame knuckle vert graphic y=87
+
+flame knuckle hor graphic x=64
+flame knuckle hor graphic y=69
+
+featherdash graphic x=99
+featherdash graphic y=64
+
+spindash dust graphic x=99
+spindash dust graphic y=99
+spindash dust frames=1
+spindash dust speed=1
+
+size reroute feather=fire
+size reroute beet=big
+size reroute lui=big
+
+stand frametimes=180,3,3,3,120,3,3,3,180,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
+
+stand frames=4,24,4,4,4,4,24,24
+lookup frames=5,5,10,10,5,5,5,5
+win frames=1
+crouch frames=1
+knock frames=1
+dead frames=1
+walk frames=8
+run frames=8
+brake frames=1
+jump frames=2
+bonk frames=2
+fall frames=3
+ball frames=2,2,8,8,2,2,2,2
+spindash frames=4
+push frames=4
+hang frames=1
+fire frames=2
+upper frames=4
+climb frames=2
+glide frames=3
+glideturn frames=6
+climbing frames=2
+slide frames=1
+
+stand speed=1
+lookup speed=0.15
+walk speed=0.4
+run speed=0.25
+jump speed=0.25
+bonk speed=0.2
+fall speed=0.25
+ball speed=0.3
+spindash speed=0.5
+push speed=0.1
+hang speed=0.2
+fire speed=1
+upper speed=1
+climb speed=0.25
+glide speed=0.25
+climbing speed=0.25
+
+fire frametimes=10,6
+upper frametimes=8,8,8,8
+
+bonk loop=2
+lookup loop=6
+fall loop=2
+fire loop=2
+upper loop=4
+
+boll top=#4C4C4C
+boll mid=#050505
+boll bot=#7D38E0
+
+[lang]
+winspecial=Jotaro got a Holy Corpse Part
+allspecial=Jotaro got all Holy Corpse Parts
+credits=Carbo64
+princess=Kakyoin
+savetext1=Jotaro!
+savetext2=Glad to see that##you're still alive.
+savetext3=Mr. Joestar is nowhere to be seen!
+savetext4=Maybe he already went##to face DIO?
+savetext5=Anyway, we should go too.
+savetext6=
