@@ -1,0 +1,100 @@
+[sonic]
+name=Sonic
+
+icon speed=6
+icon loop=yes
+animation speed=1.0
+victory duration=999
+center x=24
+center y=28
+box width=48
+box height=48
+time until wait=200
+shield speed=3
+fire duration=16
+pole center offset=8
+
+pitch spindash=yes
+jump ball animation=no
+
+use paletting=true
+defaultspray 1=0
+defaultspray 2=0
+defaultspray 3=0
+defaultspray 4=0
+
+reroutespray 2=1
+reroutespray 3=1
+total palettes=4
+
+custom sprite list=stand,wait,lookup,pose,crouch,knock,dead,walk,run,maxrun,brake,spring,springfall,jump,bonk,ball,spindash,push,hang,fire,dash,specfall,climbing,flagslide,dropdash,spincharge
+
+reroute fall=jump
+reroute doorenter=stand
+reroute doorexit=stand
+reroute piping=stand
+reroute pipingup=spring
+reroute sidepiping=walk
+reroute fired=fire
+
+stand frames=1
+wait frames=18
+wait frametimes=15,25,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,50
+wait loop=3
+pose frames=2
+crouch frames=1
+knock frames=1
+dead frames=1
+walk frames=8
+springfall frames=8
+run frames=4
+maxrun frames=4
+break frames=1
+spring frames=1
+jump frames=8
+ball frames=8
+spindash frames=4
+push frames=4
+hang frames=4
+fire frames=2
+fire frametimes=15,15
+dash frames=2
+specfall frames=2
+specfall frametimes=15,15
+spincharge frames=4
+dropdash frames=4
+
+wait speed=1
+pose speed=0.1
+walk speed=0.3
+springfall speed=0.3
+run speed=0.25
+maxrun speed=0.25
+jump speed=0.5
+stand speed=1
+ball speed=0.5
+spindash speed=0.5
+push speed=0.05
+hang speed=0.1
+dash speed=0.25
+spincharge speed=0.5
+dropdash speed=0.5
+fire speed=0.25
+
+fire loop=2
+
+boll top=#0000FC
+boll mid=#0000FC
+boll bot=#0000FC
+
+[lang]
+winspecial=Sonic got a Chaos Emerald
+allspecial=Sonic got all Chaos Emeralds
+princess=the end
+savetext1=CONGRATULATIONS!
+savetext2=
+savetext3=
+savetext4=THANKS FOR YOUR PLAYING.
+savetext5=
+savetext6=
+credits=CJ64, Rep, Rin, Renex, Fractor, Todadoat, Vantas

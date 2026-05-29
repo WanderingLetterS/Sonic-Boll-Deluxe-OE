@@ -31,7 +31,7 @@ short small form=0.8
 projectile palettes=true
 
 single sheet=true
-singlesheet split width=8,8,200,392,200,8,200,200,200
+singlesheet split width=8,8,200,392,200,8,8,8
 singlesheet split height=0,0,0,0,0,0
 
 custom sprite list=stand,lookup,crouch,glide,recover,pose,jump,brake,knock,fire,slide,walk,hang,run,spindash,ball,upper,climbing
