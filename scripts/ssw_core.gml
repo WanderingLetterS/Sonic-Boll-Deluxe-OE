@@ -15,7 +15,10 @@ if (argument[0]) {//animate
     if (water && !cantslowanim) frs*=wf
     if (piped!=2) frame+=frs
     if (frame<0) frame+=frn
-    if (frame>=frn) {frame=frame-frn if (frl<frn) frame+=frl}
+    if (frame>=frn) {
+        if (waittime>maxwait && tempwait) {waittime=0} 
+        {frame=frame-frn if (frl<frn) frame+=frl}
+    }
 
     if (sprite!=oldspr) && (prevent_spr_reset) {
         frame=frl
